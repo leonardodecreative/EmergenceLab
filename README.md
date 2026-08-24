@@ -1,148 +1,52 @@
-# EmergenceLab
 # Emergence Lab
 
-### Experimental Research into Emergent Intelligence
+Experimental research into adaptive, history-dependent, self-organizing node systems.
 
-Emergence Lab is an experimental research platform exploring how higher-order organization and emergent intelligence may arise from **multidimensional node architectures governed by local rules**.
+## Canonical node architecture
 
-The laboratory does not begin by assuming what intelligence, organization, or emergence must look like. Instead, it defines an architecture, establishes local interaction rules, and observes what behavior emerges from the resulting system.
+```text
+N(t) = (X(t), Y(t), Z1(t), Z2(t), Θ(t))
+```
 
-## Core Architecture
+All five coordinates are non-scalar structured states.
 
-The fundamental node representation is:
+- **X** — structural identity state.
+- **Y** — perceptual and sequence-assembly state.
+- **Z1** — failure-triggered recovery or compensatory response. Candidate A keeps Z1 inactive after successful integration; its final physics remains unresolved.
+- **Z2** — structural integration-attempt state. Qualification can trigger an attempt but does not guarantee success.
+- **Θ** — continuous resonant dynamic state.
 
-[
-N = (X, Y, Z, \Theta)
-]
+Gamma and energy remain separate from the node coordinate tuple and from one another.
 
-This equation defines the current structural organization of a node.
+## Runnable simulator
 
-It does **not** currently define the internal dimensionality, topology, or mathematical representation of its four components.
+The repository includes [`emergenceLabVSSim-z1-z2.html`](./emergenceLabVSSim-z1-z2.html), a dependency-free browser simulator migrated from the former single-Z state shape.
 
-Each of (X), (Y), (Z), and (\Theta) is presently treated as a potentially non-scalar state.
+The simulator uses state schema version 2 and architecture version `3.1-z1-z2`. It includes:
 
-The dimensionality and internal structure of these components remain open research questions.
+- separate non-scalar `Z1` and `Z2` serialized structures;
+- deterministic migration of legacy records containing a single numeric `Z`;
+- separate UI readouts, controls, defaults, validation, logs, snapshots, reports, and couplings;
+- explicit Z2 qualified-attempt instrumentation;
+- inactive-by-default Z1 recovery, avoiding invented failure physics;
+- embedded migration self-tests.
 
-### An Important Constraint
+Open the HTML file in a modern browser to run it.
 
-Historical interpretations of the components—such as associating (X), (Y), (Z), or (\Theta) with particular semantic functions—are not presently treated as fundamental constants.
+## Migration policy
 
-The laboratory therefore does not assume:
+A legacy numeric `Z` is copied into the initial components of both new structured states so old values are not silently discarded. That conversion is a compatibility rule, not a claim that Z1 and Z2 are physically identical. New exports omit the old `Z` field and include `schemaVersion` and `architectureVersion`.
 
-* that (X) represents a single predetermined property
-* that (Y) represents a single predetermined property
-* that (Z) represents a single predetermined property
-* that (\Theta) represents a single predetermined property
-* that any component has a fixed dimensionality
-* that the current representation is the final mathematical form
+Historical equations, constants, and scalar implementations remain historical evidence. They are not silently promoted to current physics.
 
-The architecture defines the **relationship between the components** without prematurely defining what their complete internal structure must become.
+## Research discipline
 
-## Local Rules, Global Behavior
+The current architecture is provisional where exact dimensions, tensors, equations, substrates, energy laws, Gamma mathematics, Z1 recovery physics, Z2 success conditions, thresholds, and consequence signals remain unresolved.
 
-A central research question is whether complex organization can emerge from local interactions.
+> Do not program the phenomenon you are trying to discover.
 
-Nodes operate according to defined local rules and interact with one another and their environment.
+Define the architecture, local rules, and controls. Observe what occurs, attempt to reproduce it, and then try to break the interpretation.
 
-The system is not explicitly instructed to produce a particular global structure.
+## Status
 
-Instead:
-
-**Define the state.
-Define the local rules.
-Create the conditions.
-Observe the resulting behavior.**
-
-The objective is not to assume emergence.
-
-The objective is to **test for it**.
-
-## Multidimensional State
-
-The transition from scalar state variables toward multidimensional state is an active area of investigation.
-
-The laboratory does not currently assume that the dimensionality of any component is known or fixed.
-
-Instead, experiments may investigate whether increasing structural dimensionality changes:
-
-* state persistence
-* interaction dynamics
-* resonance
-* information retention
-* adaptation
-* collective organization
-* recovery following disruption
-* trajectory divergence
-* higher-order system behavior
-
-The dimensionality itself is therefore part of the experimental problem rather than merely an implementation detail.
-
-## Experimental Philosophy
-
-Emergence Lab treats experiments as part of the system's history.
-
-Changes to state representation, local rules, interaction mechanisms, constants, and update functions are tracked so that behavioral differences can be examined against known architectural changes.
-
-A novel or visually compelling behavior is not automatically considered evidence of emergence.
-
-The laboratory seeks behavior that can be:
-
-1. Reproduced
-2. Measured
-3. Explained
-4. Challenged
-5. Distinguished from implementation artifacts
-6. Tested under altered conditions
-
-The current research framework emphasizes:
-
-* **Internal consistency**
-* **Explanatory power**
-* **Predictive power**
-* **Robustness**
-* **Generality**
-
-## Current Research
-
-Current areas of investigation include:
-
-* multidimensional node-state architectures
-* local interaction rules
-* resonance dynamics
-* environmental interaction
-* collective organization
-* state persistence and transformation
-* information transfer
-* structural disruption and recovery
-* trajectory divergence
-* resonant synthesis
-* repeated experimental comparison
-* conditions associated with higher-order organization
-
-## What Emergence Lab Does Not Assume
-
-Emergence Lab does not currently claim that its architecture constitutes consciousness, artificial general intelligence, or intelligence equivalent to biological intelligence.
-
-Those are questions that require investigation rather than assumptions embedded into the architecture.
-
-The laboratory is concerned first with determining **what the system actually does**.
-
-## Research Principle
-
-> **Do not program the phenomenon you are trying to discover.**
-
-Define the architecture.
-
-Define the local rules.
-
-Create the conditions.
-
-Observe what emerges.
-
-Then try to break it.
-
----
-
-**Status:** Active experimental research
-**Project:** Emergence Lab
-**Repository:** `Leonardodecreative/EmergenceLab`
+Active experimental research. The current code demonstrates the structural Z1/Z2 migration; it does not establish final Candidate A mathematics, consciousness, AGI, universal physics, or identity continuity.
