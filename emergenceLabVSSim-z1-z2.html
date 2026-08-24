@@ -1062,8 +1062,10 @@
       if (!target) return;
       target.X = clamp(parseFloat(ui.slider.nodeX.value));
       target.Y = clamp(parseFloat(ui.slider.nodeY.value));
-      target.Z1.recoveryComponents[0] = clamp(parseFloat(ui.slider.nodeZ1.value));
-      target.Z2.integrationComponents[0] = clamp(parseFloat(ui.slider.nodeZ2.value));
+      const z1Control = clamp(parseFloat(ui.slider.nodeZ1.value));
+      const z2Control = clamp(parseFloat(ui.slider.nodeZ2.value));
+      target.Z1.recoveryComponents = target.Z1.recoveryComponents.map(() => z1Control);
+      target.Z2.integrationComponents = target.Z2.integrationComponents.map(() => z2Control);
       const freq = parseFloat(ui.slider.thetaFrequency.value);
       target.thetaState.frequencyComponents = [freq, clamp(freq + 0.12), clamp(freq - 0.18)];
       target.thetaState.phases = [parseFloat(ui.slider.thetaPhase.value), clamp(parseFloat(ui.slider.thetaPhase.value) + 0.16), clamp(parseFloat(ui.slider.thetaPhase.value) - 0.12)];
