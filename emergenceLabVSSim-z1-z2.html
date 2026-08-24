@@ -616,7 +616,9 @@
       return {
         X: clamp(currentState.X + xDrift + environment.params.perturbationStrength * 0.00001 * speedFactor + (couplingConfig.neighborToX || 0) * neighborResonance * 0.00006 * speedFactor, 0, 1),
         Y: clamp(currentState.Y + yDrift + ((couplingConfig.z1ToY || 0) * (z1.active ? z1.scalar : 0) + (couplingConfig.z2ToY || 0) * z2.scalar) * 0.00001 * speedFactor + (couplingConfig.neighborToY || 0) * neighborMemory * 0.00006 * speedFactor, 0, 1),
+        // Candidate A keeps Z1 inert until a verified integration-failure path activates recovery.
         Z1: z1.serialize(),
+        // Compatibility mapping: the former generic Z drift and couplings now feed Z2 only; this is not final Z2 physics.
         Z2: new Z2State({ ...z2.serialize(), integration_components: z2.integrationComponents.map((component, componentIndex) => clamp(component + (componentIndex === 0 ? zDrift + (couplingConfig.thetaToZ2 || 0) * 0.00001 * speedFactor + (couplingConfig.neighborToZ2 || 0) * neighborIntegration * 0.00006 * speedFactor : 0), 0, 1)) }).serialize(),
         theta: nextTheta
       };
@@ -719,6 +721,7 @@
           const memoryRelation = 1 - Math.abs(node.Y - candidate.Y);
           const recoveryRelation = zStateRelation(node.Z1, candidate.Z1);
           const integrationRelation = zStateRelation(node.Z2, candidate.Z2);
+          // Diagnostic compatibility only: preserve the former total Z relation weight while reporting Z1 and Z2 separately.
           const resonance = distanceWeight * (0.4 + thetaScore * 0.4 + memoryRelation * 0.1 + recoveryRelation * 0.05 + integrationRelation * 0.05);
           resonanceTotal += resonance;
           memoryTotal += distanceWeight * memoryRelation * 0.6;
@@ -1235,6 +1238,7 @@
           ctx.restore();
         }
 
+        // Rendering-only projection; never serialize or interpret this average as a restored single Z state.
         const zDiagnosticComposite = (n.Z1.scalar + n.Z2.scalar) / 2;
         ctx.globalAlpha = 0.18 + zDiagnosticComposite * 0.82;
         ctx.fillStyle = `hsl(${hue}, 80%, 62%)`;
