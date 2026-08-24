@@ -1,0 +1,1517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergence Lab — Experimental Node Engine</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #040611;
+      --panel: #0b1124;
+      --line: #26345c;
+      --text: #edf4ff;
+      --muted: #98a9cc;
+      --cyan: #52e5e1;
+      --warm: #ffbd6b;
+      --accent: #83a8ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main { max-width: 1400px; margin: 20px auto; padding: 0 16px 24px; }
+    h1 { margin: 0 0 6px; font-size: 20px; letter-spacing: .12em; }
+    .sub { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; }
+    .field { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 50% 50%, #101938 0, #060814 55%, #04050d 100%); }
+    canvas { display: block; width: 100%; height: 660px; cursor: crosshair; }
+    .readout { position: absolute; top: 12px; left: 12px; display: flex; gap: 12px; color: var(--muted); font-size: 11px; pointer-events: none; }
+    .interaction-bar { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; z-index: 2; pointer-events: none; }
+    .interaction-bar button { pointer-events: auto; background: rgba(9, 14, 29, 0.86); border: 1px solid var(--line); padding: 8px 10px; border-radius: 999px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22); }
+    .interaction-bar button:hover { background: rgba(27, 49, 95, 0.96); }
+    .live-overlay { position: absolute; inset: 12px 12px auto auto; display: grid; gap: 8px; z-index: 2; max-width: 340px; }
+    .live-panel { background: rgba(9, 14, 29, 0.82); border: 1px solid var(--line); border-radius: 10px; padding: 8px; backdrop-filter: blur(6px); }
+    .live-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+    .live-status { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 11px; }
+    .live-status b { color: var(--text); font-weight: 500; }
+    .readout b { color: var(--text); font-weight: 500; }
+    .side { display: grid; gap: 14px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+    .card h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: .08em; color: var(--text); }
+    .stat { display: flex; justify-content: space-between; margin: 6px 0; color: var(--muted); font-size: 12px; }
+    .stat output { color: var(--text); }
+    .row { margin: 8px 0; }
+    .row label { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; }
+    .row output { color: var(--text); }
+    input[type="range"] { width: 100%; accent-color: var(--cyan); margin: 6px 0 0; }
+    .toggle { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 8px 0; color: var(--muted); font-size: 12px; }
+    .subtle { color: var(--muted); font-size: 11px; margin-top: 4px; line-height: 1.45; }
+    .buttons { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    button { font: inherit; background: #15254a; color: var(--text); border: 1px solid #365486; padding: 8px 10px; border-radius: 7px; cursor: pointer; }
+    button:hover { background: #1b315f; }
+    button.active { outline: 1px solid var(--cyan); background: #21386a; }
+    .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .small { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+    .stack { display: grid; gap: 8px; }
+    textarea, input[type="text"], select { width: 100%; background: #0b142d; color: var(--text); border: 1px solid var(--line); border-radius: 7px; padding: 8px; font: inherit; }
+    textarea { min-height: 70px; resize: vertical; }
+    .diagnostic-list { display: grid; gap: 6px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .diagnostic-list strong { color: var(--text); }
+    .history-list { display: grid; gap: 8px; margin-top: 8px; max-height: 220px; overflow: auto; }
+    .history-item { border: 1px solid var(--line); border-radius: 8px; padding: 8px; background: #10193a; }
+    .history-item .meta { color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+    .history-item .title { color: var(--text); font-size: 12px; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>EMERGENCE LAB / EXPERIMENTAL NODE ENGINE</h1>
+    <div class="sub">Single-node laboratory mode · N = (X, Y, Z1, Z2, Θ) · lab notebook</div>
+    <section class="layout">
+      <div class="field">
+        <div class="live-overlay">
+          <div class="live-panel">
+            <div class="live-buttons">
+              <button id="startExperiment" type="button">Start Experiment</button>
+              <button id="pauseObservation" type="button">Pause Observation</button>
+              <button id="addObservationMarker" type="button">Add Observation Marker</button>
+              <button id="saveExperiment" type="button">Save Experiment</button>
+              <button id="exportExperiment" type="button">Export Report</button>
+            </div>
+          </div>
+          <div class="live-panel">
+            <div class="live-status">
+              <span>Exp <b id="liveExperimentId">exp-001</b></span>
+              <span>X <b id="liveX">0.00</b></span>
+              <span>Y <b id="liveY">0.00</b></span>
+              <span>Z1 recovery <b id="liveZ1">0.00</b></span>
+              <span>Z2 integration <b id="liveZ2">0.00</b></span>
+              <span>Θ <b id="liveTheta">0.00</b></span>
+              <span>Coherence <b id="liveCoherence">0.00</b></span>
+            </div>
+          </div>
+        </div>
+        <canvas id="field" aria-label="Experimental emergence simulation"></canvas>
+        <div class="interaction-bar" aria-label="Experiment interactions">
+          <button type="button" data-experiment-action="startExperiment">Start Experiment</button>
+          <button type="button" data-experiment-action="pauseObservation">Pause Observation</button>
+          <button type="button" data-experiment-action="addObservationMarker">Add Observation Marker</button>
+          <button type="button" data-experiment-action="saveExperiment">Save Experiment</button>
+          <button type="button" data-experiment-action="exportExperiment">Export Report</button>
+        </div>
+        <div class="readout">
+          <span>time <b id="time">0.0</b></span>
+          <span>nodes <b id="count">0</b></span>
+          <span>Z2 attempts <b id="writes">0</b></span>
+          <span>camera <b id="cameraMode">free</b></span>
+        </div>
+      </div>
+      <aside class="side">
+        <section class="card">
+          <h2>FIELD METRICS</h2>
+          <div class="stat"><span>Mean identity</span><output id="meanX">—</output></div>
+          <div class="stat"><span>Mean memory</span><output id="meanY">—</output></div>
+          <div class="stat"><span>Mean Z1 recovery</span><output id="meanZ1">—</output></div>
+          <div class="stat"><span>Mean Z2 integration</span><output id="meanZ2">—</output></div>
+          <div class="stat"><span>Mean coherence</span><output id="meanTheta">—</output></div>
+        </section>
+
+        <section class="card">
+          <h2>NODE VARIABLES</h2>
+          <div class="row"><label for="nodeX">Node X <output id="nodeXV">0.50</output></label><input id="nodeX" type="range" min="0" max="1" step="0.01" value="0.50"></div>
+          <div class="row"><label for="nodeY">Node Y <output id="nodeYV">0.30</output></label><input id="nodeY" type="range" min="0" max="1" step="0.01" value="0.30"></div>
+          <div class="row"><label for="nodeZ1">Node Z1 recovery state <output id="nodeZ1V">0.60</output></label><input id="nodeZ1" type="range" min="0" max="1" step="0.01" value="0.60"></div>
+          <div class="row"><label for="nodeZ2">Node Z2 integration state <output id="nodeZ2V">0.60</output></label><input id="nodeZ2" type="range" min="0" max="1" step="0.01" value="0.60"></div>
+          <div class="row"><label for="thetaFrequency">Theta frequency <output id="thetaFrequencyV">0.40</output></label><input id="thetaFrequency" type="range" min="0" max="1" step="0.01" value="0.40"></div>
+          <div class="row"><label for="thetaPhase">Theta phase <output id="thetaPhaseV">0.35</output></label><input id="thetaPhase" type="range" min="0" max="1" step="0.01" value="0.35"></div>
+          <div class="row"><label for="thetaAmplitude">Theta amplitude <output id="thetaAmplitudeV">0.45</output></label><input id="thetaAmplitude" type="range" min="0" max="1" step="0.01" value="0.45"></div>
+          <div class="row"><label for="thetaCoherence">Theta coherence <output id="thetaCoherenceV">0.55</output></label><input id="thetaCoherence" type="range" min="0" max="1" step="0.01" value="0.55"></div>
+          <div class="row"><label for="nodeCount">Node count <output id="nodeCountV">1</output></label><input id="nodeCount" type="range" min="1" max="8" step="1" value="1"></div>
+        </section>
+
+        <section class="card">
+          <h2>ENVIRONMENT & VISUALIZATION</h2>
+          <div class="row"><label for="entropy">Entropy <output id="entropyV">0.20</output></label><input id="entropy" type="range" min="0" max="1" step="0.01" value="0.20"></div>
+          <div class="row"><label for="perturbationStrength">Perturbation <output id="perturbationStrengthV">0.28</output></label><input id="perturbationStrength" type="range" min="0" max="1" step="0.01" value="0.28"></div>
+          <div class="row"><label for="interactionRadius">Interaction radius <output id="interactionRadiusV">110</output></label><input id="interactionRadius" type="range" min="40" max="220" step="1" value="110"></div>
+          <div class="row"><label for="timeScale">Time scale <output id="timeScaleV">1.00</output></label><input id="timeScale" type="range" min="0.2" max="3" step="0.1" value="1.0"></div>
+          <div class="row"><label for="simulationSpeed">Simulation speed <output id="simulationSpeedV">1.00</output></label><input id="simulationSpeed" type="range" min="0.2" max="3" step="0.1" value="1.0"></div>
+          <div class="row"><label for="writeGate">Write gate <output id="writeGateV">0.42</output></label><input id="writeGate" type="range" min="0.05" max="0.95" step="0.01" value="0.42"></div>
+          <div class="row"><label for="nodeSize">Node size <output id="nodeSizeV">1.20</output></label><input id="nodeSize" type="range" min="0.6" max="2.6" step="0.1" value="1.2"></div>
+          <div class="row"><label for="thetaToZ2">Theta → Z2 <output id="thetaToZ2V">0.00</output></label><input id="thetaToZ2" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="z1ToY">Active Z1 → Y <output id="z1ToYV">0.00</output></label><input id="z1ToY" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="z2ToY">Z2 → Y <output id="z2ToYV">0.00</output></label><input id="z2ToY" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="yToTheta">Y → Theta <output id="yToThetaV">0.00</output></label><input id="yToTheta" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="neighborToX">Neighbor → X <output id="neighborToXV">0.00</output></label><input id="neighborToX" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="neighborToY">Neighbor → Y <output id="neighborToYV">0.00</output></label><input id="neighborToY" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="neighborToZ2">Neighbor → Z2 <output id="neighborToZ2V">0.00</output></label><input id="neighborToZ2" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="neighborToTheta">Neighbor → Theta <output id="neighborToThetaV">0.00</output></label><input id="neighborToTheta" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="identityThresholdX">Identity threshold <output id="identityThresholdXV">0.42</output></label><input id="identityThresholdX" type="range" min="0.05" max="0.95" step="0.01" value="0.42"></div>
+          <div class="row"><label for="identityThresholdTheta">Theta coherence threshold <output id="identityThresholdThetav">0.00</output></label><input id="identityThresholdTheta" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="row"><label for="identityThresholdResonance">Resonance threshold <output id="identityThresholdResonanceV">0.00</output></label><input id="identityThresholdResonance" type="range" min="0" max="1" step="0.01" value="0"></div>
+          <div class="toggle"><span>Random entropy</span><input id="randomEntropy" type="checkbox" checked></div>
+          <div class="toggle"><span>Environment field</span><input id="environmentEnabled" type="checkbox" checked></div>
+          <div class="toggle"><span>Resonance coupling</span><input id="resonanceEnabled" type="checkbox" checked></div>
+          <div class="toggle"><span>Memory transfer</span><input id="memoryTransfer" type="checkbox" checked></div>
+          <div class="toggle"><span>Identity writes</span><input id="identityWrites" type="checkbox" checked></div>
+          <div class="toggle"><span>Orbit visibility</span><input id="orbitVisibility" type="checkbox" checked></div>
+          <div class="toggle"><span>Vector visibility</span><input id="vectorVisibility" type="checkbox" checked></div>
+          <div class="toggle"><span>Labels</span><input id="labelsEnabled" type="checkbox" checked></div>
+          <div class="toggle"><span>Trails</span><input id="trailsEnabled" type="checkbox" checked></div>
+          <div class="toggle"><span>Show resonance connections</span><input id="resonanceConnectionsEnabled" type="checkbox"></div>
+          <div class="subtle">Baseline keeps all coupling at zero. Raise a neighbor coupling to study relational dynamics while leaving the isolated-node behavior intact.</div>
+        </section>
+
+        <section class="card">
+          <h2>EXPERIMENT CONTROLS</h2>
+          <div class="buttons">
+            <button id="pause" type="button">Pause</button>
+            <button id="step" type="button">Step</button>
+            <button id="reset" type="button">Reset</button>
+            <button id="singleNodeLab" type="button">Single node lab</button>
+            <button id="multiNodeLab" type="button">Multi-node field</button>
+          </div>
+          <div class="pill-row">
+            <button id="viewExternal" class="active" type="button">External</button>
+            <button id="viewMicroscopic" type="button">Microscopic</button>
+            <button id="viewTopology" type="button">Topology</button>
+          </div>
+          <div class="pill-row">
+            <button id="cameraFree" class="active" type="button">Free camera</button>
+            <button id="cameraOrbit" type="button">Orbital camera</button>
+            <button id="cameraReset" type="button">Reset camera</button>
+          </div>
+          <div class="pill-row">
+            <button id="presetBaseline" class="active" type="button">Baseline</button>
+            <button id="presetInternal" type="button">Internal</button>
+            <button id="presetRelational" type="button">Relational</button>
+            <button id="presetFullFeedback" type="button">Full feedback</button>
+          </div>
+          <div class="row"><label for="seedInput">Seed <output id="seedInputV">42</output></label><input id="seedInput" type="text" value="42"></div>
+          <div class="row"><label for="logFrequency">Log cadence <output id="logFrequencyV">4</output></label><input id="logFrequency" type="range" min="1" max="25" step="1" value="4"></div>
+          <div class="small">Drag the field to pan or orbit. Scroll to zoom. The selected node becomes the camera anchor.</div>
+        </section>
+
+        <section class="card">
+          <h2>SELECTED NODE</h2>
+          <div id="selected">Click a node to inspect its resonance state.</div>
+        </section>
+
+        <section class="card">
+          <h2>LAB NOTEBOOK</h2>
+          <div class="stack">
+            <label class="small">Experiment ID<input id="experimentId" type="text" value="exp-001"></label>
+            <label class="small">Researcher notes<textarea id="researcherNotes" aria-label="Researcher notes"></textarea></label>
+            <label class="small">Initial hypothesis<textarea id="initialHypothesis" aria-label="Initial hypothesis"></textarea></label>
+            <label class="small">Variables changed<textarea id="variablesChanged" aria-label="Variables changed"></textarea></label>
+            <label class="small">Expected behavior<textarea id="expectedBehavior" aria-label="Expected behavior"></textarea></label>
+            <label class="small">Actual behavior<textarea id="actualBehavior" aria-label="Actual behavior"></textarea></label>
+            <label class="small">Observation title<input id="observationTitle" type="text" value="Observation"></label>
+            <label class="small">Observation<textarea id="observationText" aria-label="Observation"></textarea></label>
+            <label class="small">Event category<select id="eventCategory">
+              <option>Stability change</option>
+              <option>Resonance change</option>
+              <option>Memory change</option>
+              <option>Identity change</option>
+              <option>Emergent behavior</option>
+              <option>Unexpected behavior</option>
+              <option>Environmental response</option>
+            </select></label>
+          </div>
+          <div class="buttons">
+            <button id="startExperiment" type="button">Start Experiment</button>
+            <button id="pauseObservation" type="button">Pause Observation</button>
+            <button id="addObservationMarker" type="button">Add Observation Marker</button>
+            <button id="saveExperiment" type="button">Save Experiment</button>
+            <button id="exportExperiment" type="button">Export Report</button>
+          </div>
+          <label class="small">Search history<input id="historySearch" type="text" placeholder="Search experiments"></label>
+          <div id="historyList" class="history-list"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+  <script>
+    const canvas = document.getElementById('field');
+    const ctx = canvas.getContext('2d');
+
+    const ui = {
+      time: document.getElementById('time'),
+      count: document.getElementById('count'),
+      writes: document.getElementById('writes'),
+      meanX: document.getElementById('meanX'),
+      meanY: document.getElementById('meanY'),
+      meanZ1: document.getElementById('meanZ1'),
+      meanZ2: document.getElementById('meanZ2'),
+      meanTheta: document.getElementById('meanTheta'),
+      selected: document.getElementById('selected'),
+      cameraMode: document.getElementById('cameraMode'),
+      liveExperimentId: document.getElementById('liveExperimentId'),
+      liveX: document.getElementById('liveX'),
+      liveY: document.getElementById('liveY'),
+      liveZ1: document.getElementById('liveZ1'),
+      liveZ2: document.getElementById('liveZ2'),
+      liveTheta: document.getElementById('liveTheta'),
+      liveCoherence: document.getElementById('liveCoherence'),
+      slider: {
+        nodeX: document.getElementById('nodeX'),
+        nodeY: document.getElementById('nodeY'),
+        nodeZ1: document.getElementById('nodeZ1'),
+        nodeZ2: document.getElementById('nodeZ2'),
+        thetaFrequency: document.getElementById('thetaFrequency'),
+        thetaPhase: document.getElementById('thetaPhase'),
+        thetaAmplitude: document.getElementById('thetaAmplitude'),
+        thetaCoherence: document.getElementById('thetaCoherence'),
+        nodeCount: document.getElementById('nodeCount'),
+        entropy: document.getElementById('entropy'),
+        perturbationStrength: document.getElementById('perturbationStrength'),
+        interactionRadius: document.getElementById('interactionRadius'),
+        timeScale: document.getElementById('timeScale'),
+        simulationSpeed: document.getElementById('simulationSpeed'),
+        writeGate: document.getElementById('writeGate'),
+        nodeSize: document.getElementById('nodeSize'),
+        logFrequency: document.getElementById('logFrequency'),
+        thetaToZ2: document.getElementById('thetaToZ2'),
+        z1ToY: document.getElementById('z1ToY'),
+        z2ToY: document.getElementById('z2ToY'),
+        yToTheta: document.getElementById('yToTheta'),
+        neighborToX: document.getElementById('neighborToX'),
+        neighborToY: document.getElementById('neighborToY'),
+        neighborToZ2: document.getElementById('neighborToZ2'),
+        neighborToTheta: document.getElementById('neighborToTheta'),
+        identityThresholdX: document.getElementById('identityThresholdX'),
+        identityThresholdTheta: document.getElementById('identityThresholdTheta'),
+        identityThresholdResonance: document.getElementById('identityThresholdResonance')
+      },
+      output: {
+        nodeX: document.getElementById('nodeXV'),
+        nodeY: document.getElementById('nodeYV'),
+        nodeZ1: document.getElementById('nodeZ1V'),
+        nodeZ2: document.getElementById('nodeZ2V'),
+        thetaFrequency: document.getElementById('thetaFrequencyV'),
+        thetaPhase: document.getElementById('thetaPhaseV'),
+        thetaAmplitude: document.getElementById('thetaAmplitudeV'),
+        thetaCoherence: document.getElementById('thetaCoherenceV'),
+        nodeCount: document.getElementById('nodeCountV'),
+        entropy: document.getElementById('entropyV'),
+        perturbationStrength: document.getElementById('perturbationStrengthV'),
+        interactionRadius: document.getElementById('interactionRadiusV'),
+        timeScale: document.getElementById('timeScaleV'),
+        simulationSpeed: document.getElementById('simulationSpeedV'),
+        writeGate: document.getElementById('writeGateV'),
+        nodeSize: document.getElementById('nodeSizeV'),
+        logFrequency: document.getElementById('logFrequencyV'),
+        thetaToZ2: document.getElementById('thetaToZ2V'),
+        z1ToY: document.getElementById('z1ToYV'),
+        z2ToY: document.getElementById('z2ToYV'),
+        yToTheta: document.getElementById('yToThetaV'),
+        neighborToX: document.getElementById('neighborToXV'),
+        neighborToY: document.getElementById('neighborToYV'),
+        neighborToZ2: document.getElementById('neighborToZ2V'),
+        neighborToTheta: document.getElementById('neighborToThetaV'),
+        identityThresholdX: document.getElementById('identityThresholdXV'),
+        identityThresholdTheta: document.getElementById('identityThresholdThetav'),
+        identityThresholdResonance: document.getElementById('identityThresholdResonanceV')
+      },
+      toggle: {
+        randomEntropy: document.getElementById('randomEntropy'),
+        environmentEnabled: document.getElementById('environmentEnabled'),
+        resonanceEnabled: document.getElementById('resonanceEnabled'),
+        memoryTransfer: document.getElementById('memoryTransfer'),
+        identityWrites: document.getElementById('identityWrites'),
+        orbitVisibility: document.getElementById('orbitVisibility'),
+        vectorVisibility: document.getElementById('vectorVisibility'),
+        labelsEnabled: document.getElementById('labelsEnabled'),
+        trailsEnabled: document.getElementById('trailsEnabled'),
+        resonanceConnectionsEnabled: document.getElementById('resonanceConnectionsEnabled')
+      },
+      input: {
+        seed: document.getElementById('seedInput')
+      },
+      button: {
+        pause: document.getElementById('pause'),
+        step: document.getElementById('step'),
+        reset: document.getElementById('reset'),
+        singleNodeLab: document.getElementById('singleNodeLab'),
+        multiNodeLab: document.getElementById('multiNodeLab'),
+        viewExternal: document.getElementById('viewExternal'),
+        viewMicroscopic: document.getElementById('viewMicroscopic'),
+        viewTopology: document.getElementById('viewTopology'),
+        cameraFree: document.getElementById('cameraFree'),
+        cameraOrbit: document.getElementById('cameraOrbit'),
+        cameraReset: document.getElementById('cameraReset'),
+        presetBaseline: document.getElementById('presetBaseline'),
+        presetInternal: document.getElementById('presetInternal'),
+        presetRelational: document.getElementById('presetRelational'),
+        presetFullFeedback: document.getElementById('presetFullFeedback'),
+        startExperiment: document.getElementById('startExperiment'),
+        pauseObservation: document.getElementById('pauseObservation'),
+        addObservationMarker: document.getElementById('addObservationMarker'),
+        saveExperiment: document.getElementById('saveExperiment'),
+        exportExperiment: document.getElementById('exportExperiment')
+      },
+      notebook: {
+        experimentId: document.getElementById('experimentId'),
+        researcherNotes: document.getElementById('researcherNotes'),
+        initialHypothesis: document.getElementById('initialHypothesis'),
+        variablesChanged: document.getElementById('variablesChanged'),
+        expectedBehavior: document.getElementById('expectedBehavior'),
+        actualBehavior: document.getElementById('actualBehavior'),
+        observationTitle: document.getElementById('observationTitle'),
+        observationText: document.getElementById('observationText'),
+        eventCategory: document.getElementById('eventCategory'),
+        historySearch: document.getElementById('historySearch'),
+        historyList: document.getElementById('historyList')
+      }
+    };
+
+    let W = 0, H = 0;
+    let nodes = [];
+    let selected = null;
+    let fieldProbe = null;
+    let running = true;
+    let time = 0;
+    let writes = 0;
+    let last = 0;
+    let dragState = null;
+    let observationMode = 'external';
+    let history = [];
+    let rng = null;
+    let simulationSeed = 42;
+
+    function handleExperimentAction(action) {
+      switch (action) {
+        case 'startExperiment':
+          experiment.start();
+          ui.button.startExperiment.textContent = 'Experiment active';
+          break;
+        case 'pauseObservation':
+          experiment.pause();
+          ui.button.pauseObservation.textContent = experiment.paused ? 'Resume observation' : 'Pause observation';
+          break;
+        case 'addObservationMarker':
+          experiment.addObservation();
+          break;
+        case 'saveExperiment':
+          experiment.save();
+          break;
+        case 'exportExperiment':
+          experiment.exportReport();
+          break;
+      }
+    }
+
+    function clamp(v, min = 0, max = 1) { return Math.max(min, Math.min(max, v)); }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function phaseDelta(from, to) { return ((to - from + 0.5) % 1 + 1) % 1 - 0.5; }
+    function blendPhase(from, to, amount) { return (from + phaseDelta(from, to) * amount + 1) % 1; }
+    function componentSimilarity(valuesA, valuesB) {
+      const arrA = Array.isArray(valuesA) ? valuesA : [];
+      const arrB = Array.isArray(valuesB) ? valuesB : [];
+      const maxLength = Math.max(arrA.length, arrB.length, 1);
+      let total = 0;
+      for (let index = 0; index < maxLength; index += 1) {
+        const a = arrA[index] ?? 0;
+        const b = arrB[index] ?? 0;
+        total += 1 - Math.min(1, Math.abs(a - b));
+      }
+      return clamp(total / maxLength);
+    }
+    function thetaSimilarity(thetaA, thetaB) {
+      if (!thetaA || !thetaB) return 0;
+      const freqA = Array.isArray(thetaA.frequencyComponents) ? thetaA.frequencyComponents : (Array.isArray(thetaA.frequency_components) ? thetaA.frequency_components : []);
+      const freqB = Array.isArray(thetaB.frequencyComponents) ? thetaB.frequencyComponents : (Array.isArray(thetaB.frequency_components) ? thetaB.frequency_components : []);
+      const phaseA = Array.isArray(thetaA.phases) ? thetaA.phases : (Array.isArray(thetaA.phaseRelationships) ? thetaA.phaseRelationships : []);
+      const phaseB = Array.isArray(thetaB.phases) ? thetaB.phases : (Array.isArray(thetaB.phaseRelationships) ? thetaB.phaseRelationships : []);
+      const ampA = Array.isArray(thetaA.amplitudes) ? thetaA.amplitudes : [];
+      const ampB = Array.isArray(thetaB.amplitudes) ? thetaB.amplitudes : [];
+      const coherenceA = typeof thetaA.coherence === 'number' ? thetaA.coherence : 0;
+      const coherenceB = typeof thetaB.coherence === 'number' ? thetaB.coherence : 0;
+      const phaseScore = componentSimilarity(phaseA, phaseB);
+      const frequencyScore = componentSimilarity(freqA, freqB);
+      const amplitudeScore = componentSimilarity(ampA, ampB);
+      const coherenceScore = 1 - Math.min(1, Math.abs(coherenceA - coherenceB));
+      return clamp((frequencyScore * 0.3) + (phaseScore * 0.25) + (amplitudeScore * 0.25) + (coherenceScore * 0.2));
+    }
+    function seededRng(seed) {
+      let state = seed >>> 0;
+      return function random() {
+        state = (state + 0x6D2B79F5) >>> 0;
+        let t = state;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    function setSeed(value) {
+      simulationSeed = parseInt(value || '42', 10) || 42;
+      rng = seededRng(simulationSeed);
+      ui.input.seed.value = String(simulationSeed);
+      return simulationSeed;
+    }
+    function randomValue() {
+      if (!rng) setSeed(ui.input.seed.value);
+      return rng();
+    }
+
+    class ThetaState {
+      constructor(config = {}) {
+        this.frequencyComponents = (config.frequencyComponents || config.frequency_components || [0.25, 0.55, 0.8]).slice();
+        this.phases = (config.phases || config.phaseRelationships || [0.4, 0.2, 0.7]).slice();
+        this.amplitudes = (config.amplitudes || [0.45, 0.25, 0.18]).slice();
+        this.coherence = typeof config.coherence === 'number' ? config.coherence : this.amplitudes.reduce((s, n) => s + n, 0) / this.amplitudes.length;
+      }
+      serialize() {
+        return { frequency_components: [...this.frequencyComponents], phases: [...this.phases], amplitudes: [...this.amplitudes], coherence: this.coherence };
+      }
+      get scalar() {
+        return clamp(this.amplitudes.reduce((sum, amp, idx) => sum + amp * (0.35 + idx * 0.15), 0) / (this.amplitudes.length + 0.5));
+      }
+    }
+
+    const ARCHITECTURE_VERSION = '3.1-z1-z2';
+    const NODE_STATE_SCHEMA_VERSION = 2;
+
+    function finiteComponents(value, fallback) {
+      const source = Array.isArray(value) ? value : fallback;
+      return source.map((component, index) => Number.isFinite(component) ? component : (fallback[index] ?? 0));
+    }
+
+    class Z1State {
+      constructor(config = {}) {
+        const legacy = Number.isFinite(config.legacyScalar) ? config.legacyScalar : 0.6;
+        this.recoveryComponents = finiteComponents(config.recoveryComponents || config.recovery_components, [legacy, legacy]);
+        this.active = config.active === true;
+        this.activationReason = typeof (config.activationReason || config.activation_reason) === 'string' ? (config.activationReason || config.activation_reason) : null;
+      }
+      get scalar() { return clamp(this.recoveryComponents.reduce((sum, value) => sum + value, 0) / Math.max(1, this.recoveryComponents.length)); }
+      serialize() { return { recovery_components: [...this.recoveryComponents], active: this.active, activation_reason: this.activationReason }; }
+    }
+
+    class Z2State {
+      constructor(config = {}) {
+        const legacy = Number.isFinite(config.legacyScalar) ? config.legacyScalar : 0.6;
+        this.integrationComponents = finiteComponents(config.integrationComponents || config.integration_components, [legacy, legacy]);
+        this.status = typeof config.status === 'string' ? config.status : 'idle';
+        const delta = config.proposedDeltaX ?? config.proposed_delta_x;
+        const cost = config.energyCost ?? config.energy_cost;
+        const succeeded = config.lastAttemptSucceeded ?? config.last_attempt_succeeded;
+        this.proposedDeltaX = Number.isFinite(delta) ? delta : null;
+        this.energyCost = Number.isFinite(cost) ? cost : null;
+        this.lastAttemptSucceeded = typeof succeeded === 'boolean' ? succeeded : null;
+      }
+      get scalar() { return clamp(this.integrationComponents.reduce((sum, value) => sum + value, 0) / Math.max(1, this.integrationComponents.length)); }
+      serialize() { return { integration_components: [...this.integrationComponents], status: this.status, proposed_delta_x: this.proposedDeltaX, energy_cost: this.energyCost, last_attempt_succeeded: this.lastAttemptSucceeded }; }
+    }
+
+    function migrateLegacyNodeState(record = {}) {
+      const legacyZ = Number.isFinite(record.Z) ? record.Z : 0.6;
+      const migrated = { ...record };
+      delete migrated.Z;
+      migrated.schemaVersion = NODE_STATE_SCHEMA_VERSION;
+      migrated.architectureVersion = ARCHITECTURE_VERSION;
+      migrated.Z1 = new Z1State(record.Z1 || { legacyScalar: legacyZ }).serialize();
+      migrated.Z2 = new Z2State(record.Z2 || { legacyScalar: legacyZ, status: Number.isFinite(record.Z) ? 'legacy-migrated' : 'idle' }).serialize();
+      return migrated;
+    }
+
+    function migrateExperimentRecord(record = {}) {
+      const migrateNode = (node) => node && typeof node === 'object' ? migrateLegacyNodeState(node) : node;
+      const migrateSnapshot = (snapshot) => snapshot && typeof snapshot === 'object' ? { ...snapshot, nodeState: migrateNode(snapshot.nodeState) } : snapshot;
+      return { ...record, schemaVersion: NODE_STATE_SCHEMA_VERSION, architectureVersion: ARCHITECTURE_VERSION,
+        initialState: Array.isArray(record.initialState) ? record.initialState.map(migrateNode) : record.initialState,
+        state: Array.isArray(record.state) ? record.state.map(migrateNode) : record.state,
+        entries: Array.isArray(record.entries) ? record.entries.map((entry) => ({ ...entry, snapshot: migrateSnapshot(entry.snapshot) })) : record.entries,
+        snapshots: Array.isArray(record.snapshots) ? record.snapshots.map(migrateSnapshot) : record.snapshots };
+    }
+
+    function zStateRelation(a, b) { return 1 - Math.abs(a.scalar - b.scalar); }
+
+    function runZMigrationSelfTests() {
+      const migrated = migrateLegacyNodeState({ id: 1, Z: 0.75 });
+      if ('Z' in migrated || !Array.isArray(migrated.Z1.recovery_components) || !Array.isArray(migrated.Z2.integration_components)) throw new Error('Legacy Z migration failed');
+      if (migrated.Z1.recovery_components[0] !== 0.75 || migrated.Z2.integration_components[0] !== 0.75) throw new Error('Legacy Z value was not preserved');
+      const z1 = new Z1State(migrated.Z1), z2 = new Z2State(migrated.Z2);
+      if (!Number.isFinite(z1.scalar) || !Number.isFinite(z2.scalar) || z1.active) throw new Error('Z1/Z2 state validation failed');
+      return true;
+    }
+
+    class Node {
+      constructor(id, x, y) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
+        this.vx = (randomValue() - 0.5) * 24;
+        this.vy = (randomValue() - 0.5) * 24;
+        this.X = 0.2 + randomValue() * 0.4;
+        this.Y = randomValue() * 0.18;
+        const initialZ = 0.4 + randomValue() * 0.5;
+        this.Z1 = new Z1State({ legacyScalar: initialZ });
+        this.Z2 = new Z2State({ legacyScalar: initialZ });
+        this.thetaState = new ThetaState({
+          frequencyComponents: [0.35 + randomValue() * 0.2, 0.25 + randomValue() * 0.2, 0.45 + randomValue() * 0.2],
+          phases: [0.4 + randomValue() * 0.2, 0.2 + randomValue() * 0.2, 0.65 + randomValue() * 0.2],
+          amplitudes: [0.28 + randomValue() * 0.2, 0.16 + randomValue() * 0.2, 0.12 + randomValue() * 0.2],
+          coherence: 0.4 + randomValue() * 0.25
+        });
+        this.signal = randomValue() * 0.3;
+        this.memoryTrace = randomValue() * 0.14;
+        this.environment = 0;
+        this.resonanceSupport = 0;
+        this.importance = 0;
+        this.writeCount = 0;
+        this.flash = 0;
+        this.previousAboveGate = false;
+        this.currentAboveGate = false;
+        this.trail = [];
+      }
+      serialize() {
+        return {
+          id: this.id,
+          x: this.x,
+          y: this.y,
+          X: this.X,
+          Y: this.Y,
+          schemaVersion: NODE_STATE_SCHEMA_VERSION,
+          architectureVersion: ARCHITECTURE_VERSION,
+          Z1: this.Z1.serialize(),
+          Z2: this.Z2.serialize(),
+          theta: this.thetaState.serialize(),
+          signal: this.signal,
+          memoryTrace: this.memoryTrace,
+          environment: this.environment,
+          resonanceSupport: this.resonanceSupport,
+          importance: this.importance,
+          writeCount: this.writeCount
+        };
+      }
+    }
+
+    function updateNode(currentState, environment, neighborInfluence, dt, index = 0) {
+      const theta = currentState.theta || { frequency_components: [0.5], phases: [0.5], amplitudes: [0.4], coherence: 0.5 };
+      const z1 = new Z1State(currentState.Z1 || {});
+      const z2 = new Z2State(currentState.Z2 || {});
+      const couplingConfig = environment.couplingConfig || { thetaToZ2: 0, z1ToY: 0, z2ToY: 0, yToTheta: 0, neighborToX: 0, neighborToY: 0, neighborToZ2: 0, neighborToTheta: 0 };
+      const speedFactor = dt * 60 * (0.8 + environment.params.timeScale * 0.3);
+      const thetaDrive = (environment.params.entropy * 0.9 + environment.params.perturbationStrength * 0.4) * 0.0022 * speedFactor;
+      const phaseDrive = ((environment.params.perturbationStrength - 0.5) * 0.0008 + environment.params.entropy * 0.0004) * speedFactor;
+      const amplitudeDrive = (0.00075 + environment.params.perturbationStrength * 0.0005) * speedFactor;
+      const xDrift = Math.sin(environment.t + index * 0.5 + environment.seed * 0.01) * 0.00016 * speedFactor;
+      const yDrift = Math.cos(environment.t * 0.7 + index * 0.3 + environment.seed * 0.012) * 0.00014 * speedFactor;
+      const zDrift = Math.sin(environment.t * 0.4 + index * 0.8) * 0.00012 * speedFactor;
+      const neighborResonance = typeof neighborInfluence?.resonanceInfluence === 'number' ? neighborInfluence.resonanceInfluence : 0;
+      const neighborMemory = typeof neighborInfluence?.memoryInfluence === 'number' ? neighborInfluence.memoryInfluence : 0;
+      const neighborIntegration = typeof neighborInfluence?.integrationInfluence === 'number' ? neighborInfluence.integrationInfluence : 0;
+      const thetaAlignment = typeof neighborInfluence?.thetaAlignment === 'number' ? neighborInfluence.thetaAlignment : 0;
+      const nextTheta = {
+        frequency_components: theta.frequency_components.map((component, i) => clamp(component + thetaDrive * (0.7 + i * 0.2) * (Math.sin(environment.t * 0.35 + index * 0.4 + i) * 0.5 + 0.6) + (couplingConfig.neighborToTheta || 0) * thetaAlignment * 0.0008 * speedFactor * (0.6 + i * 0.2), 0, 1)),
+        phases: theta.phases.map((phase, i) => clamp(phase + phaseDrive * (0.8 + i * 0.3) + (couplingConfig.neighborToTheta || 0) * thetaAlignment * 0.0006 * speedFactor * (0.5 + i * 0.15), 0, 1)),
+        amplitudes: theta.amplitudes.map((amplitude, i) => clamp(amplitude + amplitudeDrive * (0.9 + i * 0.1) * (Math.cos(environment.t * 0.25 + index * 0.3 + i) * 0.5 + 0.7) + (couplingConfig.neighborToTheta || 0) * thetaAlignment * 0.0005 * speedFactor * (0.4 + i * 0.2), 0, 1)),
+        coherence: clamp(theta.coherence + ((environment.params.entropy - 0.5) * 0.0005 + (couplingConfig.thetaToZ2 || 0) * 0.0002 + (couplingConfig.neighborToTheta || 0) * thetaAlignment * 0.0004 * speedFactor + (couplingConfig.yToTheta || 0) * 0.0001 * speedFactor) * speedFactor, 0, 1)
+      };
+      return {
+        X: clamp(currentState.X + xDrift + environment.params.perturbationStrength * 0.00001 * speedFactor + (couplingConfig.neighborToX || 0) * neighborResonance * 0.00006 * speedFactor, 0, 1),
+        Y: clamp(currentState.Y + yDrift + ((couplingConfig.z1ToY || 0) * (z1.active ? z1.scalar : 0) + (couplingConfig.z2ToY || 0) * z2.scalar) * 0.00001 * speedFactor + (couplingConfig.neighborToY || 0) * neighborMemory * 0.00006 * speedFactor, 0, 1),
+        Z1: z1.serialize(),
+        Z2: new Z2State({ ...z2.serialize(), integration_components: z2.integrationComponents.map((component, componentIndex) => clamp(component + (componentIndex === 0 ? zDrift + (couplingConfig.thetaToZ2 || 0) * 0.00001 * speedFactor + (couplingConfig.neighborToZ2 || 0) * neighborIntegration * 0.00006 * speedFactor : 0), 0, 1)) }).serialize(),
+        theta: nextTheta
+      };
+    }
+
+    class SimulationEnvironment {
+      constructor() {
+        this.params = {
+          entropy: 0.2,
+          perturbationStrength: 0.28,
+          interactionRadius: 110,
+          timeScale: 1,
+          simulationSpeed: 1,
+          writeGate: 0.42,
+          nodeSize: 1.2
+        };
+        this.couplingConfig = { thetaToZ2: 0, z1ToY: 0, z2ToY: 0, yToTheta: 0, neighborToX: 0, neighborToY: 0, neighborToZ2: 0, neighborToTheta: 0 };
+        this.identityWriteThresholds = { minimumX: 0.42, minimumThetaCoherence: 0, minimumResonance: 0 };
+        this.seed = 42;
+        this.initialState = [];
+        this.logBuffer = [];
+        this.logFrameCounter = 0;
+        this.logEvery = 4;
+        this.warnings = [];
+        this.t = 0;
+      }
+      syncFromUI() {
+        this.params.entropy = parseFloat(ui.slider.entropy.value);
+        this.params.perturbationStrength = parseFloat(ui.slider.perturbationStrength.value);
+        this.params.interactionRadius = parseFloat(ui.slider.interactionRadius.value);
+        this.params.timeScale = parseFloat(ui.slider.timeScale.value);
+        this.params.simulationSpeed = parseFloat(ui.slider.simulationSpeed.value);
+        this.params.writeGate = parseFloat(ui.slider.writeGate.value);
+        this.params.nodeSize = parseFloat(ui.slider.nodeSize.value);
+        this.logEvery = parseInt(ui.slider.logFrequency.value, 10) || 4;
+        this.couplingConfig = {
+          thetaToZ2: parseFloat(ui.slider.thetaToZ2.value),
+          z1ToY: parseFloat(ui.slider.z1ToY.value),
+          z2ToY: parseFloat(ui.slider.z2ToY.value),
+          yToTheta: parseFloat(ui.slider.yToTheta.value),
+          neighborToX: parseFloat(ui.slider.neighborToX.value),
+          neighborToY: parseFloat(ui.slider.neighborToY.value),
+          neighborToZ2: parseFloat(ui.slider.neighborToZ2.value),
+          neighborToTheta: parseFloat(ui.slider.neighborToTheta.value)
+        };
+        this.identityWriteThresholds = {
+          minimumX: parseFloat(ui.slider.identityThresholdX.value),
+          minimumThetaCoherence: parseFloat(ui.slider.identityThresholdTheta.value),
+          minimumResonance: parseFloat(ui.slider.identityThresholdResonance.value)
+        };
+        this.seed = setSeed(ui.input.seed.value);
+      }
+      environmentAt(x, y, t) {
+        const nx = x / Math.max(W, 1);
+        const ny = y / Math.max(H, 1);
+        const wave = 0.5 + 0.25 * Math.sin(nx * 8 + t * 0.8) + 0.18 * Math.cos(ny * 10 - t * 0.55);
+        const sx = 0.5 + 0.27 * Math.cos(t * 0.19);
+        const sy = 0.5 + 0.24 * Math.sin(t * 0.15);
+        const d = Math.hypot(nx - sx, ny - sy);
+        const source = Math.exp(-d * d * 20) * 0.52;
+        return clamp(wave + source - 0.16);
+      }
+      fieldResonanceAt(x, y) {
+        let total = 0;
+        let weight = 0;
+        for (const n of nodes) {
+          const dx = n.x - x;
+          const dy = n.y - y;
+          const dist = Math.hypot(dx, dy);
+          const proximity = Math.exp(-(dist * dist) / (2 * 140 * 140));
+          if (proximity < 0.01) continue;
+          const phaseAlignment = 1 - Math.abs(phaseDelta(n.thetaState.scalar, 0.5)) * 2;
+          const support = clamp((0.2 + 0.4 * n.signal + 0.25 * n.memoryTrace + 0.3 * n.resonanceSupport + 0.25 * phaseAlignment) / 1.4);
+          total += proximity * support;
+          weight += proximity;
+        }
+        if (!weight) return 0;
+        return clamp(total / weight);
+      }
+      calculateNeighborInfluence(node) {
+        if (!node || !nodes.length) {
+          return { resonanceInfluence: 0, memoryInfluence: 0, recoveryInfluence: 0, integrationInfluence: 0, thetaAlignment: 0, contributingNodes: [] };
+        }
+        const radius = this.params.interactionRadius || 110;
+        const contributions = [];
+        let resonanceTotal = 0;
+        let memoryTotal = 0;
+        let recoveryTotal = 0;
+        let integrationTotal = 0;
+        let thetaTotal = 0;
+        let weight = 0;
+        nodes.forEach((candidate) => {
+          if (candidate.id === node.id) return;
+          const dx = candidate.x - node.x;
+          const dy = candidate.y - node.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist <= 0 || dist > radius) return;
+          const distanceWeight = 1 - Math.min(1, dist / radius);
+          const thetaScore = thetaSimilarity(node.thetaState, candidate.thetaState);
+          const memoryRelation = 1 - Math.abs(node.Y - candidate.Y);
+          const recoveryRelation = zStateRelation(node.Z1, candidate.Z1);
+          const integrationRelation = zStateRelation(node.Z2, candidate.Z2);
+          const resonance = distanceWeight * (0.4 + thetaScore * 0.4 + memoryRelation * 0.1 + recoveryRelation * 0.05 + integrationRelation * 0.05);
+          resonanceTotal += resonance;
+          memoryTotal += distanceWeight * memoryRelation * 0.6;
+          recoveryTotal += distanceWeight * recoveryRelation * 0.2;
+          integrationTotal += distanceWeight * integrationRelation * 0.2;
+          thetaTotal += thetaScore * distanceWeight;
+          weight += distanceWeight;
+          contributions.push({ nodeA: node.id, nodeB: candidate.id, resonance, distance: dist, thetaAlignment: thetaScore });
+        });
+        if (!weight) {
+          return { resonanceInfluence: 0, memoryInfluence: 0, recoveryInfluence: 0, integrationInfluence: 0, thetaAlignment: 0, contributingNodes: [] };
+        }
+        return {
+          resonanceInfluence: clamp(resonanceTotal / weight),
+          memoryInfluence: clamp(memoryTotal / weight),
+          recoveryInfluence: clamp(recoveryTotal / weight),
+          integrationInfluence: clamp(integrationTotal / weight),
+          thetaAlignment: clamp(thetaTotal / weight),
+          contributingNodes: contributions.slice(0, 8)
+        };
+      }
+      captureLogSnapshot(node, index) {
+        const anchor = node || selected || nodes[0] || null;
+        return {
+          timestamp: new Date().toISOString(),
+          simulationTime: time.toFixed(3),
+          nodeCount: nodes.length,
+          nodeState: anchor ? {
+            id: anchor.id,
+            X: anchor.X,
+            Y: anchor.Y,
+            Z1: anchor.Z1.serialize(),
+            Z2: anchor.Z2.serialize(),
+            theta: anchor.thetaState.serialize()
+          } : null,
+          environment: { ...this.params, seed: this.seed, couplingConfig: this.couplingConfig, identityWriteThresholds: this.identityWriteThresholds },
+          neighborInfluence: anchor && anchor.lastNeighborInfluence ? anchor.lastNeighborInfluence : null,
+          resonanceConnections: anchor && anchor.lastNeighborInfluence ? anchor.lastNeighborInfluence.contributingNodes.map((entry) => ({ nodeA: entry.nodeA, nodeB: entry.nodeB, resonance: entry.resonance })) : []
+        };
+      }
+      recordLog(node, index) {
+        if (this.logFrameCounter % this.logEvery !== 0 && this.logFrameCounter !== 0) return;
+        this.logBuffer.push(this.captureLogSnapshot(node, index));
+      }
+      validateNode(node, index) {
+        const issues = [];
+        if (!Number.isFinite(node.X)) issues.push('X non-finite');
+        if (!Number.isFinite(node.Y)) issues.push('Y non-finite');
+        if (!node.Z1.recoveryComponents.every(Number.isFinite)) issues.push('Z1 component non-finite');
+        if (!node.Z2.integrationComponents.every(Number.isFinite)) issues.push('Z2 component non-finite');
+        if (!Number.isFinite(node.thetaState.scalar)) issues.push('theta non-finite');
+        if (node.X < -1 || node.X > 2) issues.push('X out of range');
+        if (node.Y < -1 || node.Y > 2) issues.push('Y out of range');
+        if (node.Z1.recoveryComponents.some((value) => value < -1 || value > 2)) issues.push('Z1 component out of range');
+        if (node.Z2.integrationComponents.some((value) => value < -1 || value > 2)) issues.push('Z2 component out of range');
+        if (issues.length) {
+          const warning = { id: `${Date.now()}-${index}`, message: issues.join(', '), simulationTime: time.toFixed(3) };
+          this.warnings.push(warning);
+          experiment.addWarning(warning);
+          node.X = clamp(node.X, 0, 1);
+          node.Y = clamp(node.Y, 0, 1);
+          node.Z1.recoveryComponents = node.Z1.recoveryComponents.map((value) => clamp(value, 0, 1));
+          node.Z2.integrationComponents = node.Z2.integrationComponents.map((value) => clamp(value, 0, 1));
+        }
+      }
+      step(dt) {
+        this.syncFromUI();
+        this.t += dt * this.params.timeScale * this.params.simulationSpeed;
+        this.logFrameCounter += 1;
+        const p = this.params;
+        for (let index = 0; index < nodes.length; index += 1) {
+          const n = nodes[index];
+          const env = ui.toggle.environmentEnabled.checked ? this.environmentAt(n.x, n.y, this.t) : 0;
+          n.environment = env;
+          n.flash = Math.max(0, n.flash - dt * 2.6);
+          const currentState = {
+            X: n.X,
+            Y: n.Y,
+            Z1: n.Z1.serialize(),
+            Z2: n.Z2.serialize(),
+            theta: n.thetaState.serialize()
+          };
+          const neighborInfluence = this.calculateNeighborInfluence(n);
+          n.lastNeighborInfluence = neighborInfluence;
+          const updated = updateNode(currentState, { params: p, couplingConfig: this.couplingConfig, seed: this.seed, t: this.t }, neighborInfluence, dt, index);
+          n.X = updated.X;
+          n.Y = updated.Y;
+          n.Z1 = new Z1State(updated.Z1);
+          n.Z2 = new Z2State(updated.Z2);
+          n.thetaState = new ThetaState(updated.theta);
+          n.resonanceSupport = clamp(n.resonanceSupport + neighborInfluence.resonanceInfluence * 0.15 - dt * 0.15, 0, 1);
+          this.validateNode(n, index);
+          if (ui.toggle.randomEntropy.checked) {
+            n.vx += (randomValue() - 0.5) * p.entropy * 24 * dt;
+            n.vy += (randomValue() - 0.5) * p.entropy * 24 * dt;
+          }
+          n.x += n.vx * dt * (0.85 + p.simulationSpeed * 0.3);
+          n.y += n.vy * dt * (0.85 + p.simulationSpeed * 0.3);
+          n.vx *= 0.988;
+          n.vy *= 0.988;
+          if (n.x < 8 || n.x > W - 8) n.vx *= -1;
+          if (n.y < 8 || n.y > H - 8) n.vy *= -1;
+          n.x = Math.min(W - 8, Math.max(8, n.x));
+          n.y = Math.min(H - 8, Math.max(8, n.y));
+          if (ui.toggle.trailsEnabled.checked) {
+            n.trail.push({ x: n.x, y: n.y });
+            if (n.trail.length > 70) n.trail.shift();
+          }
+          this.recordLog(n, index);
+        }
+        const anchor = nodes[0];
+        if (ui.toggle.identityWrites.checked && anchor && anchor.X > this.identityWriteThresholds.minimumX && anchor.thetaState.coherence >= this.identityWriteThresholds.minimumThetaCoherence && (anchor.lastNeighborInfluence?.resonanceInfluence || 0) >= this.identityWriteThresholds.minimumResonance) {
+          writes += 1;
+          anchor.Z2.status = 'qualified-attempt';
+          anchor.Z2.lastAttemptSucceeded = null;
+          anchor.flash = 1;
+        }
+      }
+    }
+
+    class CameraController {
+      constructor() {
+        this.mode = 'free';
+        this.zoom = 1;
+        this.panX = 0;
+        this.panY = 0;
+        this.orbitAngle = -0.6;
+        this.orbitDistance = 1.2;
+        this.targetX = 0;
+        this.targetY = 0;
+      }
+      reset() {
+        this.mode = 'free';
+        this.zoom = 1;
+        this.panX = 0;
+        this.panY = 0;
+        this.orbitAngle = -0.6;
+        this.orbitDistance = 1.2;
+      }
+      updateTarget() {
+        const anchor = selected || (nodes[0] || null);
+        if (anchor) {
+          this.targetX = anchor.x;
+          this.targetY = anchor.y;
+        } else {
+          this.targetX = W / 2;
+          this.targetY = H / 2;
+        }
+      }
+      worldToScreen(x, y) {
+        const tx = x - this.targetX;
+        const ty = y - this.targetY;
+        if (this.mode === 'orbit') {
+          const cosA = Math.cos(this.orbitAngle);
+          const sinA = Math.sin(this.orbitAngle);
+          const rx = tx * cosA - ty * sinA;
+          const ry = tx * sinA + ty * cosA;
+          return {
+            x: W / 2 + rx * this.zoom * this.orbitDistance,
+            y: H / 2 + ry * this.zoom * this.orbitDistance
+          };
+        }
+        return {
+          x: W / 2 + (tx * this.zoom) + this.panX,
+          y: H / 2 + (ty * this.zoom) + this.panY
+        };
+      }
+      screenToWorld(x, y) {
+        if (this.mode === 'orbit') {
+          const cosA = Math.cos(-this.orbitAngle);
+          const sinA = Math.sin(-this.orbitAngle);
+          const dx = x - W / 2;
+          const dy = y - H / 2;
+          const rx = dx * cosA - dy * sinA;
+          const ry = dx * sinA + dy * cosA;
+          return {
+            x: this.targetX + rx / (this.zoom * this.orbitDistance),
+            y: this.targetY + ry / (this.zoom * this.orbitDistance)
+          };
+        }
+        return {
+          x: this.targetX + (x - W / 2 - this.panX) / this.zoom,
+          y: this.targetY + (y - H / 2 - this.panY) / this.zoom
+        };
+      }
+    }
+
+    class ExperimentController {
+      constructor() {
+        this.active = false;
+        this.paused = false;
+        this.entries = [];
+        this.snapshots = [];
+        this.experiments = [];
+        this.warnings = [];
+      }
+      start() {
+        this.active = true;
+        this.paused = false;
+        this.entries = [];
+        this.snapshots = [];
+        this.warnings = [];
+        ui.notebook.experimentId.value = ui.notebook.experimentId.value || `exp-${Date.now().toString().slice(-6)}`;
+      }
+      pause() {
+        this.paused = !this.paused;
+      }
+      addWarning(warning) {
+        this.warnings.push(warning);
+      }
+      addObservation() {
+        if (!this.active) this.start();
+        const snapshot = this.captureSnapshot();
+        const entry = {
+          id: `${Date.now()}`,
+          title: ui.notebook.observationTitle.value || 'Observation',
+          observation: ui.notebook.observationText.value || 'No annotation provided.',
+          eventCategory: ui.notebook.eventCategory.value,
+          timestamp: new Date().toISOString(),
+          simulationTime: time.toFixed(3),
+          snapshot
+        };
+        this.entries.push(entry);
+        this.snapshots.push(snapshot);
+        ui.notebook.observationText.value = '';
+        renderHistory();
+      }
+      save() {
+        if (!this.active) this.start();
+        if (!this.entries.length) this.addObservation();
+        const payload = {
+          schemaVersion: NODE_STATE_SCHEMA_VERSION,
+          architectureVersion: ARCHITECTURE_VERSION,
+          migration: 'single-Z records are deterministically expanded into distinct non-scalar Z1 and Z2 states; no final Z1/Z2 physics is implied',
+          experimentId: ui.notebook.experimentId.value || `exp-${Date.now()}`,
+          createdAt: new Date().toISOString(),
+          metadata: {
+            researcherNotes: ui.notebook.researcherNotes.value,
+            initialHypothesis: ui.notebook.initialHypothesis.value,
+            variablesChanged: ui.notebook.variablesChanged.value,
+            expectedBehavior: ui.notebook.expectedBehavior.value,
+            actualBehavior: ui.notebook.actualBehavior.value
+          },
+          parameters: readControlValues(),
+          seed: simulationSeed,
+          initialState: environment.initialState,
+          entries: this.entries,
+          snapshots: this.snapshots,
+          warnings: this.warnings,
+          state: nodes.map((n) => n.serialize())
+        };
+        this.experiments.push(payload);
+        localStorage.setItem('emergence-lab-experiments', JSON.stringify(this.experiments));
+        renderHistory();
+      }
+      exportReport() {
+        const payload = (this.experiments.length ? this.experiments : [{ experimentId: ui.notebook.experimentId.value, entries: this.entries }]).map(migrateExperimentRecord);
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${(ui.notebook.experimentId.value || 'experiment').replace(/\s+/g, '-')}.json`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+      captureSnapshot() {
+        const anchor = selected || nodes[0] || null;
+        return {
+          simulationTime: time.toFixed(3),
+          nodeCount: nodes.length,
+          seed: simulationSeed,
+          environment: { ...environment.params, seed: simulationSeed, warnings: environment.warnings },
+          nodeState: anchor ? anchor.serialize() : null,
+          neighborInfluence: anchor && anchor.lastNeighborInfluence ? anchor.lastNeighborInfluence : null,
+          resonanceConnections: anchor && anchor.lastNeighborInfluence ? anchor.lastNeighborInfluence.contributingNodes.map((entry) => ({ nodeA: entry.nodeA, nodeB: entry.nodeB, resonance: entry.resonance })) : [],
+          warnings: this.warnings.slice(-8)
+        };
+      }
+    }
+
+    const environment = new SimulationEnvironment();
+    const camera = new CameraController();
+    const experiment = new ExperimentController();
+
+    function readControlValues() {
+      return {
+        nodeX: parseFloat(ui.slider.nodeX.value),
+        nodeY: parseFloat(ui.slider.nodeY.value),
+        nodeZ1: parseFloat(ui.slider.nodeZ1.value),
+        nodeZ2: parseFloat(ui.slider.nodeZ2.value),
+        thetaFrequency: parseFloat(ui.slider.thetaFrequency.value),
+        thetaPhase: parseFloat(ui.slider.thetaPhase.value),
+        thetaAmplitude: parseFloat(ui.slider.thetaAmplitude.value),
+        thetaCoherence: parseFloat(ui.slider.thetaCoherence.value),
+        nodeCount: parseInt(ui.slider.nodeCount.value, 10),
+        entropy: parseFloat(ui.slider.entropy.value),
+        perturbationStrength: parseFloat(ui.slider.perturbationStrength.value),
+        interactionRadius: parseFloat(ui.slider.interactionRadius.value),
+        timeScale: parseFloat(ui.slider.timeScale.value),
+        simulationSpeed: parseFloat(ui.slider.simulationSpeed.value),
+        writeGate: parseFloat(ui.slider.writeGate.value),
+        nodeSize: parseFloat(ui.slider.nodeSize.value),
+        logFrequency: parseInt(ui.slider.logFrequency.value, 10),
+        thetaToZ2: parseFloat(ui.slider.thetaToZ2.value),
+        z1ToY: parseFloat(ui.slider.z1ToY.value),
+        z2ToY: parseFloat(ui.slider.z2ToY.value),
+        yToTheta: parseFloat(ui.slider.yToTheta.value),
+        neighborToX: parseFloat(ui.slider.neighborToX.value),
+        neighborToY: parseFloat(ui.slider.neighborToY.value),
+        neighborToZ2: parseFloat(ui.slider.neighborToZ2.value),
+        neighborToTheta: parseFloat(ui.slider.neighborToTheta.value),
+        identityThresholdX: parseFloat(ui.slider.identityThresholdX.value),
+        identityThresholdTheta: parseFloat(ui.slider.identityThresholdTheta.value),
+        identityThresholdResonance: parseFloat(ui.slider.identityThresholdResonance.value)
+      };
+    }
+
+    function updateSliderLabels() {
+      const entries = [
+        ['nodeX', ui.output.nodeX], ['nodeY', ui.output.nodeY], ['nodeZ1', ui.output.nodeZ1], ['nodeZ2', ui.output.nodeZ2],
+        ['thetaFrequency', ui.output.thetaFrequency], ['thetaPhase', ui.output.thetaPhase],
+        ['thetaAmplitude', ui.output.thetaAmplitude], ['thetaCoherence', ui.output.thetaCoherence],
+        ['nodeCount', ui.output.nodeCount], ['entropy', ui.output.entropy],
+        ['perturbationStrength', ui.output.perturbationStrength], ['interactionRadius', ui.output.interactionRadius],
+        ['timeScale', ui.output.timeScale], ['simulationSpeed', ui.output.simulationSpeed],
+        ['writeGate', ui.output.writeGate], ['nodeSize', ui.output.nodeSize], ['logFrequency', ui.output.logFrequency],
+        ['thetaToZ2', ui.output.thetaToZ2], ['z1ToY', ui.output.z1ToY], ['z2ToY', ui.output.z2ToY], ['yToTheta', ui.output.yToTheta],
+        ['neighborToX', ui.output.neighborToX], ['neighborToY', ui.output.neighborToY], ['neighborToZ2', ui.output.neighborToZ2],
+        ['neighborToTheta', ui.output.neighborToTheta], ['identityThresholdX', ui.output.identityThresholdX],
+        ['identityThresholdTheta', ui.output.identityThresholdTheta], ['identityThresholdResonance', ui.output.identityThresholdResonance]
+      ];
+      entries.forEach(([id, output]) => {
+        const value = parseFloat(ui.slider[id].value);
+        output.textContent = id === 'interactionRadius' || id === 'nodeCount' ? `${Math.round(value)}` : value.toFixed(2);
+      });
+      const seedValue = ui.input.seed.value || '42';
+      document.getElementById('seedInputV').textContent = seedValue;
+    }
+
+    function applyControlValuesToNode() {
+      const target = selected || nodes[0];
+      if (!target) return;
+      target.X = clamp(parseFloat(ui.slider.nodeX.value));
+      target.Y = clamp(parseFloat(ui.slider.nodeY.value));
+      target.Z1.recoveryComponents[0] = clamp(parseFloat(ui.slider.nodeZ1.value));
+      target.Z2.integrationComponents[0] = clamp(parseFloat(ui.slider.nodeZ2.value));
+      const freq = parseFloat(ui.slider.thetaFrequency.value);
+      target.thetaState.frequencyComponents = [freq, clamp(freq + 0.12), clamp(freq - 0.18)];
+      target.thetaState.phases = [parseFloat(ui.slider.thetaPhase.value), clamp(parseFloat(ui.slider.thetaPhase.value) + 0.16), clamp(parseFloat(ui.slider.thetaPhase.value) - 0.12)];
+      target.thetaState.amplitudes = [parseFloat(ui.slider.thetaAmplitude.value), clamp(parseFloat(ui.slider.thetaAmplitude.value) * 0.7), clamp(parseFloat(ui.slider.thetaAmplitude.value) * 0.45)];
+      target.thetaState.coherence = clamp(parseFloat(ui.slider.thetaCoherence.value));
+      target.flash = 1;
+    }
+
+    function syncControlsToNode(node) {
+      if (!node) return;
+      ui.slider.nodeX.value = node.X.toFixed(2);
+      ui.slider.nodeY.value = node.Y.toFixed(2);
+      ui.slider.nodeZ1.value = node.Z1.scalar.toFixed(2);
+      ui.slider.nodeZ2.value = node.Z2.scalar.toFixed(2);
+      ui.slider.thetaFrequency.value = node.thetaState.frequencyComponents[0].toFixed(2);
+      ui.slider.thetaPhase.value = node.thetaState.phases[0].toFixed(2);
+      ui.slider.thetaAmplitude.value = node.thetaState.amplitudes[0].toFixed(2);
+      ui.slider.thetaCoherence.value = node.thetaState.coherence.toFixed(2);
+      updateSliderLabels();
+    }
+
+    function createNodes(count) {
+      const next = [];
+      for (let i = 0; i < count; i += 1) {
+        const n = new Node(i + 1, randomValue() * W, randomValue() * H);
+        next.push(n);
+      }
+      return next;
+    }
+
+    function initSimulation(count = 1) {
+      setSeed(ui.input.seed.value);
+      nodes = createNodes(count);
+      selected = nodes[0] || null;
+      fieldProbe = null;
+      time = 0;
+      writes = 0;
+      history = [];
+      environment.initialState = nodes.map((n) => n.serialize());
+      environment.logBuffer = [];
+      environment.logFrameCounter = 0;
+      environment.warnings = [];
+      camera.reset();
+      if (nodes[0]) {
+        syncControlsToNode(nodes[0]);
+      }
+    }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = rect.width;
+      H = rect.height;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!nodes.length) {
+        initSimulation(parseInt(ui.slider.nodeCount.value, 10));
+      } else {
+        nodes.forEach((n) => {
+          n.x = Math.min(W - 8, Math.max(8, n.x));
+          n.y = Math.min(H - 8, Math.max(8, n.y));
+        });
+      }
+    }
+
+    function drawGrid() {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(103, 138, 205, 0.12)';
+      ctx.lineWidth = 1;
+      const step = 46 * camera.zoom;
+      const startX = (-camera.panX + W / 2) / camera.zoom;
+      const startY = (-camera.panY + H / 2) / camera.zoom;
+      for (let x = startX; x < W + step; x += step) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+      }
+      for (let x = startX - step; x > -step; x -= step) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+      }
+      for (let y = startY; y < H + step; y += step) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+      for (let y = startY - step; y > -step; y -= step) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawResonanceField() {
+      const cell = 24;
+      ctx.save();
+      for (let gx = 0; gx < W; gx += cell) {
+        for (let gy = 0; gy < H; gy += cell) {
+          const value = environment.fieldResonanceAt(gx + cell / 2, gy + cell / 2);
+          ctx.fillStyle = `rgba(82, 229, 225, ${0.025 + value * 0.16})`;
+          ctx.fillRect(gx, gy, cell, cell);
+          if (value > 0.62) {
+            ctx.strokeStyle = `rgba(255,255,255,${0.12 + value * 0.16})`;
+            ctx.strokeRect(gx + 0.5, gy + 0.5, cell - 1, cell - 1);
+          }
+        }
+      }
+      ctx.restore();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      drawGrid();
+      drawResonanceField();
+
+      if (observationMode === 'topology' || ui.toggle.resonanceConnectionsEnabled.checked) {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < nodes.length; i += 1) {
+          for (let j = i + 1; j < nodes.length; j += 1) {
+            const a = nodes[i], b = nodes[j];
+            const sa = camera.worldToScreen(a.x, a.y);
+            const sb = camera.worldToScreen(b.x, b.y);
+            const dist = Math.hypot(sb.x - sa.x, sb.y - sa.y);
+            if (dist < 220) {
+              ctx.beginPath(); ctx.moveTo(sa.x, sa.y); ctx.lineTo(sb.x, sb.y); ctx.stroke();
+            }
+          }
+        }
+        ctx.restore();
+      }
+
+      if (ui.toggle.resonanceConnectionsEnabled.checked) {
+        ctx.save();
+        for (let i = 0; i < nodes.length; i += 1) {
+          const source = nodes[i];
+          const influence = source.lastNeighborInfluence || { contributingNodes: [] };
+          influence.contributingNodes.forEach((entry) => {
+            const target = nodes.find((candidate) => candidate.id === entry.nodeB);
+            if (!target) return;
+            const sa = camera.worldToScreen(source.x, source.y);
+            const sb = camera.worldToScreen(target.x, target.y);
+            ctx.strokeStyle = `rgba(82, 229, 225, ${0.16 + entry.resonance * 0.6})`;
+            ctx.lineWidth = 0.8 + entry.resonance * 1.2;
+            ctx.beginPath(); ctx.moveTo(sa.x, sa.y); ctx.lineTo(sb.x, sb.y); ctx.stroke();
+          });
+        }
+        ctx.restore();
+      }
+
+      for (const n of nodes) {
+        const screen = camera.worldToScreen(n.x, n.y);
+        const radius = (3 + n.X * 8 + parseFloat(ui.slider.nodeSize.value) * 2.4) * (observationMode === 'microscopic' ? 1.35 : 1);
+        const hue = 185 + n.thetaState.scalar * 145;
+        const glow = ctx.createRadialGradient(screen.x, screen.y, 0, screen.x, screen.y, radius * 2.8);
+        glow.addColorStop(0, `hsla(${hue}, 85%, 72%, ${0.26 + n.Y * 0.38})`);
+        glow.addColorStop(1, `hsla(${hue}, 90%, 58%, 0)`);
+        ctx.fillStyle = glow;
+        ctx.beginPath(); ctx.arc(screen.x, screen.y, radius * 2.8, 0, Math.PI * 2); ctx.fill();
+
+        if (ui.toggle.trailsEnabled.checked && n.trail.length > 1) {
+          ctx.save();
+          ctx.strokeStyle = `hsla(${hue}, 70%, 68%, 0.35)`;
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          n.trail.forEach((point, index) => {
+            const p = camera.worldToScreen(point.x, point.y);
+            if (index === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+          });
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        const zDiagnosticComposite = (n.Z1.scalar + n.Z2.scalar) / 2;
+        ctx.globalAlpha = 0.18 + zDiagnosticComposite * 0.82;
+        ctx.fillStyle = `hsl(${hue}, 80%, 62%)`;
+        ctx.beginPath(); ctx.arc(screen.x, screen.y, radius, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = 1;
+
+        if (n.flash > 0) {
+          ctx.strokeStyle = `rgba(255,255,255,${n.flash})`;
+          ctx.beginPath(); ctx.arc(screen.x, screen.y, radius + 6, 0, Math.PI * 2); ctx.stroke();
+        }
+        if (ui.toggle.orbitVisibility.checked) {
+          ctx.strokeStyle = `rgba(255,255,255,${0.14 + n.Y * 0.2})`;
+          ctx.beginPath(); ctx.arc(screen.x, screen.y, radius + 10 + n.resonanceSupport * 16, 0, Math.PI * 2); ctx.stroke();
+        }
+        if (ui.toggle.vectorVisibility.checked) {
+          ctx.save();
+          ctx.strokeStyle = `rgba(255,255,255,0.8)`;
+          ctx.lineWidth = 1;
+          const vecX = screen.x + n.thetaState.frequencyComponents[0] * 20;
+          const vecY = screen.y - n.thetaState.phases[0] * 20;
+          const vecZ = screen.y + n.thetaState.amplitudes[0] * 20;
+          ctx.beginPath(); ctx.moveTo(screen.x, screen.y); ctx.lineTo(vecX, vecY); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(screen.x, screen.y); ctx.lineTo(screen.x + 12, vecZ); ctx.stroke();
+          ctx.restore();
+        }
+        if (ui.toggle.labelsEnabled.checked) {
+          ctx.fillStyle = 'rgba(255,255,255,0.85)';
+          ctx.font = '11px monospace';
+          ctx.fillText(`n${n.id}`, screen.x + 8, screen.y - 8);
+        }
+        if (n === selected) {
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1.4;
+          ctx.beginPath(); ctx.arc(screen.x, screen.y, radius + 4, 0, Math.PI * 2); ctx.stroke();
+        }
+      }
+
+      if (fieldProbe) {
+        const probe = camera.worldToScreen(fieldProbe.x, fieldProbe.y);
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(probe.x - 8, probe.y); ctx.lineTo(probe.x + 8, probe.y); ctx.moveTo(probe.x, probe.y - 8); ctx.lineTo(probe.x, probe.y + 8); ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function updateReadout() {
+      const anchor = selected || nodes[0] || null;
+      const mean = (key) => nodes.reduce((sum, n) => sum + n[key], 0) / Math.max(1, nodes.length);
+      ui.time.textContent = time.toFixed(1);
+      ui.count.textContent = nodes.length;
+      ui.writes.textContent = writes;
+      ui.meanX.textContent = mean('X').toFixed(2);
+      ui.meanY.textContent = mean('Y').toFixed(2);
+      ui.meanZ1.textContent = (nodes.reduce((sum, n) => sum + n.Z1.scalar, 0) / Math.max(1, nodes.length)).toFixed(2);
+      ui.meanZ2.textContent = (nodes.reduce((sum, n) => sum + n.Z2.scalar, 0) / Math.max(1, nodes.length)).toFixed(2);
+      ui.meanTheta.textContent = (nodes.reduce((sum, n) => sum + n.thetaState.scalar, 0) / Math.max(1, nodes.length)).toFixed(2);
+      const influenceSummary = anchor?.lastNeighborInfluence || null;
+      if (anchor) {
+        ui.liveExperimentId.textContent = ui.notebook.experimentId.value || 'exp-001';
+        ui.liveX.textContent = anchor.X.toFixed(2);
+        ui.liveY.textContent = anchor.Y.toFixed(2);
+        ui.liveZ1.textContent = anchor.Z1.scalar.toFixed(2);
+        ui.liveZ2.textContent = anchor.Z2.scalar.toFixed(2);
+        ui.liveTheta.textContent = anchor.thetaState.scalar.toFixed(2);
+        ui.liveCoherence.textContent = anchor.thetaState.coherence.toFixed(2);
+      }
+      if (selected) {
+        const resonanceAtNode = environment.fieldResonanceAt(selected.x, selected.y);
+        const neighborSummary = influenceSummary ? `<span>neighbor resonance ${influenceSummary.resonanceInfluence.toFixed(3)}</span><span>theta alignment ${influenceSummary.thetaAlignment.toFixed(3)}</span>` : '';
+        ui.selected.innerHTML = `<div class="diagnostic-list"><strong>Node ${selected.id}</strong><span>identity ${selected.X.toFixed(3)}</span><span>memory ${selected.Y.toFixed(3)}</span><span>Z1 recovery ${selected.Z1.scalar.toFixed(3)} (${selected.Z1.active ? 'active' : 'inactive'})</span><span>Z2 integration ${selected.Z2.scalar.toFixed(3)} (${selected.Z2.status})</span><span>theta ${selected.thetaState.scalar.toFixed(3)}</span><span>coherence ${selected.thetaState.coherence.toFixed(3)}</span><span>components ${selected.thetaState.frequencyComponents.map((v) => v.toFixed(2)).join(' / ')}</span><span>phases ${selected.thetaState.phases.map((v) => v.toFixed(2)).join(' / ')}</span><span>environment ${selected.environment.toFixed(3)}</span><span>resonance ${resonanceAtNode.toFixed(3)}</span><span>support ${selected.resonanceSupport.toFixed(3)}</span><span>writes ${selected.writeCount}</span>${neighborSummary}</div>`;
+      } else if (fieldProbe) {
+        const resonanceAtProbe = environment.fieldResonanceAt(fieldProbe.x, fieldProbe.y);
+        const neighborSummary = influenceSummary ? `<span>neighbor resonance ${influenceSummary.resonanceInfluence.toFixed(3)}</span><span>theta alignment ${influenceSummary.thetaAlignment.toFixed(3)}</span>` : '';
+        ui.selected.innerHTML = `<div class="diagnostic-list"><strong>Field probe</strong><span>position ${fieldProbe.x.toFixed(0)}, ${fieldProbe.y.toFixed(0)}</span><span>resonance ${resonanceAtProbe.toFixed(3)}</span><span>click a node to inspect a specific state.</span>${neighborSummary}</div>`;
+      } else {
+        const neighborSummary = influenceSummary ? `<span>neighbor resonance ${influenceSummary.resonanceInfluence.toFixed(3)}</span><span>theta alignment ${influenceSummary.thetaAlignment.toFixed(3)}</span>` : '';
+        ui.selected.innerHTML = `<div class="diagnostic-list"><strong>Laboratory probe</strong><span>Click anywhere in the field to inspect local resonance.</span><span>Click a node to inspect its detailed state.</span>${neighborSummary}</div>`;
+      }
+    }
+
+    function renderHistory() {
+      const query = ui.notebook.historySearch.value.trim().toLowerCase();
+      const filtered = experiment.experiments.filter((entry) => {
+        const haystack = JSON.stringify(entry).toLowerCase();
+        return haystack.includes(query);
+      });
+      ui.notebook.historyList.innerHTML = filtered.length ? filtered.map((entry) => `
+        <div class="history-item">
+          <div class="meta">${entry.createdAt}</div>
+          <div class="title">${entry.experimentId}</div>
+          <div class="small">${entry.metadata && entry.metadata.initialHypothesis ? entry.metadata.initialHypothesis : 'No hypothesis recorded.'}</div>
+          <div class="small">Entries: ${entry.entries ? entry.entries.length : 0}</div>
+        </div>
+      `).join('') : '<div class="small">No experiments saved yet.</div>';
+    }
+
+    function frame(ts) {
+      const dt = Math.min(0.04, (ts - last) / 1000 || 0.016);
+      last = ts;
+      if (running && !experiment.paused) {
+        const scaledDt = dt * environment.params.timeScale * environment.params.simulationSpeed;
+        time += scaledDt;
+        environment.step(scaledDt);
+      }
+      camera.updateTarget();
+      draw();
+      updateReadout();
+      requestAnimationFrame(frame);
+    }
+
+    function setViewMode(mode) {
+      observationMode = mode;
+      Object.entries(ui.button).filter(([key]) => key.startsWith('view')).forEach(([key, el]) => {
+        el.classList.toggle('active', key === `view${mode[0].toUpperCase()}${mode.slice(1)}`);
+      });
+    }
+
+    function toggleCameraMode(mode) {
+      camera.mode = mode;
+      ui.cameraMode.textContent = camera.mode;
+      ui.button.cameraFree.classList.toggle('active', mode === 'free');
+      ui.button.cameraOrbit.classList.toggle('active', mode === 'orbit');
+    }
+
+    function applyExperimentPreset(preset) {
+      const presets = {
+        baseline: {
+          thetaToZ2: 0, z1ToY: 0, z2ToY: 0, yToTheta: 0, neighborToX: 0, neighborToY: 0, neighborToZ2: 0, neighborToTheta: 0,
+          identityThresholdX: 0.42, identityThresholdTheta: 0, identityThresholdResonance: 0
+        },
+        internal: {
+          thetaToZ2: 0.55, z1ToY: 0, z2ToY: 0, yToTheta: 0.25, neighborToX: 0, neighborToY: 0, neighborToZ2: 0, neighborToTheta: 0,
+          identityThresholdX: 0.42, identityThresholdTheta: 0.2, identityThresholdResonance: 0
+        },
+        relational: {
+          thetaToZ2: 0, z1ToY: 0, z2ToY: 0, yToTheta: 0, neighborToX: 0.3, neighborToY: 0.25, neighborToZ2: 0.3, neighborToTheta: 0.4,
+          identityThresholdX: 0.42, identityThresholdTheta: 0.15, identityThresholdResonance: 0.2
+        },
+        fullFeedback: {
+          thetaToZ2: 0.4, z1ToY: 0, z2ToY: 0.3, yToTheta: 0.35, neighborToX: 0.25, neighborToY: 0.25, neighborToZ2: 0.3, neighborToTheta: 0.35,
+          identityThresholdX: 0.42, identityThresholdTheta: 0.25, identityThresholdResonance: 0.22
+        }
+      };
+      const chosen = presets[preset] || presets.baseline;
+      Object.entries(chosen).forEach(([key, value]) => {
+        const input = ui.slider[key];
+        if (input) input.value = value.toFixed(2);
+      });
+      updateSliderLabels();
+      applyControlValuesToNode();
+      Object.entries(ui.button).filter(([key]) => key.startsWith('preset')).forEach(([key, el]) => {
+        el.classList.toggle('active', key === `preset${preset[0].toUpperCase()}${preset.slice(1)}`);
+      });
+    }
+
+    canvas.addEventListener('mousedown', (event) => {
+      dragState = { x: event.clientX, y: event.clientY };
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+      if (!dragState) return;
+      const dx = event.clientX - dragState.x;
+      const dy = event.clientY - dragState.y;
+      if (camera.mode === 'orbit') {
+        camera.orbitAngle += dx / 180;
+        camera.orbitDistance = clamp(camera.orbitDistance + dy / 280, 0.7, 2.8);
+      } else {
+        camera.panX += dx / 100;
+        camera.panY += dy / 100;
+      }
+      dragState = { x: event.clientX, y: event.clientY };
+    });
+
+    window.addEventListener('mouseup', () => { dragState = null; });
+
+    canvas.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      camera.zoom = clamp(camera.zoom * (event.deltaY < 0 ? 1.08 : 0.92), 0.6, 3.2);
+    }, { passive: false });
+
+    canvas.addEventListener('click', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const world = camera.screenToWorld(x, y);
+      const nearest = nodes.reduce((best, n) => {
+        const bestDist = Math.hypot(best.x - world.x, best.y - world.y);
+        const nDist = Math.hypot(n.x - world.x, n.y - world.y);
+        return nDist < bestDist ? n : best;
+      }, nodes[0]);
+      const nearestDist = Math.hypot(nearest.x - world.x, nearest.y - world.y);
+      const nodeRadius = 3 + nearest.X * 8 + 10;
+      if (nearestDist <= nodeRadius) {
+        selected = nearest;
+        fieldProbe = null;
+        syncControlsToNode(selected);
+      } else {
+        selected = null;
+        fieldProbe = { x: world.x, y: world.y };
+      }
+    });
+
+    ui.button.pause.addEventListener('click', () => {
+      running = !running;
+      ui.button.pause.textContent = running ? 'Pause' : 'Resume';
+    });
+    ui.button.step.addEventListener('click', () => {
+      if (running) {
+        running = false;
+        ui.button.pause.textContent = 'Resume';
+      }
+      environment.step(0.016 * environment.params.timeScale * environment.params.simulationSpeed);
+      time += 0.016 * environment.params.timeScale * environment.params.simulationSpeed;
+      draw();
+      updateReadout();
+    });
+    ui.button.reset.addEventListener('click', () => initSimulation(parseInt(ui.slider.nodeCount.value, 10)));
+    ui.button.singleNodeLab.addEventListener('click', () => {
+      ui.slider.nodeCount.value = '1';
+      updateSliderLabels();
+      initSimulation(1);
+    });
+    ui.button.multiNodeLab.addEventListener('click', () => {
+      ui.slider.nodeCount.value = '4';
+      updateSliderLabels();
+      initSimulation(4);
+    });
+
+    ui.button.viewExternal.addEventListener('click', () => setViewMode('external'));
+    ui.button.viewMicroscopic.addEventListener('click', () => setViewMode('microscopic'));
+    ui.button.viewTopology.addEventListener('click', () => setViewMode('topology'));
+    ui.button.cameraFree.addEventListener('click', () => toggleCameraMode('free'));
+    ui.button.cameraOrbit.addEventListener('click', () => toggleCameraMode('orbit'));
+    ui.button.cameraReset.addEventListener('click', () => { camera.reset(); toggleCameraMode('free'); });
+    ui.button.presetBaseline.addEventListener('click', () => applyExperimentPreset('baseline'));
+    ui.button.presetInternal.addEventListener('click', () => applyExperimentPreset('internal'));
+    ui.button.presetRelational.addEventListener('click', () => applyExperimentPreset('relational'));
+    ui.button.presetFullFeedback.addEventListener('click', () => applyExperimentPreset('fullFeedback'));
+
+    ui.button.startExperiment.addEventListener('click', () => handleExperimentAction('startExperiment'));
+    ui.button.pauseObservation.addEventListener('click', () => handleExperimentAction('pauseObservation'));
+    ui.button.addObservationMarker.addEventListener('click', () => handleExperimentAction('addObservationMarker'));
+    ui.button.saveExperiment.addEventListener('click', () => handleExperimentAction('saveExperiment'));
+    ui.button.exportExperiment.addEventListener('click', () => handleExperimentAction('exportExperiment'));
+    document.querySelectorAll('[data-experiment-action]').forEach((button) => {
+      button.addEventListener('click', () => handleExperimentAction(button.dataset.experimentAction));
+    });
+    ui.notebook.historySearch.addEventListener('input', renderHistory);
+
+    Object.values(ui.slider).forEach((input) => input.addEventListener('input', () => {
+      updateSliderLabels();
+      applyControlValuesToNode();
+    }));
+    Object.values(ui.toggle).forEach((input) => input.addEventListener('change', () => {
+      updateSliderLabels();
+      if (ui.toggle.trailsEnabled.checked && nodes.length && !nodes[0].trail.length) nodes.forEach((n) => { n.trail = []; });
+    }));
+    ui.input.seed.addEventListener('input', () => {
+      updateSliderLabels();
+      if (nodes.length) initSimulation(parseInt(ui.slider.nodeCount.value, 10));
+    });
+
+    try {
+      const storedExperiments = JSON.parse(localStorage.getItem('emergence-lab-experiments') || '[]');
+      experiment.experiments = Array.isArray(storedExperiments) ? storedExperiments.map(migrateExperimentRecord) : [];
+      renderHistory();
+    } catch (error) {
+      experiment.experiments = [];
+    }
+
+    runZMigrationSelfTests();
+    updateSliderLabels();
+    setSeed(ui.input.seed.value);
+    initSimulation(parseInt(ui.slider.nodeCount.value, 10));
+    window.addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(frame);
+  </script>
+</body>
+</html>
