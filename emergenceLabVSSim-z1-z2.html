@@ -519,10 +519,23 @@
       return migrated;
     }
 
+    function migrateLegacyParameters(parameters = {}) {
+      const migrated = { ...parameters };
+      if (Number.isFinite(parameters.thetaToZ) && !Number.isFinite(parameters.thetaToZ2)) migrated.thetaToZ2 = parameters.thetaToZ;
+      if (Number.isFinite(parameters.zToY) && !Number.isFinite(parameters.z2ToY)) migrated.z2ToY = parameters.zToY;
+      if (Number.isFinite(parameters.neighborToZ) && !Number.isFinite(parameters.neighborToZ2)) migrated.neighborToZ2 = parameters.neighborToZ;
+      if (!Number.isFinite(migrated.z1ToY)) migrated.z1ToY = 0;
+      delete migrated.thetaToZ;
+      delete migrated.zToY;
+      delete migrated.neighborToZ;
+      return migrated;
+    }
+
     function migrateExperimentRecord(record = {}) {
       const migrateNode = (node) => node && typeof node === 'object' ? migrateLegacyNodeState(node) : node;
       const migrateSnapshot = (snapshot) => snapshot && typeof snapshot === 'object' ? { ...snapshot, nodeState: migrateNode(snapshot.nodeState) } : snapshot;
       return { ...record, schemaVersion: NODE_STATE_SCHEMA_VERSION, architectureVersion: ARCHITECTURE_VERSION,
+        parameters: record.parameters && typeof record.parameters === 'object' ? migrateLegacyParameters(record.parameters) : record.parameters,
         initialState: Array.isArray(record.initialState) ? record.initialState.map(migrateNode) : record.initialState,
         state: Array.isArray(record.state) ? record.state.map(migrateNode) : record.state,
         entries: Array.isArray(record.entries) ? record.entries.map((entry) => ({ ...entry, snapshot: migrateSnapshot(entry.snapshot) })) : record.entries,
@@ -537,6 +550,8 @@
       if (migrated.Z1.recovery_components[0] !== 0.75 || migrated.Z2.integration_components[0] !== 0.75) throw new Error('Legacy Z value was not preserved');
       const z1 = new Z1State(migrated.Z1), z2 = new Z2State(migrated.Z2);
       if (!Number.isFinite(z1.scalar) || !Number.isFinite(z2.scalar) || z1.active) throw new Error('Z1/Z2 state validation failed');
+      const parameters = migrateLegacyParameters({ thetaToZ: 0.2, zToY: 0.3, neighborToZ: 0.4 });
+      if (parameters.thetaToZ2 !== 0.2 || parameters.z2ToY !== 0.3 || parameters.neighborToZ2 !== 0.4 || parameters.z1ToY !== 0) throw new Error('Legacy Z coupling migration failed');
       return true;
     }
 
