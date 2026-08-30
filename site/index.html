@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergence Lab V2 — Spatial Node Research Platform</title>
+  <link rel="stylesheet" href="../shared/el-style.css">
+  <script src="../shared/el-bridge.js"></script>
+  <script src="../shared/node-viz.js"></script>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="brand" href="#"><span class="sig"></span><span>Emergence Lab V2</span></a>
+    <div class="navlinks"><a href="#architecture">Architecture</a><a href="#live">Live Lab</a><a href="#docs">Docs</a><a class="button" href="../lab/index.html" target="_blank">Open Lab</a></div>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="panel hero-copy">
+      <div class="kicker">Spatial node intelligence testbed</div>
+      <h1>Atoms, axes, resonance, and environment.</h1>
+      <p>V2 restores the original node anatomy: nucleus, radials, orbitals, transfer paths, theta resonance, and the reciprocal node-environment relation. The lab below is live-linked to this site.</p>
+      <p><a class="button" href="#live">View connected lab</a> <button id="cmdStart">Start live run</button> <button id="cmdPerturb">Pulse perturbation</button></p>
+      <div class="stats">
+        <div class="stat"><b id="siteNodes">—</b><span>Nodes</span></div>
+        <div class="stat"><b id="siteTime">0.0</b><span>Time</span></div>
+        <div class="stat"><b id="siteWrites">0</b><span>Transfers</span></div>
+        <div class="stat"><b id="siteCoherence">—</b><span>Θ coherence</span></div>
+      </div>
+    </div>
+    <div class="panel node-card">
+      <div class="kicker">Canonical node anatomy</div>
+      <canvas id="nodePreview"></canvas>
+      <div class="status">
+        <div><span>Core</span><b>Nucleus</b></div><div><span>Structure</span><b>X/Y/Z + Z₁/Z₂</b></div><div><span>Field</span><b>Θ + Γ</b></div>
+      </div>
+    </div>
+  </section>
+  <section id="architecture" class="grid three">
+    <div class="panel card"><h3>Original anatomy restored</h3><p class="muted">The node is no longer a dot. It is an atom-inspired spatial object with center, axes, radials, orbitals, resonance, and field relation.</p></div>
+    <div class="panel card"><h3>Old + new lab integration</h3><p class="muted">The old slider/control surface is retained while the visual and conceptual layer is rebuilt around the original node morphology.</p></div>
+    <div class="panel card"><h3>Website ↔ lab bridge</h3><p class="muted">Telemetry and commands move across BroadcastChannel, localStorage, and iframe postMessage. The site mirrors the running lab.</p></div>
+  </section>
+  <section id="live" class="panel card">
+    <div class="grid two">
+      <div><div class="kicker">Live connected lab</div><h2>Control the experiment without leaving the website.</h2><p class="muted">The embedded lab publishes its state to the website. Website controls can start, pause, reset, and perturb the lab.</p><div class="feed" id="feed"><b>Waiting for lab telemetry…</b></div></div>
+      <div class="panel card"><h3>Site controls</h3><p><button data-command="start">Start</button> <button data-command="pause">Pause</button> <button data-command="reset">Reset</button> <button data-command="multi">Multi-node</button></p><p><button data-command="perturb">Perturbation pulse</button> <button data-command="stabilize">Stabilize</button></p></div>
+    </div>
+    <iframe class="live-frame" src="../lab/index.html?embedded=1" title="Emergence Lab V2 Live Lab"></iframe>
+  </section>
+  <section id="docs" class="grid two">
+    <div class="panel card"><h2>V2 white paper</h2><p class="muted">The V2 paper anchors the system to the original spatial-node vision and removes conflicts with that root.</p><p><a class="button" href="../docs/Emergence_Lab_Research_Brief_V2.md">Open Markdown</a></p></div>
+    <div class="panel card"><h2>Research boundary</h2><p class="muted">Public language stays high-level. Proprietary mechanisms, formulas, and implementation-specific update rules remain out of the public-facing overview.</p></div>
+  </section>
+  <div class="footer"><span>Emergence Lab V2</span><span>Knowledge emerges through interaction.</span></div>
+</main>
+<script>
+  drawCanonicalNode(document.getElementById("nodePreview"), {speed:1});
+  const setText=(id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v;};
+  function renderTelemetry(t){ if(!t) return; setText("siteNodes", t.nodeCount ?? "—"); setText("siteTime", Number(t.time||0).toFixed(1)); setText("siteWrites", t.transfers ?? 0); setText("siteCoherence", Number(t.thetaCoherence||0).toFixed(2)); document.getElementById("feed").innerHTML = `<b>Lab online</b><span>Mode: ${t.mode}</span><span>X ${t.X.toFixed(2)} · Y ${t.Y.toFixed(2)} · Z₁ ${t.Z1.toFixed(2)} · Z₂ ${t.Z2.toFixed(2)}</span><span>Environment ${t.environment.toFixed(2)} · Γ ${t.gamma.toFixed(2)}</span>`; }
+  const last = ELBridge.lastTelemetry(); if(last) renderTelemetry(last.payload);
+  ELBridge.on(ev => { if(ev.type === "telemetry") renderTelemetry(ev.payload); });
+  document.querySelectorAll("[data-command],#cmdStart,#cmdPerturb").forEach(btn=>{ btn.addEventListener("click",()=>{ const command = btn.dataset.command || (btn.id==="cmdPerturb" ? "perturb" : "start"); ELBridge.publishCommand({command}); }); });
+</script>
+</body>
+</html>
