@@ -1,61 +1,67 @@
 # Emergence Lab — Stage 2 / EL-EXP-REEL-001
 
-This directory contains the lean Stage 2 experimental runtime for the resonance-mediated transfer experiment informally motivated by the "Explain Reel Algorithm" discussion.
-
 ## Scientific boundary
 
-Stage 1 evidence is frozen and is not retroactively reinterpreted through this runtime.
+Stage 1 is frozen. The restored-anatomy V2 lineage remains separate. No Mati core, radials, orbitals, anatomical resonance rings, or restored-anatomy mechanisms participate in this experiment.
 
-The restored-anatomy V2 lineage also remains separate. **No Mati core, radials, orbitals, anatomical resonance rings, or other restored-anatomy mechanisms participate in EL-EXP-REEL-001.**
-
-## Core state
-
-The experimental node state is:
+The experimental node is:
 
 \[
 N_i=(X_i,Y_i,Z_{1i},Z_{2i},\Theta_i)
 \]
 
-All five coordinates are represented as structured state. `Theta` carries frequency, phase, amplitude, and coherence.
+Energy is not a sixth node coordinate. Environmental excitation, transfer, dissipation, work, and carried excitation are normalized computational flow telemetry, not physical joules.
 
-Energy is **not** a sixth node coordinate. The runtime instead tracks normalized environmental excitation, transmitted excitation, dissipation, work, and carried excitation as derived flow telemetry. These are computational bookkeeping units, not physical joules.
+## Candidate mechanism
 
-## Candidate Stage 2 mechanism under test
-
-Environmental perturbations provide forcing. Pairwise transfer efficiency in the experimental arm is:
+Resonance-mediated transfer uses:
 
 \[
-\eta_{ij}=S_\Theta(i,j)
+\eta_{ij}=S_\Theta(i,j),\qquad C_{ij}=1-S_\Theta(i,j).
 \]
 
-with mismatch cost:
+The frozen-efficiency factor holds \(\eta\) at the Tick-0 mean pairwise Theta similarity. This law is a candidate Stage 2 mechanism, not a physical law.
+
+## Final design
+
+EL-EXP-REEL-001 is a 2×2 factorial experiment:
+
+| Arm | Transfer mechanism | Selective Tick-51 pulse |
+|---|---|---|
+| A | resonance-mediated | yes |
+| B | resonance-mediated | no |
+| C | frozen efficiency | yes |
+| D | frozen efficiency | no |
+
+The primary causal contrast is:
 
 \[
-C_{ij}=1-S_\Theta(i,j).
+(A-B)-(C-D).
 \]
 
-This is a replaceable **candidate mechanism**, not a claimed physical law.
+This separates the effect of the selective exposure from baseline divergence caused by using two different transfer mechanisms.
 
-The paired control arm freezes transfer efficiency at the Tick-0 mean pairwise Theta similarity while preserving the same seed, initial nodes, environmental forcing schedule, and selective exposure pulse.
+All four arms share the same seeded Tick-0 node state and the same deterministic base environmental forcing. A and C receive the additional Tick-51 Node-1 pulse; B and D do not.
 
-The canonical runtime uses synchronous fixed-tick updates: environmental forcing is applied, the complete pre-interaction state is frozen, all pairwise edge effects are computed from that snapshot, and accumulated state effects are applied simultaneously. This prevents node iteration order from becoming a hidden causal variable.
+The runtime uses synchronous fixed-tick updates: local environmental forcing is applied, the complete pre-interaction state is frozen, all edges are calculated from that snapshot, and accumulated effects are applied simultaneously.
 
-## Canonical runtime
+## Canonical runtime — use this file only
 
-Use:
+`EL-EXP-REEL-001_FACTORIAL.html`
 
-`EL-EXP-REEL-001.html`
+The following files are superseded development artifacts and must not be used as evidence-generating runtimes:
 
-The earlier `index.html` in this directory is a development draft and is **not** the preregistered runtime.
+- `index.html`
+- `EL-EXP-REEL-001.html`
 
-Serve this directory with a static HTTP server:
+## Run
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open:
+Open:
 
-`http://localhost:8000/EL-EXP-REEL-001.html`
+`http://localhost:8000/EL-EXP-REEL-001_FACTORIAL.html`
 
-The simulation initializes `READY / PAUSED` at Tick 0 and automatically pauses at the preregistered checkpoints. Do not press Start until `EL-EXP-REEL-001_PROTOCOL.md` has been reviewed.
+The runtime initializes `READY / PAUSED` at Tick 0 and automatically pauses at 25, 50, 75, 100, and 150. Review `EL-EXP-REEL-001_PROTOCOL.md` before pressing Start.
