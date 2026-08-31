@@ -2,68 +2,65 @@
 
 ## Resonant Transfer, Environmental Forcing, Structured State, and Experimental Transition
 
-**Status:** Stage 2 working white paper  
-**Date:** 31 August 2026  
-**Boundary:** Begins after the close of the Stage 1 circulation paper. Stage 1 remains frozen.  
-**Separate lineage:** The restored-anatomy V2 work (Mati, radials, orbitals, resonance rings, and atom-inspired rendering) remains a separate document and implementation track and is not incorporated into this Stage 2 paper.
+**Revision:** Working Revision 2 — 31 August 2026  
+**Boundary:** Begins after the close of the Stage 1 circulation paper. **Stage 1 remains frozen.**  
+**Separate lineage:** The restored-anatomy V2 work — Mati, radials, orbitals, resonance rings, atom-inspired rendering, and associated visual anatomy — remains a separate document and implementation track. It is not merged into this Stage 2 paper.
 
 ---
 
 ## Abstract
 
-Emergence Lab Stage 2 shifts the project from a scalar/partially structured exploratory simulation lineage toward a deliberately structured, reproducible experimental system. The core node is represented as
+Stage 2 moves Emergence Lab from an exploratory simulation lineage toward a deliberately structured and reproducible experimental system. Its adopted core node is
 
 \[
-N_i(t)=\big(X_i(t),Y_i(t),Z_{1i}(t),Z_{2i}(t),\Theta_i(t)\big),
+\boxed{N_i(t)=\big(X_i(t),Y_i(t),Z_{1i}(t),Z_{2i}(t),\Theta_i(t)\big)}.
 \]
 
-with each coordinate treated as structured state rather than as a single diagnostic scalar. The split between \(Z_1\) and \(Z_2\) is retained because failed-transfer recovery and successful integration are not the same operation. \(\Theta\) carries resonance information, including frequency, phase, amplitude, and coherence.
+The five coordinates are treated as structured rather than exhaustively scalar state. The split between \(Z_1\) and \(Z_2\) is retained because recovery/recoil after mismatch and successful integration/carryover are different operations. \(\Theta\) carries resonance information including frequency, phase, amplitude, and coherence.
 
-Stage 2 also clarifies an older design lineage that predates the mature \(Z_1/Z_2\) vocabulary. Early handwritten work described a resonance tuple approximately of the form
+Early project notes described a resonance-like tuple approximately of the form
 
 \[
 \eta=(f,A,\phi,\gamma),
 \]
 
-where frequency/relatedness, amplitude/strength, phase/alignment, and damping/resistance were associated with a system that could self-organize toward lower interaction cost. This is treated as conceptual ancestry of the modern resonance state, not as proof that any old symbol maps one-to-one onto a present variable.
+and associated harmonious interaction with lower interaction cost. Stage 2 treats that artifact as conceptual ancestry of the modern resonance framework, without retroactively asserting that \(\gamma=Z_1\) or that \(Z_2\) is literal kinetic energy.
 
-A central Stage 2 hypothesis is that environmental perturbations can provide excitation to an open node system, while resonance similarity modulates the efficiency with which that excitation is transmitted between nodes. Energy is therefore not introduced as an additional identity coordinate or internal battery. Instead, excitation, transfer, dissipation, work, and carried flow are accounted for as derived interaction quantities. A candidate law for the first controlled experiment is
+Stage 2 also clarifies the energy question. A standalone energy variable is **not** added to the node tuple. The environment is modeled as an open source of perturbational forcing; excitation, transfer, work, dissipation, and carried flow are derived interaction quantities. The first candidate transfer law is
 
 \[
-\eta_{ij}=S_\Theta(i,j),
-\qquad
-C_{ij}=1-S_\Theta(i,j),
+\eta_{ij}=S_\Theta(i,j),\qquad C_{ij}=1-S_\Theta(i,j),
 \]
 
-where \(S_\Theta\) is pairwise resonance similarity. These equations are explicitly provisional and experimentally replaceable.
+where \(S_\Theta\) is pairwise resonance similarity. These are test equations, not established physical laws.
 
-The first Stage 2 preregistered test, EL-EXP-REEL-001, asks whether a selective environmental exposure can produce a persistent feedback asymmetry when local transfer efficiency depends on resonance, compared with a paired frozen-efficiency control. The experiment uses a lean runtime that excludes the restored visual anatomy so that the causal surface remains minimal.
+The first preregistered Stage 2 experiment, **EL-EXP-REEL-001**, uses a 2×2 factorial design to test whether selective environmental exposure has a different persistent effect when transfer is dynamically resonance-dependent than when transfer efficiency is frozen. The primary causal contrast is
+
+\[
+\boxed{(A-B)-(C-D)}.
+\]
+
+The lean experimental runtime deliberately excludes restored anatomical mechanisms so that the immediate causal surface remains minimal.
 
 ---
 
-# 1. Stage Boundary
+# 1. Stage Boundary and Status Discipline
 
-Stage 1 established a useful experimental lineage but also revealed important limitations: scalar compression, ambiguous interface labels, legacy runtime artifacts, implementation drift, and insufficient separation between conceptual architecture and actually executed mechanisms. Stage 2 does not rewrite Stage 1. Results obtained under Stage 1 remain evidence about the runtime and protocol that generated them.
+Stage 1 is not rewritten by Stage 2. Its results remain evidence about the exact runtimes and protocols that produced them.
 
-Stage 2 begins when the laboratory adopts three rules:
+Stage 2 adopts three status classes:
 
-1. the experimental state and transfer mechanisms must be explicit enough to inspect;
-2. initialization and observation must be reproducible enough to support causal comparisons; and
-3. proposed mechanisms must be labeled according to status rather than being silently promoted into canonical architecture.
+- **Adopted architecture:** a current project-level structural decision.
+- **Candidate mechanism:** an explicit rule implemented for testing but not established as a general law.
+- **Unresolved:** a question reserved for later experiment or deliberate Senate decision.
 
-For that reason, this paper uses three status labels:
-
-- **Adopted architecture:** a project-level structural decision currently required for Stage 2 work;
-- **Candidate mechanism:** an explicit rule implemented for testing but not established as a general law;
-- **Unresolved:** a question deliberately left open pending experiment or Senate decision.
+This distinction exists specifically to prevent a useful candidate equation, visualization, or analogy from being silently promoted into the canonical architecture.
 
 ---
 
 # 2. Canonical Stage 2 Node
 
-## 2.1 Adopted core state
-
-The Stage 2 core node is
+## 2.1 Adopted state
 
 \[
 \boxed{N_i=(X_i,Y_i,Z_{1i},Z_{2i},\Theta_i)}.
@@ -71,65 +68,55 @@ The Stage 2 core node is
 
 No standalone \(E\) coordinate is part of the core node.
 
-The core coordinates are interpreted as follows.
-
 ### X — Identity / persistent organization
 
-\(X\) represents the node's comparatively durable present organization. In Stage 2 it is structured state. A scalar summary may be displayed for telemetry, but that projection is not the full variable.
+Structured state representing comparatively durable present organization. Scalar displays are telemetry projections, not the complete variable.
 
 ### Y — Memory / perception / retained interaction state
 
-\(Y\) carries recent and accumulated effects of input and interaction. It is structured state and acts as an important bridge between environmental exposure and later node behavior.
+Structured state carrying recent and accumulated effects of environmental and relational input.
 
-### Z1 — recoil / recovery / failed-transfer response
+### Z1 — Recoil / recovery / failed-transfer response
 
-\(Z_1\) is reserved for the response associated with mismatch, failed integration, recovery, recoil, or structural restoration. It must not be silently collapsed into \(Z_2\).
+Structured response associated with mismatch, rejected integration, recoil, recovery, or structural restoration.
 
-### Z2 — integration / transfer / carryover response
+### Z2 — Integration / transfer / carryover response
 
-\(Z_2\) is reserved for qualified transfer, integration readiness, accepted carryover, or successful incorporation. It must not be silently collapsed into \(Z_1\).
+Structured response associated with qualified transfer, integration readiness, accepted carryover, or incorporation.
 
-### Theta — resonance state
+### Theta — Resonance state
 
-\(\Theta\) represents the node's resonance-bearing state. The current operational representation includes frequency, phase, amplitude, and coherence. Pairwise similarity between two \(\Theta\) states is written
+Structured resonance state currently operationalized through frequency, phase, amplitude, and coherence. Pairwise similarity is written
 
 \[
 S_\Theta(i,j)\in[0,1].
 \]
 
-A scalar `Theta` display value is only a projection of this richer state.
-
-## 2.2 Structured rather than scalar
-
-Stage 2 treats all five core coordinates as capable of internal structure. This is not a claim that one particular dimensionality is final. The important architectural rule is that identity, memory, recoil, transfer, and resonance are not assumed to be exhaustively represented by one number each.
-
-The present EL-EXP-REEL-001 runtime uses three-component vectors for \(X,Y,Z_1,Z_2\), while \(\Theta\) contains structured frequency, phase, amplitude, and coherence. This dimensionality is an experimental implementation choice, not a metaphysical or biological claim.
+The present first-run implementation uses three-component vectors for \(X,Y,Z_1,Z_2\). That dimensionality is an implementation choice, not a final ontological claim.
 
 ---
 
-# 3. The Z Split Is Not Optional in Stage 2
+# 3. Why Z1 and Z2 Remain Separate
 
-Earlier project phases sometimes treated \(Z\) as a generic stability variable. Stage 2 rejects that collapse for experiments involving transfer.
-
-A failed interaction and a successful integration are mechanically different events. If only \(Z_2\) exists, there is no explicit recovery/recoil path after mismatch. If only \(Z_1\) exists, there is no explicit pathway for accepted transfer and carryover.
-
-The Stage 2 distinction is therefore:
+For transfer experiments, a single generic \(Z\) is insufficient. Failed interaction and successful integration are not the same event.
 
 \[
-\text{mismatch / failure}\longrightarrow Z_1\text{ response},
+\text{mismatch / failure}\rightarrow Z_1\text{ response}
 \]
 
 \[
-\text{qualified transfer}\longrightarrow Z_2\text{ response}.
+\text{qualified transfer}\rightarrow Z_2\text{ response}.
 \]
 
-The exact differential equations governing recovery and integration remain candidate-level and may change with evidence. The existence of two distinct response channels is the adopted architectural decision.
+If \(Z_1\) is absent, the architecture lacks an explicit recovery/recoil path. If \(Z_2\) is absent, the architecture lacks an explicit accepted-transfer/carryover path.
+
+The exact update equations remain candidate-level; the two-channel distinction is the adopted Stage 2 architecture.
 
 ---
 
-# 4. Resonance Lineage and the Early Low-Cost Interaction Idea
+# 4. Resonance Lineage and Low-Cost Interaction
 
-Handwritten work from the earlier project period describes a resonance-like tuple
+An early handwritten artifact contains approximately
 
 \[
 \eta=(f,A,\phi,\gamma),
@@ -137,38 +124,34 @@ Handwritten work from the earlier project period describes a resonance-like tupl
 
 with notes associating:
 
-- \(f\) with frequency or relatedness;
-- \(A\) with amplitude, strength, or influence;
-- \(\phi\) with phase and alignment;
-- \(\gamma\) with damping, resistance to change, or stability.
+- \(f\): frequency / relatedness;
+- \(A\): amplitude / strength / influence;
+- \(\phi\): phase / alignment;
+- \(\gamma\): damping / resistance to change / stability.
 
-The same notes describe a system in which nodes can self-organize toward stable states by minimizing interaction cost and characterize harmonious interaction as comparatively low-effort.
+The notes also describe stable self-organization through minimizing interaction cost and characterize harmonious interaction as comparatively low-effort.
 
-Stage 2 recognizes a strong conceptual continuity between this early work and the modern \(\Theta\) variable. However, the historical artifact does **not** establish that \(\gamma=Z_1\), nor that \(Z_2\) is literally kinetic energy. Those mappings would be retrospective overreach.
-
-The supported conceptual bridge is narrower:
+The supported continuity is therefore:
 
 \[
-\text{better resonance alignment}
+\text{greater resonance alignment}
 \rightarrow
 \text{lower effective mismatch/resistance}
 \rightarrow
 \text{more efficient transfer}.
 \]
 
-This bridge becomes a testable Stage 2 hypothesis rather than a retrospective claim about Stage 1.
+Stage 2 does **not** infer from the old notes that \(\gamma\) is identical to modern \(Z_1\), or that \(Z_2\) is literal kinetic energy. Those would be retrospective mappings not established by the source artifact.
 
 ---
 
-# 5. Environmental Forcing and the Energy Question
+# 5. Environmental Forcing and Energy Accounting
 
-## 5.1 Adopted conceptual boundary
+## 5.1 Open driven system
 
-Energy is not added to the core tuple as a sixth node coordinate. A node is not assigned an arbitrary internal battery merely to make transfer possible.
+The high-disorder environment is treated as a source of perturbational forcing. It does not create energy from nothing; in the model it injects normalized excitation into the node system.
 
-The Stage 2 environmental picture is instead an **open driven system**. The environment produces perturbations. Those perturbations provide excitation that can be absorbed, transmitted, used to perform structural work, or rendered less coherent through mismatch/damping.
-
-The conceptual flow is
+Conceptually:
 
 \[
 \text{environmental perturbation}
@@ -180,96 +163,71 @@ The conceptual flow is
 \text{transfer / recoil / work / dissipation}.
 \]
 
-## 5.2 Normalized bookkeeping rather than physical joules
+## 5.2 Energy is not a node coordinate
 
-Current Stage 2 runtimes use normalized computational units. The terms `energy`, `work`, `dissipation`, and `entropy` are bookkeeping analogies unless and until a physically dimensioned model is separately derived and validated.
+Stage 2 rejects an arbitrary node “battery” added merely to make transfer possible. Excitation is represented as auxiliary flow/bookkeeping associated with the environment and interactions.
 
-This prevents two opposite errors:
-
-1. pretending that a simulation quantity is already real thermodynamic energy; and
-2. losing conservation/accounting discipline merely because the system is computational.
-
-## 5.3 Open-system accounting
-
-A conceptual cluster-level budget is
+The current discrete accounting rule is
 
 \[
-\frac{dE_{cluster}}{dt}
-=
-P_{env}-P_{diss}-P_{work},
-\]
-
-where environmental perturbation supplies forcing, dissipation represents excitation no longer available to coherent transfer, and work represents excitation committed to persistent structural change.
-
-Within a discrete transfer event, the initial Stage 2 runtime enforces the bookkeeping identity
-
-\[
-E_{available}
-=
-E_{dissipated}+E_{work}+E_{carried}
+\boxed{E_{available}=E_{dissipated}+E_{work}+E_{carried}}
 \]
 
 up to floating-point tolerance.
 
-`Carried` excitation becomes transient input available for later node-to-node transfer. This flow is auxiliary interaction state; it does not change the canonical node tuple.
-
-## 5.4 “Costless” transfer
-
-A perfectly aligned interaction may be modeled as approaching zero **mismatch cost**. That does not mean the transfer requires no excitation and does not mean energy is created.
-
-The intended limiting interpretation is
+At cluster scale the conceptual open-system budget is
 
 \[
-S_\Theta\rightarrow1
-\Rightarrow
-C_{mismatch}\rightarrow0,
+\frac{dE_{cluster}}{dt}=P_{env}-P_{diss}-P_{work}.
 \]
 
-and therefore
+These terms are normalized computational quantities. They are not yet dimensioned in joules, and the project does not claim physical thermodynamic validity from this bookkeeping alone.
+
+## 5.3 Meaning of “costless” transfer
+
+In the idealized resonance limit,
+
+\[
+S_\Theta\rightarrow1\Rightarrow C_{mismatch}\rightarrow0.
+\]
+
+This means the **mismatch loss** can approach zero. It does not mean no excitation is involved and does not imply free-energy production. For the transferable portion, the intended limiting behavior is simply
 
 \[
 E_{out}\approx E_{in}
 \]
 
-for the transferable portion before any work term is removed.
-
-This is efficient transmission, not free-energy production.
+before work or other losses are removed.
 
 ---
 
 # 6. Candidate Resonance-Transfer Law
 
-For the first Stage 2 controlled test, the experimental arm uses
+The first Stage 2 experiment uses the minimum monotonic candidate:
 
 \[
 \boxed{\eta_{ij}=S_\Theta(i,j)}
 \]
 
-and
-
 \[
 \boxed{C_{ij}=1-S_\Theta(i,j)}.
 \]
 
-Here \(\eta_{ij}\) is normalized transfer efficiency and \(C_{ij}\) is normalized mismatch cost.
+The law does not create excitation. It determines what fraction of available excitation survives mismatch as transferable output.
 
-These are **candidate equations** selected because they implement the minimum monotonic relationship suggested by the project's older harmony/low-cost idea. They deliberately avoid extra free parameters in the first test.
-
-The candidate law does not say that resonance creates excitation. It says that resonance controls what fraction of available excitation survives an interaction as transferable output.
-
-The frozen-efficiency control instead uses
+The comparison mechanism freezes efficiency at the common Tick-0 mean similarity:
 
 \[
-\eta_{ij}=\bar S_\Theta(0),
+\eta_{ij}=\bar S_\Theta(0).
 \]
 
-the Tick-0 mean pairwise resonance similarity, held constant for the entire control trajectory. This creates a paired comparison in which the initial efficiency scale is matched but later changes in resonance cannot alter transfer efficiency.
+The functional form is deliberately simple and replaceable. Failure of the linear law is an experimental result, not an architectural failure.
 
 ---
 
-# 7. Local Transfer Sequence for EL-EXP-REEL-001
+# 7. Candidate Local Transfer Sequence
 
-The first Stage 2 runtime uses the following candidate sequence:
+For EL-EXP-REEL-001 the local sequence is:
 
 \[
 \text{environmental input}
@@ -279,82 +237,91 @@ The first Stage 2 runtime uses the following candidate sequence:
 \rightarrow \eta
 \rightarrow
 \begin{cases}
-Z_2 & \text{successful transfer/integration response}\\
+Z_2 & \text{transfer/integration response}\\
 Z_1 & \text{mismatch/recoil response}
 \end{cases}
 \rightarrow \Delta X\text{ when work occurs}.
 \]
 
-The system contains no explicit persistent “preference weight” for a neighbor. Any preferential pathway must arise from current node state, resonance similarity, carried excitation, and the local coupling rules.
+Received transfer may weakly couple destination \(\Theta\) toward source \(\Theta\). This is an explicit local oscillator-style rule. The experimental question is whether the complete local loop produces persistent system-level feedback differentiation, not whether a resonance coupling term exists in code.
 
-A small amount of transfer-dependent resonance coupling is permitted: received transfer can move the destination's \(\Theta\) toward the source's \(\Theta\). This is a local oscillator-style coupling rule. The experimental question is not whether that local rule exists; it is whether the closed sequence produces persistent system-level feedback differentiation relative to the control.
-
----
-
-# 8. Commissioning and Reproducibility Requirements Added After Stage 1
-
-Stage 2 laboratory work adopts the commissioning lessons established during LAB-COM-001.
-
-The experimental apparatus should:
-
-- boot READY / PAUSED at Tick 0;
-- require an explicit Start action;
-- support Pause and deterministic single-Step;
-- use a visible editable seed;
-- rebuild the complete initial condition reproducibly from that seed;
-- include spatial state in the seeded initialization when spatial state is scientifically active;
-- eliminate unseeded random calls from initialization and scientific dynamics;
-- prevent diagnostic/test-harness randomness from perturbing the simulation RNG;
-- clear run histories at a canonical reset boundary;
-- keep simulation updates independent of display frame cadence;
-- ensure observation does not alter state;
-- distinguish initialization controls, dynamics controls, environmental controls, observation controls, and recording controls.
-
-Earlier commissioning work identified and corrected hidden sources of non-reproducibility, including unseeded spatial initialization and nondeterministic diagnostic sampling. These lessons become Stage 2 requirements regardless of which visual interface is used.
-
-EL-EXP-REEL-001 adds one additional requirement: **within-tick synchronous updates.** Every pairwise interaction for a tick is calculated from the same frozen pre-interaction state. No node is permitted to benefit or suffer merely because its index was visited earlier in a JavaScript loop.
+No explicit persistent neighbor “preference weight” is programmed.
 
 ---
 
-# 9. EL-EXP-REEL-001 — First Stage 2 Preregistered Experiment
+# 8. Post-Stage-1 Commissioning Requirements
+
+Stage 2 carries forward the apparatus lessons established during LAB-COM-001:
+
+- boot `READY / PAUSED` at Tick 0;
+- explicit Start;
+- Pause and deterministic one-tick Step;
+- visible editable seed;
+- reproducible full initialization;
+- spatial state seeded whenever spatial state is scientifically active;
+- no unseeded randomness in initialization or scientific dynamics;
+- diagnostic/harness evaluation must not consume simulation RNG;
+- canonical reset clears run history;
+- observation must not perturb state;
+- scientific updates must be independent of display-frame cadence;
+- controls should be distinguishable as initialization, dynamics, environmental, observation, or recording controls.
+
+Prior commissioning identified and corrected hidden nondeterminism including unseeded spatial initialization and nondeterministic diagnostic sampling.
+
+EL-EXP-REEL-001 adds a further requirement: **synchronous within-tick updates**. Environmental forcing is applied, a complete pre-interaction snapshot is frozen, every edge is calculated from that snapshot, and accumulated effects are then applied simultaneously. JavaScript node iteration order therefore cannot become an unintended causal variable.
+
+---
+
+# 9. EL-EXP-REEL-001 — First Preregistered Stage 2 Experiment
 
 ## 9.1 Motivation
 
-The experiment is inspired by the general structure of a recommendation-feedback process:
+The experiment is inspired by the general feedback form
 
 \[
 \text{exposure}
 \rightarrow
-\text{response/state change}
+\text{state change}
 \rightarrow
-\text{changed future interaction}
+\text{changed later interaction}
 \rightarrow
-\text{changed later exposure}.
+\text{changed later exposure/history}.
 \]
 
-It does not attempt to reconstruct or claim knowledge of a proprietary Reel recommendation algorithm.
+It is not an attempt to reconstruct a proprietary Reel recommendation algorithm.
 
 ## 9.2 Research question
 
-Can a selective environmental exposure create a persistent feedback asymmetry when transfer efficiency is dynamically resonance-dependent, relative to a paired system whose transfer efficiency is frozen at its initial mean value?
+Does a selective environmental exposure have a different persistent effect when node-to-node transfer efficiency is dynamically resonance-dependent than when transfer efficiency is frozen?
 
-## 9.3 Paired design
+## 9.3 Factorial design
 
-Both arms begin from an identical seeded node state and receive exactly the same deterministic environmental forcing at every tick.
+All four arms begin from the exact same seeded Tick-0 node state and receive the same deterministic base environmental forcing.
 
-**Arm A — resonance-mediated:**
+| Arm | Transfer mechanism | Tick-51 selective pulse |
+|---|---|---|
+| A | resonance-mediated | yes |
+| B | resonance-mediated | no |
+| C | frozen efficiency | yes |
+| D | frozen efficiency | no |
+
+The pulse is added only to Node 1 in A and C at Tick 51. B and D receive the same base environmental forcing but no additional pulse.
+
+For observable \(M\):
 
 \[
-\eta_{ij}(t)=S_\Theta(i,j,t).
+\Delta_R=M_A-M_B,
+\qquad
+\Delta_F=M_C-M_D,
 \]
 
-**Arm B — frozen-efficiency control:**
+and the primary causal contrast is
 
 \[
-\eta_{ij}(t)=\bar S_\Theta(0).
+\boxed{I_M=(M_A-M_B)-(M_C-M_D)}.
 \]
 
-Both arms receive the same predeclared selective exposure at Tick 51.
+This difference-in-differences structure was adopted during pre-launch review because a simple two-arm resonance-versus-frozen comparison could diverge before the intervention and therefore confound mechanism drift with pulse effect.
 
 ## 9.4 Fixed checkpoints
 
@@ -362,15 +329,16 @@ Both arms receive the same predeclared selective exposure at Tick 51.
 0,25,50,75,100,150.
 \]
 
-The runtime automatically pauses at every post-zero checkpoint.
+The runtime pauses automatically at every post-zero checkpoint. The selective pulse occurs at Tick 51 immediately after the Tick-50 pause is resumed.
 
-## 9.5 Observables
+## 9.5 Predeclared observables
 
-The preregistered runtime records:
+The runtime exports:
 
-- structured serialized node state;
+- complete structured node state;
 - mean X, Y, Z1, Z2 projections;
-- pairwise Theta similarity and its variance;
+- mean pairwise Theta similarity;
+- Theta-similarity variance;
 - carried excitation;
 - environmental input;
 - transferred excitation;
@@ -378,151 +346,165 @@ The preregistered runtime records:
 - work;
 - pathway concentration;
 - excitation-accounting residual;
-- paired arm differences.
+- pulse count by arm;
+- A-B pulse effect;
+- C-D pulse effect;
+- factorial interaction \((A-B)-(C-D)\).
 
-## 9.6 Result classes
+The interaction is displayed for mean Theta similarity, pathway concentration, retained flow, cumulative dissipation, and cumulative work.
 
-A persistent post-pulse arm difference through Tick 150 supports the narrow claim that the tested resonance-dependent local coupling can produce persistent feedback differentiation under these rules.
+## 9.6 Integrity conditions
 
-A transient difference supports perturbation sensitivity but not persistent reinforcement.
+Before Tick 51:
 
-Little or no arm difference fails to support persistent reinforcement under the selected parameters.
+\[
+A=B,\qquad C=D
+\]
 
-A protocol violation, wrong runtime, incorrect checkpoint, duplicated pulse, nonidentical Tick-0 state, or material bookkeeping error invalidates the run as evidence.
+must hold exactly for scientific node state, and pulse counts must be `0/0/0/0`.
+
+After Tick 51, pulse counts must be exactly
+
+`1/0/1/0` for A/B/C/D.
+
+Material excitation-accounting error, wrong checkpoint behavior, wrong runtime, altered parameters, or uncontrolled intervention invalidates the run.
+
+## 9.7 Result classes
+
+**Persistent mechanism-specific response:** the factorial interaction appears after Tick 51 and remains directionally persistent through Tick 150 on one or more predeclared organization/flow observables.
+
+**Transient mechanism-specific response:** the interaction appears but contracts substantially toward zero by Tick 150.
+
+**Pulse response without mechanism interaction:** A-B and C-D show effects, but \((A-B)-(C-D)\) remains approximately zero.
+
+**No meaningful pulse response:** both A-B and C-D remain approximately zero.
+
+**Invalid:** any protocol or integrity failure.
+
+No numeric significance threshold is invented before a replication distribution exists. The first Seed-42 run is a preregistered mechanistic probe; replication is required before generalized claims.
 
 ---
 
-# 10. Explicit Exclusion of Restored-Anatomy V2 From This Test
+# 10. Restored-Anatomy V2 Remains Separate
 
-Stage 2 experimental minimalism must not be confused with rejection of the project's restored anatomical vision.
+The separate V2 anatomy lineage includes Mati/central core, radials, orbitals/circulation, resonance rings, richer spatial anatomy, and rendered transfer pathways.
 
-The separate V2 anatomy lineage includes concepts such as:
-
-- Mati / central core;
-- radials and axes as rendered anatomy;
-- orbital/circulatory movement;
-- resonance rings;
-- richer three-dimensional spatial expression;
-- visual transfer pathways.
-
-Those features may later become scientifically causal. EL-EXP-REEL-001 excludes them because the immediate question can be asked with a smaller causal surface. If a later experiment tests anatomical mechanisms, they must be introduced explicitly as independent structures rather than silently inherited by this runtime.
+Their exclusion from EL-EXP-REEL-001 is experimental minimalism, not a judgment that they are scientifically irrelevant. If a later experiment makes those structures causally active, they must be introduced explicitly and tested as added mechanisms.
 
 Therefore:
 
-**Stage 2 white paper ≠ restored-anatomy V2 brief.**
+> **Stage 2 White Paper is not the Restored-Node-Anatomy V2 Brief.**
 
-The documents address different project layers and remain separate until a later deliberate integration decision.
-
----
-
-# 11. Gamma and Consequential History
-
-The project has also developed the concept of \(\Gamma\) as consequentiality, legacy, scarring, or forward influence from prior events.
-
-Stage 2 preserves \(\Gamma\) as a relevant research concept but does **not** make it causal in EL-EXP-REEL-001. The first resonance-transfer experiment should determine what the five-coordinate node plus environmental forcing can do without adding a dedicated long-history reinforcement variable.
-
-This is an intentional control on architectural complexity. If persistent feedback cannot survive without a \(\Gamma\)-like term, that itself becomes useful evidence for a later experiment.
+They remain separate until a deliberate integration decision.
 
 ---
 
-# 12. What Stage 2 Does Not Yet Claim
+# 11. Gamma / Consequential History
 
-Stage 2 does not establish that:
+\(\Gamma\) remains a project research concept for consequence, legacy, scarring, and forward influence from prior events. It is deliberately excluded as a causal variable in EL-EXP-REEL-001.
 
+The first Stage 2 experiment asks what the five-coordinate node plus environmental forcing can do without a dedicated long-history reinforcement term. If persistent feedback requires a \(\Gamma\)-like variable, that becomes evidence for a later experiment rather than an assumption embedded in this one.
+
+---
+
+# 12. Claim Discipline
+
+Stage 2 does **not** currently establish that:
+
+- normalized excitation is literal physical energy;
+- environmental disorder is thermodynamic entropy;
 - the model is physically thermodynamic;
-- its normalized excitation is literal energy;
-- its environmental disorder parameter is thermodynamic entropy;
-- the selected transfer law is uniquely correct;
-- \(Z_1\) is identical to mechanical inertia;
-- \(Z_2\) is identical to kinetic energy;
-- resonance alone produces learning;
-- observed persistence constitutes consciousness or intelligence;
-- the model reproduces any proprietary recommendation algorithm;
-- restored-anatomy structures are merely decorative or scientifically unnecessary.
+- \(\eta=S_\Theta\) is uniquely correct;
+- \(Z_1\) is mechanical inertia;
+- \(Z_2\) is kinetic energy;
+- resonance constitutes learning;
+- persistence constitutes consciousness or intelligence;
+- the experiment reproduces a proprietary recommendation system;
+- the restored anatomy is decorative or unnecessary.
 
-These boundaries are not rhetorical modesty. They preserve falsifiability and keep the project from confusing a useful analogy with a demonstrated equivalence.
+A positive experiment demonstrates behavior of the stated computational model under the stated rules.
 
 ---
 
 # 13. Unresolved Stage 2 Questions
 
-The following remain open:
-
-1. What functional form should replace or refine \(\eta=S_\Theta\) if the linear mapping is inadequate?
-2. Should transfer cost be modeled solely as mismatch loss, or should there be an additional activation threshold?
-3. What is the best operational distinction between recoil, recovery, damping, and structural repair inside \(Z_1\)?
-4. What is the best operational distinction between transfer acceptance, integration, and carryover inside \(Z_2\)?
+1. Is the linear \(\eta=S_\Theta\) mapping adequate?
+2. Does transfer require an activation threshold in addition to mismatch cost?
+3. How should recoil, recovery, damping, and repair be separated inside \(Z_1\)?
+4. How should acceptance, integration, and carryover be separated inside \(Z_2\)?
 5. Under what conditions should work alter \(X\), and should that work be reversible?
-6. How should incoherent/dissipated computational excitation re-enter the environment, if at all?
-7. What conservation law, if any, should be imposed on a later physically dimensioned model?
-8. Does \(\Gamma\) add explanatory power beyond path dependence already present in \(X,Y,Z_1,Z_2,\Theta\)?
-9. Can the high-disorder driven system self-organize into resonant clusters without an explicit clustering objective?
-10. Does the restored anatomy change measurable dynamics once introduced causally, or does it remain representational?
-11. How sensitive are Stage 2 outcomes to vector dimensionality, seed, population size, and intervention target?
-12. Can the system sustain useful circulation of excitation while still paying work/dissipation costs without pathological numerical collapse or growth?
+6. Should dissipated/incoherent excitation re-enter the environment?
+7. What conservation law should govern any future physically dimensioned model?
+8. Does \(\Gamma\) explain anything beyond path dependence already carried by the five-coordinate state?
+9. Can environmental forcing plus differential transfer efficiency generate resonant clusters without an explicit clustering objective?
+10. Do restored anatomical mechanisms change measured dynamics when made causal?
+11. How sensitive are results to dimensionality, seed, population size, pulse target, and forcing regime?
+12. Can clusters maintain useful excitation circulation while paying work/dissipation costs without pathological collapse or growth?
 
 ---
 
 # 14. Stage 2 Research Doctrine
 
-Stage 2 adopts the following laboratory rule:
+> **Freeze the specimen. Define the intervention. Preregister the checkpoints and controls. Run without theoretical improvisation. Interpret only after the final export.**
 
-> Freeze the specimen, define the intervention, preregister the checkpoints, run the control, and interpret only after the run.
+Interesting observations are recorded and parked. Architecture is not altered mid-run to make a result more interesting.
 
-New architecture is not to be introduced mid-experiment because an observation is interesting. Interesting observations are recorded and parked for later deliberation.
-
-The Stage 2 objective is not to make the node look intelligent. It is to determine what organization, persistence, recovery, differentiation, and feedback can arise from a minimal explicit substrate under controlled perturbation.
+The objective is not to make nodes appear intelligent. It is to determine what organization, persistence, recovery, differentiation, and feedback arise from a minimal explicit substrate under controlled perturbation.
 
 ---
 
-# 15. Current Stage 2 Implementation Record
+# 15. Current Implementation Record
 
-A dedicated branch has been created:
-
-`stage2/reel-001`
-
-inside:
+Repository:
 
 `leonardodecreative/EmergenceLab`
 
-The canonical experiment runtime is:
+Stage 2 experiment branch:
 
-`stage2/reel-001/EL-EXP-REEL-001.html`
+`stage2/reel-001`
 
-The runtime:
+**Final canonical evidence-generating runtime:**
 
-- starts READY / PAUSED at Tick 0;
+`stage2/reel-001/EL-EXP-REEL-001_FACTORIAL.html`
+
+Protocol:
+
+`stage2/reel-001/EL-EXP-REEL-001_PROTOCOL.md`
+
+The canonical runtime:
+
+- initializes READY / PAUSED at Tick 0;
 - uses deterministic seeded initialization;
-- runs two paired arms from identical Tick-0 state;
-- derives each tick's environmental forcing from seed + tick;
-- uses structured X, Y, Z1, Z2 and Theta state;
-- contains no Mati/radial/orbital dynamics;
-- treats excitation as auxiliary flow rather than a node coordinate;
-- records environmental input, transfer, dissipation, work and carry;
-- uses fixed integer-tick state transitions;
-- calculates pair interactions from a frozen pre-interaction snapshot;
-- pauses automatically at preregistered checkpoints;
-- automatically applies the selective exposure at Tick 51;
-- exports complete JSON snapshots and telemetry.
+- creates four identical Tick-0 arm states;
+- generates deterministic base forcing from seed + tick;
+- applies the pulse only to A and C at Tick 51;
+- uses resonance-mediated and frozen-efficiency factors;
+- keeps Mati/radial/orbital anatomy out of dynamics;
+- keeps energy outside the node tuple;
+- performs normalized transfer/work/dissipation accounting;
+- computes all within-tick pair interactions from frozen snapshots;
+- pauses automatically at 25, 50, 75, 100, and 150;
+- displays integrity checks and factorial contrasts;
+- exports complete JSON state and telemetry.
 
-The first `index.html` written in the Stage 2 experiment directory is explicitly retained as a development draft. It is not the preregistered runtime. The canonical runtime is named explicitly above to prevent accidental execution of the draft.
+The earlier `index.html` and `EL-EXP-REEL-001.html` files in the experiment directory are retained only as development audit artifacts. They are explicitly superseded and must not be used to generate evidence.
 
 ---
 
-# 16. Immediate Next Step
+# 16. Immediate Scientific Next Step
 
-The next scientific action is **not** another architecture addition.
+No further architecture addition is required before the operator review.
 
-The operator should review the preregistered procedure, verify the canonical branch and runtime, inspect Tick-0 paired identity, save the baseline export, and only then launch Seed 42 through the fixed sequence:
+The operator should verify the final runtime, Seed 42, Tick-0 arm identity, integrity status, factor labels, and baseline export. Only then should the run proceed through
 
 \[
 0\rightarrow25\rightarrow50\rightarrow75\rightarrow100\rightarrow150.
 \]
 
-The Tick-51 exposure is automated. No parameter tuning is permitted during the run. Post-hoc analysis begins only after the Tick-150 export is secured.
+The Tick-51 intervention is automatic. No parameter tuning is permitted during the preregistered run. Post-hoc interpretation begins only after the Tick-150 export is secured.
 
 ---
 
-## End of Stage 2 White Paper — Working Revision 1
+## End — Stage 2 White Paper, Working Revision 2
 
-Stage 1 remains frozen. Restored-anatomy V2 remains separate. Candidate Stage 2 mechanisms remain subject to experiment.
+**Stage 1 remains frozen. Restored-anatomy V2 remains separate. Candidate Stage 2 mechanisms remain subject to experiment.**
