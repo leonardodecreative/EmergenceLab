@@ -47,6 +47,12 @@ The current architecture is provisional where exact dimensions, tensors, equatio
 
 Define the architecture, local rules, and controls. Observe what occurs, attempt to reproduce it, and then try to break the interpretation.
 
+## Authorship, citation, and provenance
+
+Emergence Lab is authored and architected by **Robert J. S. Cebula** (GitHub: `leonardodecreative`). Use [`CITATION.cff`](./CITATION.cff) for the preferred project citation.
+
+The [public authorship and provenance record](./docs/provenance/2026-09-03/PROVENANCE_RECORD.md) distinguishes the canonical five-coordinate node state from supplementary Gamma, records the architecture's legacy-to-Stage-2 lineage, and binds the exact Stage 1 and Stage 2 white-paper artifacts to the repository through SHA-256 fingerprints.
+
 ## Status
 
 Active experimental research. The current code demonstrates the structural Z1/Z2 migration; it does not establish final Candidate A mathematics, consciousness, AGI, universal physics, or identity continuity.

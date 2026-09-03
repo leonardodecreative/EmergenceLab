@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use or discuss Emergence Lab, please cite this repository and Robert J. S. Cebula as author and architect."
+title: "Emergence Lab: Structured Adaptive Node Systems"
+type: software
+authors:
+  - family-names: "Cebula"
+    given-names: "Robert J. S."
+    alias: "Bobby"
+version: "2026.09.03"
+date-released: 2026-09-03
+repository-code: "https://github.com/leonardodecreative/EmergenceLab"
+url: "https://github.com/leonardodecreative/EmergenceLab"
+license: MIT
+abstract: >-
+  Emergence Lab is an experimental research program for structured,
+  history-dependent, locally coupled adaptive node systems. Its current
+  conceptual node state separates identity, perception and memory,
+  failure-triggered response, integration attempt, and continuous resonance
+  into five non-scalar coordinates, while keeping consequential history and
+  energetic bookkeeping outside the core tuple.
+keywords:
+  - adaptive systems
+  - complex systems
+  - multi-agent systems
+  - dynamical systems
+  - relational continuity
+  - constituent replacement

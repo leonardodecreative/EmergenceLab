@@ -1,0 +1,9 @@
+# Emergence Lab provenance bundle - record date 2026-09-03
+# SHA-256 digests are lowercase hexadecimal.
+# To verify, place the two controlling white-paper PDFs in this directory
+# under the exact names below, then run: sha256sum -c SHA256SUMS.txt
+
+a763f0dbc1d1422a1c6fd9e473639af3fe515e26b044adaed9f09066af3c4f9a  BOBBY — READ FIRST — STAGE 1 OG WHITE PAPER.pdf
+197cff74e77bd2b999e1a4d514da436aaa3cd145341fa84e5c168356deb2c939  BOBBY — READ SECOND — STAGE 2 MASTER WHITE PAPER.pdf
+6b634794f29fbc95393947145c675fcf5035f052a55de9fb134d7044eb0aa28d  PROVENANCE_RECORD.md
+f4fd6e003066588a594b4a56771c556256eb2af319cd9dfae1e06a2bbe795fdc  EMERGENCE_LAB_PROVENANCE_RECORD_2026-09-03.pdf
