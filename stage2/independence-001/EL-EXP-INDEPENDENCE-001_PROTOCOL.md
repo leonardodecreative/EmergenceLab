@@ -86,7 +86,7 @@ Locked checkpoints:
 
 `0, 50, 100, 150, 200, 250, 300`
 
-The runtime auto-pauses at every nonzero checkpoint. The primary horizon is Tick 300. No parameter tuning, catalyst editing, or additional intervention is permitted after Tick 0.
+The runtime auto-pauses at every nonzero checkpoint. The primary horizon is Tick 300.
 
 ## Primary observables
 
@@ -151,13 +151,15 @@ Any of the following invalidates the run:
 - reward or prediction mechanism introduced during the run;
 - catalyst offered energy differs among A/B/C within a tick.
 
-## Seed series
+## Seed series — 30 preregistered initial conditions
 
-Version B should begin with five predetermined seeds:
+Version B uses exactly these thirty seeds, in this order:
 
-`5, 18, 103, 449, 871`
+`1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 103, 449, 871`
 
-These intentionally reuse the REEL-001 replication seed set for continuity while testing a different mechanism. Do not substitute seeds post hoc because a result looks uninteresting.
+Selection rule: seeds 1 through 27 form a transparent contiguous block chosen before observation. Seeds 103, 449, and 871 retain the original REEL-001 continuity seeds outside that block. The original five-seed set `5, 18, 103, 449, 871` is fully contained in the 30-seed series. No seed may be substituted after results are observed.
+
+Cross-seed reporting must include the number of valid seeds, per-seed outcome class, sign consistency for primary contrasts, mean, sample standard deviation, median, range, and the count/proportion meeting the preregistered SUPPORTS STATE-DEPENDENT PATH FORMATION class. Negative, null, switching, and invalid runs remain in the ledger.
 
 ## Replication standard
 
