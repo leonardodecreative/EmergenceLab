@@ -36,9 +36,11 @@ Read before running:
 
 All arms start from the same seeded node state. All three catalysts are present simultaneously at every tick with the same offered excitation.
 
-## Fixed seed series
+## Fixed seed series — 30 preregistered seeds
 
-`5, 18, 103, 449, 871`
+`1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 103, 449, 871`
+
+Selection rule: seeds 1 through 27 provide a transparent contiguous preregistered block; 103, 449, and 871 preserve the three original REEL-001 continuity seeds that fall outside that block. The original five-seed set (5, 18, 103, 449, 871) is therefore fully retained inside the 30-seed series.
 
 ## Locked checkpoints
 
@@ -79,6 +81,7 @@ From the repository root:
 ```bash
 git fetch origin
 git switch stage2/independence-001
+git pull origin stage2/independence-001
 python3 -m http.server 8000
 ```
 
@@ -89,16 +92,15 @@ Then open:
 ## Operator procedure
 
 1. Confirm the page says `READY / PAUSED` at Tick 0.
-2. Enter seed `5`.
-3. Press `Reset 3-arm run`.
+2. Run the fixed seed series in the declared order.
+3. Enter the current seed and press `Reset 3-arm run`.
 4. Confirm `INTEGRITY PASS` and Tick 0.
 5. Export Tick 0 JSON.
 6. Press `Start`.
-7. At each auto-pause — 50, 100, 150, 200, 250, 300 — export JSON **before** pressing Start again.
-8. Do not change seed, parameters, catalysts, or runtime during a run.
-9. Repeat the complete sequence for seeds `18`, `103`, `449`, and `871`.
-10. Preserve all 35 JSON exports as the Version B evidence series.
-11. Only after the B series is complete should Codex perform Version C independently.
+7. At each auto-pause — 50, 100, 150, 200, 250, 300 — export JSON before pressing Start again.
+8. After the Tick-300 export, advance to the next declared seed and repeat.
+9. Preserve all 210 JSON exports as the Version B evidence series.
+10. Only after the complete 30-seed B series is secured should Codex perform Version C independently.
 
 ## Results record
 
