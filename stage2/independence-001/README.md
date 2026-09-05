@@ -36,11 +36,19 @@ Read before running:
 
 All arms start from the same seeded node state. All three catalysts are present simultaneously at every tick with the same offered excitation.
 
-## Fixed seed series — 30 preregistered seeds
+## Seed registry — 30 total
 
-`1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 103, 449, 871`
+### Primary fresh cohort — 25 seeds
 
-Selection rule: seeds 1 through 27 provide a transparent contiguous preregistered block; 103, 449, and 871 preserve the three original REEL-001 continuity seeds that fall outside that block. The original five-seed set (5, 18, 103, 449, 871) is therefore fully retained inside the 30-seed series.
+These are the primary confirmatory initial conditions. They were generated deterministically before observation from SHA-256 of `EL-EXP-INDEPENDENCE-001:FRESH:<index>` for indices 1 through 25, using the first four digest bytes as an unsigned 32-bit integer.
+
+`3419007238, 287180030, 4143716330, 1896701048, 2810229999, 2929521851, 3131026862, 4090322451, 1332876187, 3913458319, 628113401, 3104787148, 1387739890, 4260353071, 542689041, 3430374222, 551830518, 1895479095, 1068218150, 3122905691, 3703931321, 4226070310, 1319341081, 2887722089, 4118125398`
+
+### Historical continuity panel — 5 seeds
+
+`5, 18, 103, 449, 871`
+
+These five are retained because they were used in REEL-001. They are analyzed as a longitudinal cross-experiment panel and are **not** counted as fresh independent initial conditions.
 
 ## Locked checkpoints
 
@@ -92,7 +100,7 @@ Then open:
 ## Operator procedure
 
 1. Confirm the page says `READY / PAUSED` at Tick 0.
-2. Run the fixed seed series in the declared order.
+2. Run the 25 fresh seeds in their declared order, then the five continuity seeds in their declared order.
 3. Enter the current seed and press `Reset 3-arm run`.
 4. Confirm `INTEGRITY PASS` and Tick 0.
 5. Export Tick 0 JSON.
@@ -100,7 +108,7 @@ Then open:
 7. At each auto-pause — 50, 100, 150, 200, 250, 300 — export JSON before pressing Start again.
 8. After the Tick-300 export, advance to the next declared seed and repeat.
 9. Preserve all 210 JSON exports as the Version B evidence series.
-10. Only after the complete 30-seed B series is secured should Codex perform Version C independently.
+10. Only after the complete B series is secured should Codex perform Version C independently.
 
 ## Results record
 
@@ -109,7 +117,8 @@ This section is intentionally frozen as **PENDING** until the declared B/C proce
 - Version B: PENDING
 - Version C: PENDING
 - Version A adjudication: NOT DETERMINED
-- Cross-seed result: PENDING
+- Fresh-cohort result: PENDING
+- Continuity-panel result: PENDING
 - Claim status: NO RESULT YET
 
 When the experiment closes, this README must be updated with the exact commit/runtime hashes, valid/invalid seed ledger, per-seed outcome class, cross-seed summary, and strongest defensible claim. Negative/null findings must remain in the record.
