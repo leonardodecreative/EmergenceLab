@@ -39,16 +39,13 @@ Deterministic entropy/noise remains as a background perturbation and is derived 
 ## Arms
 
 ### Arm A — live compatibility
-
 Catalyst uptake shares are recalculated each tick from the node's **current** Theta compatibility with the three catalysts.
 
 ### Arm B — frozen compatibility
-
-Catalyst uptake shares are based on the node's Tick-0 Theta compatibility and remain frozen for the entire run. This preserves any initial compatibility bias while removing recursive state-dependent feedback.
+Catalyst uptake shares are based on the node's Tick-0 Theta compatibility and remain frozen for the entire run.
 
 ### Arm C — equal uptake
-
-Each catalyst receives exactly `1/3` of uptake every tick. This is the symmetry/null control.
+Each catalyst receives exactly `1/3` of uptake every tick.
 
 ## What is deliberately absent
 
@@ -124,11 +121,9 @@ At least two consecutive late checkpoints among 200, 250, and 300 satisfy both:
 
 The live dominant catalyst must also remain the same across those qualifying checkpoints.
 
-This supports only the narrow claim that recursive live state/compatibility creates a persistent path beyond frozen initial bias in that seed.
-
 ### INITIAL-BIAS AMPLIFICATION ONLY
 
-A path forms in both live and frozen arms with little live-minus-frozen difference. This indicates that the trajectory is largely explained by Tick-0 compatibility rather than recursive self-history.
+A path forms in both live and frozen arms with little live-minus-frozen difference.
 
 ### SYMMETRIC / NO PATH
 
@@ -136,7 +131,7 @@ Live, frozen, and equal arms remain near equal uptake, or live does not meet the
 
 ### UNSTABLE / SWITCHING PATH
 
-Live becomes concentrated but repeatedly changes dominant catalyst through the late window. This supports state sensitivity but not persistent path formation.
+Live becomes concentrated but repeatedly changes dominant catalyst through the late window.
 
 ### INVALID
 
@@ -151,15 +146,27 @@ Any of the following invalidates the run:
 - reward or prediction mechanism introduced during the run;
 - catalyst offered energy differs among A/B/C within a tick.
 
-## Seed series — 30 preregistered initial conditions
+## Seed registry and cohort separation
 
-Version B uses exactly these thirty seeds, in this order:
+### Primary fresh cohort — 25 preregistered initial conditions
 
-`1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 103, 449, 871`
+These twenty-five seeds are the primary confirmatory sample:
 
-Selection rule: seeds 1 through 27 form a transparent contiguous block chosen before observation. Seeds 103, 449, and 871 retain the original REEL-001 continuity seeds outside that block. The original five-seed set `5, 18, 103, 449, 871` is fully contained in the 30-seed series. No seed may be substituted after results are observed.
+`3419007238, 287180030, 4143716330, 1896701048, 2810229999, 2929521851, 3131026862, 4090322451, 1332876187, 3913458319, 628113401, 3104787148, 1387739890, 4260353071, 542689041, 3430374222, 551830518, 1895479095, 1068218150, 3122905691, 3703931321, 4226070310, 1319341081, 2887722089, 4118125398`
 
-Cross-seed reporting must include the number of valid seeds, per-seed outcome class, sign consistency for primary contrasts, mean, sample standard deviation, median, range, and the count/proportion meeting the preregistered SUPPORTS STATE-DEPENDENT PATH FORMATION class. Negative, null, switching, and invalid runs remain in the ledger.
+Selection rule: for index `i = 1..25`, compute SHA-256 over the UTF-8 string `EL-EXP-INDEPENDENCE-001:FRESH:i`; interpret the first four digest bytes as a big-endian unsigned 32-bit integer. Any collision with a previously declared historical seed or duplicate would be skipped and the next index used. No such collision occurred here.
+
+These seeds are treated as fresh relative to the recorded Emergence Lab evidence history at preregistration. No seed may be substituted after results are observed.
+
+### Historical continuity panel — 5 preregistered initial conditions
+
+`5, 18, 103, 449, 871`
+
+These seeds were already used in REEL-001. They are intentionally preserved as a longitudinal cross-experiment panel and must be reported separately from the 25 fresh seeds. They may reveal cross-experiment regularities, but they are not to be represented as fresh independent initial conditions.
+
+Version B runs the 25 fresh seeds first, in the declared order, followed by the five continuity seeds in the declared order.
+
+Cross-seed reporting must include separate summaries for the 25-seed fresh cohort and the five-seed continuity panel, plus a clearly labeled all-30 descriptive summary if useful. Report valid/invalid ledger, per-seed outcome class, sign consistency for primary contrasts, mean, sample standard deviation, median, range, and the count/proportion meeting the preregistered support class. Negative, null, switching, and invalid runs remain in the record.
 
 ## Replication standard
 
