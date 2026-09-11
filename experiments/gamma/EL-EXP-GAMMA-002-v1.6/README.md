@@ -8,10 +8,21 @@ Preregistered noncausal test of one repair nominated by the frozen v1.5 diagnost
 - JavaScript tests: 15/15 pass.
 - Statistical reference tests: 3/3 pass.
 - Excluded Seed 13579 commissioning: pass.
-- Confirmatory execution: **not started**.
+- Bobby B confirmatory execution: complete.
+- Codex C independent execution: complete.
+- Version A adjudication: complete.
+- Final verdict: `DO_NOT_ADVANCE_CIRCULAR_PHASE_GAMMA_V1_6`.
 - Canonical engine: untouched.
 
 The commissioning seed produced identical aggregate linear and circular RMSE in its natural event field. A deterministic wrap-boundary case confirms that the circular retrieval path is active. This commissioning observation is non-evidentiary and does not alter the frozen confirmatory field.
+
+## Confirmatory result
+
+The candidate failed all four substantive advancement gates. Circular Gamma improved only 0.88% over the best ordinary control, 7.95% over shuffled circular Gamma, and approximately 0.000009% over linear v1.5 Gamma.
+
+Bobby B and Codex C initially produced different final hashes because raw unrounded world-state strings were used to create `finalWorldDigest`. Three seed digests differed across Mac and Linux, while the largest underlying numerical difference was approximately `1.11e-15`. Every numerical difference vanished at the preregistered 12-decimal precision. Version A removed only the defective raw fingerprints and their derivative batch hashes; the remaining complete scientific payloads matched SHA-256 `9ed3471b9d203e4494cde80f5b41c0c7632e03c56bcb43383ff71e0159e2f037`.
+
+See `results/VERSION-A-RULING.md` and `results/gamma_v1.6_A_adjudication.json`.
 
 ## Sole implementation change
 
