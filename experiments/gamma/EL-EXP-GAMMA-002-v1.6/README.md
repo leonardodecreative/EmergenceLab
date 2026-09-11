@@ -34,7 +34,13 @@ sha256sum -c MANIFEST.sha256
 
 ## Bobby B confirmatory execution
 
-Run the batches separately:
+From the extracted experiment directory, run the complete guarded sequence with one command:
+
+```bash
+bash RUN-BOBBY-B.sh
+```
+
+The launcher executes these batches separately to avoid long single-process timeouts:
 
 ```bash
 python3 runners/gamma_v1.6_batch.py --role B --batch 1
