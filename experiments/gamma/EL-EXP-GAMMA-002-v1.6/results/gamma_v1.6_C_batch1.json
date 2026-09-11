@@ -1,0 +1,1138 @@
+{
+  "artifactPayloadSha256": "bda89e2c05c09cf3fc16a01ba8d560f8b969e23e0f71c3ac08ee75f5a7f98bd4",
+  "batch": 1,
+  "buildId": "EL-EXP-GAMMA-002-v1.6.0-candidate",
+  "config": {
+    "acquisitionEvents": 360,
+    "alpha": 0.05,
+    "archiveCapacity": 48,
+    "commissioningSeed": 13579,
+    "epsilon": 1e-09,
+    "horizon": 10,
+    "minimumMeanConsequenceMagnitude": 0.0001,
+    "nodeCount": 6,
+    "officialSeeds": [
+      1620122227,
+      1121900541,
+      1167345866,
+      635455088,
+      152170300,
+      1993643838,
+      2915565139,
+      4081553161,
+      2794246745,
+      2714469569,
+      2033920072,
+      3841220894,
+      1220063660,
+      1227375349,
+      3632021282,
+      2931948358,
+      3259612167,
+      3534294265,
+      473552552,
+      1667527166,
+      3033302128,
+      1860056755,
+      718053086,
+      1106706679,
+      1924554172,
+      1273162433,
+      3633298885,
+      2256554411,
+      2593750757,
+      391362109
+    ],
+    "primaryImprovementMargin": 0.05,
+    "recencyWindow": 8,
+    "shuffledImprovementMargin": 0.1,
+    "sigma": 0.015,
+    "strengthLevels": [
+      0.12,
+      0.2,
+      0.28
+    ],
+    "testEvents": 180,
+    "warmupTicks": 30
+  },
+  "configHash": "551caf86",
+  "coreSha256": "35380e6f2da36e53226a3beef2de7c7d8c0dcc71b2bd186f1541ef4de28a6b34",
+  "executionRole": "Codex C",
+  "generatedAtUtc": "2026-09-11T18:01:50.475697+00:00",
+  "pooledMetrics": {
+    "gammaDyadic": {
+      "balancedRmse": 0.009682154780224814,
+      "count": 1800,
+      "meanCosine": 0.8890068921197694,
+      "meanSignAgreement": 0.8601278258778257
+    },
+    "gammaRelational": {
+      "balancedRmse": 0.006659868824972941,
+      "count": 1800,
+      "meanCosine": 0.9789208076023644,
+      "meanSignAgreement": 0.9048642977392978
+    },
+    "gammaRelationalCircular": {
+      "balancedRmse": 0.006659874119829426,
+      "count": 1800,
+      "meanCosine": 0.9789207474997051,
+      "meanSignAgreement": 0.9048642977392978
+    },
+    "pairTypeMean": {
+      "balancedRmse": 0.009724311068434412,
+      "count": 1800,
+      "meanCosine": 0.8925625406607718,
+      "meanSignAgreement": 0.8196976711560043
+    },
+    "recency": {
+      "balancedRmse": 0.016380592854157505,
+      "count": 1800,
+      "meanCosine": 0.21800913901999125,
+      "meanSignAgreement": 0.6083956429373095
+    },
+    "shuffledGammaDyadic": {
+      "balancedRmse": 0.009829962974560505,
+      "count": 1800,
+      "meanCosine": 0.8506971963153769,
+      "meanSignAgreement": 0.8565622494789161
+    },
+    "shuffledGammaRelational": {
+      "balancedRmse": 0.007167482384259052,
+      "count": 1800,
+      "meanCosine": 0.8407745416070833,
+      "meanSignAgreement": 0.8735637926887926
+    },
+    "shuffledGammaRelationalCircular": {
+      "balancedRmse": 0.007167485804048265,
+      "count": 1800,
+      "meanCosine": 0.8407745193861675,
+      "meanSignAgreement": 0.8735637926887926
+    },
+    "stateKernel": {
+      "balancedRmse": 0.015782399608705682,
+      "count": 1800,
+      "meanCosine": 0.24954390198318843,
+      "meanSignAgreement": 0.6331805355138688
+    },
+    "typeMean": {
+      "balancedRmse": 0.006711546658027563,
+      "count": 1800,
+      "meanCosine": 0.9762012412388845,
+      "meanSignAgreement": 0.9002893618726951
+    },
+    "zero": {
+      "balancedRmse": 0.016451445168899032,
+      "count": 1800,
+      "meanCosine": 0.0,
+      "meanSignAgreement": 0.0
+    }
+  },
+  "protocolId": "circular-phase-retrieval-repair",
+  "replicationOrder": "Bobby B first; Codex C second",
+  "roundedScientificSha256": "62e25e14e7c0fcd7575c68646faee5bc0c11d2d15d45c54f00a765569ab6ed80",
+  "roundingDecimalPlaces": 12,
+  "schema": "EL-EXP-GAMMA-002-confirmatory-batch-v1",
+  "scopeBoundary": "Batch 1 only; no seed outside this preregistered ten-seed slice was executed.",
+  "seedLevelStatistics": {
+    "linearV15": {
+      "exactTwoSidedSignTest": {
+        "direction": "positive",
+        "effectiveN": 5,
+        "negative": 2,
+        "positive": 3,
+        "tiesDiscarded": 5,
+        "twoSidedPValue": 1.0
+      },
+      "mean": -7.326114143154096e-07,
+      "mean95PercentTInterval": [
+        -2.4894946721392363e-06,
+        1.0242718435084172e-06
+      ],
+      "median": 0.0,
+      "n": 10,
+      "positiveRate95PercentWilsonInterval": [
+        0.2307242812760128,
+        0.882379225767352
+      ],
+      "sampleStandardDeviation": 2.455953445219781e-06
+    },
+    "ordinary": {
+      "exactTwoSidedSignTest": {
+        "direction": "balanced",
+        "effectiveN": 10,
+        "negative": 5,
+        "positive": 5,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.0
+      },
+      "mean": 0.00827851031850703,
+      "mean95PercentTInterval": [
+        -0.020566812056721187,
+        0.037123832693735245
+      ],
+      "median": 0.003017267025044041,
+      "n": 10,
+      "positiveRate95PercentWilsonInterval": [
+        0.236593090512564,
+        0.7634069094874361
+      ],
+      "sampleStandardDeviation": 0.04032298022673787
+    },
+    "shuffledCircular": {
+      "exactTwoSidedSignTest": {
+        "direction": "positive",
+        "effectiveN": 10,
+        "negative": 0,
+        "positive": 10,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 0.001953125
+      },
+      "mean": 0.07202943379020708,
+      "mean95PercentTInterval": [
+        0.04747315867819331,
+        0.09658570890222086
+      ],
+      "median": 0.07264160007659769,
+      "n": 10,
+      "positiveRate95PercentWilsonInterval": [
+        0.7224672001371107,
+        0.9999999999999999
+      ],
+      "sampleStandardDeviation": 0.03432730558194126
+    }
+  },
+  "seedResults": [
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "460503e5",
+      "meanConsequenceMagnitude": 0.006295057463760037,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.01036806191995508,
+          "count": 180,
+          "meanCosine": 0.8712456915206487,
+          "meanSignAgreement": 0.8597823472823471
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.0062738515955186695,
+          "count": 180,
+          "meanCosine": 0.9818637116454476,
+          "meanSignAgreement": 0.9106936427769757
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.00627385084700571,
+          "count": 180,
+          "meanCosine": 0.9818637120743675,
+          "meanSignAgreement": 0.9106936427769757
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.010421247599419764,
+          "count": 180,
+          "meanCosine": 0.8837226711219058,
+          "meanSignAgreement": 0.8250050104216768
+        },
+        "recency": {
+          "balancedRmse": 0.017194125999370213,
+          "count": 180,
+          "meanCosine": 0.24793851161411845,
+          "meanSignAgreement": 0.6456281064614395
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.01049347714412253,
+          "count": 180,
+          "meanCosine": 0.8414889322417406,
+          "meanSignAgreement": 0.8688237534070868
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.006824160221027376,
+          "count": 180,
+          "meanCosine": 0.8573515829836023,
+          "meanSignAgreement": 0.8724148228314893
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.006824159889291754,
+          "count": 180,
+          "meanCosine": 0.8573515688725766,
+          "meanSignAgreement": 0.8724148228314893
+        },
+        "stateKernel": {
+          "balancedRmse": 0.016828864984194603,
+          "count": 180,
+          "meanCosine": 0.23898130875461707,
+          "meanSignAgreement": 0.6167227833894499
+        },
+        "typeMean": {
+          "balancedRmse": 0.006343935881613257,
+          "count": 180,
+          "meanCosine": 0.9764251015173646,
+          "meanSignAgreement": 0.8980585618085613
+        },
+        "zero": {
+          "balancedRmse": 0.017373561198971682,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": 0.011047563518205874,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006343935881613257,
+        "circularGammaRmse": 0.00627385084700571,
+        "linearGammaRmse": 0.0062738515955186695,
+        "linearImprovement": 1.193067685059381e-07,
+        "pass": false,
+        "shuffledCircularRmse": 0.006824159889291754,
+        "shuffledImprovement": 0.08064128789678139
+      },
+      "seed": 1620122227
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "8a0fed9e",
+      "meanConsequenceMagnitude": 0.00644893896626078,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.009222494445895353,
+          "count": 180,
+          "meanCosine": 0.8662949207050696,
+          "meanSignAgreement": 0.8599559082892414
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.0063414286409903126,
+          "count": 180,
+          "meanCosine": 0.9700395617711038,
+          "meanSignAgreement": 0.9066776895943564
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006341427588028084,
+          "count": 180,
+          "meanCosine": 0.9700395517619106,
+          "meanSignAgreement": 0.9066776895943564
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.009185776962649305,
+          "count": 180,
+          "meanCosine": 0.8730030929017496,
+          "meanSignAgreement": 0.8122709235209234
+        },
+        "recency": {
+          "balancedRmse": 0.017442311768320434,
+          "count": 180,
+          "meanCosine": 0.22600133188314558,
+          "meanSignAgreement": 0.6221242183742182
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.00926566968404203,
+          "count": 180,
+          "meanCosine": 0.8477345996814495,
+          "meanSignAgreement": 0.876166225749559
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.0072269141317309014,
+          "count": 180,
+          "meanCosine": 0.8344005425672808,
+          "meanSignAgreement": 0.8927892015392015
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007226914423947801,
+          "count": 180,
+          "meanCosine": 0.8344005424410519,
+          "meanSignAgreement": 0.8927892015392015
+        },
+        "stateKernel": {
+          "balancedRmse": 0.01678176978387032,
+          "count": 180,
+          "meanCosine": 0.2550965281350848,
+          "meanSignAgreement": 0.6665927128427125
+        },
+        "typeMean": {
+          "balancedRmse": 0.006793509718860945,
+          "count": 180,
+          "meanCosine": 0.9666523088499289,
+          "meanSignAgreement": 0.9070717091550424
+        },
+        "zero": {
+          "balancedRmse": 0.01762516522075073,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": 0.06654618150876233,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006793509718860945,
+        "circularGammaRmse": 0.006341427588028084,
+        "linearGammaRmse": 0.0063414286409903126,
+        "linearImprovement": 1.6604495426909146e-07,
+        "pass": true,
+        "shuffledCircularRmse": 0.007226914423947801,
+        "shuffledImprovement": 0.12252626556438566
+      },
+      "seed": 1121900541
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "6d6584e7",
+      "meanConsequenceMagnitude": 0.005933701038149306,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.009650782369151076,
+          "count": 180,
+          "meanCosine": 0.8903246022681508,
+          "meanSignAgreement": 0.8615750761584094
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.006852126265706444,
+          "count": 180,
+          "meanCosine": 0.9748685805206553,
+          "meanSignAgreement": 0.8976130351130354
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006852179095172899,
+          "count": 180,
+          "meanCosine": 0.9748679582537905,
+          "meanSignAgreement": 0.8976130351130354
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.009671090696762372,
+          "count": 180,
+          "meanCosine": 0.8909032967869787,
+          "meanSignAgreement": 0.8282389369889368
+        },
+        "recency": {
+          "balancedRmse": 0.01643518037238277,
+          "count": 180,
+          "meanCosine": 0.1941690546394394,
+          "meanSignAgreement": 0.5694831248997918
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009833558365764689,
+          "count": 180,
+          "meanCosine": 0.8480785826165381,
+          "meanSignAgreement": 0.8500957992624658
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.007456478469092123,
+          "count": 180,
+          "meanCosine": 0.8474086151404494,
+          "meanSignAgreement": 0.8731499518999519
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007456495624260746,
+          "count": 180,
+          "meanCosine": 0.8474082973468791,
+          "meanSignAgreement": 0.8731499518999519
+        },
+        "stateKernel": {
+          "balancedRmse": 0.015763427295605092,
+          "count": 180,
+          "meanCosine": 0.24718384559144352,
+          "meanSignAgreement": 0.6112820666987335
+        },
+        "typeMean": {
+          "balancedRmse": 0.0072066491298208085,
+          "count": 180,
+          "meanCosine": 0.9716348889236939,
+          "meanSignAgreement": 0.8838117283950618
+        },
+        "zero": {
+          "balancedRmse": 0.016209571810457735,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": 0.049186525979338654,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.0072066491298208085,
+        "circularGammaRmse": 0.006852179095172899,
+        "linearGammaRmse": 0.006852126265706444,
+        "linearImprovement": -7.709937675770676e-06,
+        "pass": false,
+        "shuffledCircularRmse": 0.007456495624260746,
+        "shuffledImprovement": 0.08104564926205
+      },
+      "seed": 1167345866
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "559c77f6",
+      "meanConsequenceMagnitude": 0.0062752793933858264,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.0095895172784942,
+          "count": 180,
+          "meanCosine": 0.8833624601382121,
+          "meanSignAgreement": 0.8603146544813209
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.006683103443821313,
+          "count": 180,
+          "meanCosine": 0.9776776056827541,
+          "meanSignAgreement": 0.9009786355619689
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006683103443821313,
+          "count": 180,
+          "meanCosine": 0.9776776056827541,
+          "meanSignAgreement": 0.9009786355619689
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.00972658291268517,
+          "count": 180,
+          "meanCosine": 0.8865192444478044,
+          "meanSignAgreement": 0.8042564534231202
+        },
+        "recency": {
+          "balancedRmse": 0.017409589996018174,
+          "count": 180,
+          "meanCosine": 0.20573733467141123,
+          "meanSignAgreement": 0.5696208112874779
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009946788278770106,
+          "count": 180,
+          "meanCosine": 0.8347974018106559,
+          "meanSignAgreement": 0.8523452781786116
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.00746819928181018,
+          "count": 180,
+          "meanCosine": 0.8450115622747477,
+          "meanSignAgreement": 0.8639740660573993
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.00746819928181018,
+          "count": 180,
+          "meanCosine": 0.8450115622747477,
+          "meanSignAgreement": 0.8639740660573993
+        },
+        "stateKernel": {
+          "balancedRmse": 0.0166098861159758,
+          "count": 180,
+          "meanCosine": 0.2499189136835183,
+          "meanSignAgreement": 0.6373508898508895
+        },
+        "typeMean": {
+          "balancedRmse": 0.006920061035516946,
+          "count": 180,
+          "meanCosine": 0.9764584079733496,
+          "meanSignAgreement": 0.9069686948853614
+        },
+        "zero": {
+          "balancedRmse": 0.017389361120846047,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": 0.03424212452454642,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006920061035516946,
+        "circularGammaRmse": 0.006683103443821313,
+        "linearGammaRmse": 0.006683103443821313,
+        "linearImprovement": 0,
+        "pass": false,
+        "shuffledCircularRmse": 0.00746819928181018,
+        "shuffledImprovement": 0.10512518592012873
+      },
+      "seed": 635455088
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "6eba0fae",
+      "meanConsequenceMagnitude": 0.005672410502453701,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.009392706342832551,
+          "count": 180,
+          "meanCosine": 0.9126948370604601,
+          "meanSignAgreement": 0.877845117845118
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.00692788773856096,
+          "count": 180,
+          "meanCosine": 0.9820206146150473,
+          "meanSignAgreement": 0.9091247795414462
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.00692788773856096,
+          "count": 180,
+          "meanCosine": 0.9820206146150473,
+          "meanSignAgreement": 0.9091247795414462
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.009526832770225249,
+          "count": 180,
+          "meanCosine": 0.9050808084689066,
+          "meanSignAgreement": 0.8261065015231682
+        },
+        "recency": {
+          "balancedRmse": 0.015702270597884996,
+          "count": 180,
+          "meanCosine": 0.20064060851415527,
+          "meanSignAgreement": 0.6047729276895945
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009561022971692458,
+          "count": 180,
+          "meanCosine": 0.8840190703422468,
+          "meanSignAgreement": 0.861261624178291
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.007188620426619101,
+          "count": 180,
+          "meanCosine": 0.8287145312856938,
+          "meanSignAgreement": 0.8659842472342467
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007188620426619101,
+          "count": 180,
+          "meanCosine": 0.8287145312856938,
+          "meanSignAgreement": 0.8659842472342467
+        },
+        "stateKernel": {
+          "balancedRmse": 0.01503693700356404,
+          "count": 180,
+          "meanCosine": 0.24708980177472709,
+          "meanSignAgreement": 0.602291165624499
+        },
+        "typeMean": {
+          "balancedRmse": 0.006893331265792047,
+          "count": 180,
+          "meanCosine": 0.9792258716201064,
+          "meanSignAgreement": 0.8957357303190636
+        },
+        "zero": {
+          "balancedRmse": 0.015904189184281062,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": -0.0050130294681177915,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006893331265792047,
+        "circularGammaRmse": 0.00692788773856096,
+        "linearGammaRmse": 0.00692788773856096,
+        "linearImprovement": 0,
+        "pass": false,
+        "shuffledCircularRmse": 0.007188620426619101,
+        "shuffledImprovement": 0.03627019825565701
+      },
+      "seed": 152170300
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "8a3081a0",
+      "meanConsequenceMagnitude": 0.00588990810952041,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.010621945216989477,
+          "count": 180,
+          "meanCosine": 0.8734349607747652,
+          "meanSignAgreement": 0.8234467692801025
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.006713974566288905,
+          "count": 180,
+          "meanCosine": 0.9839470433168159,
+          "meanSignAgreement": 0.911720378387045
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006713974566288905,
+          "count": 180,
+          "meanCosine": 0.9839470433168159,
+          "meanSignAgreement": 0.911720378387045
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.010592555055935189,
+          "count": 180,
+          "meanCosine": 0.8706779759264317,
+          "meanSignAgreement": 0.7703377024210359
+        },
+        "recency": {
+          "balancedRmse": 0.016446344402980064,
+          "count": 180,
+          "meanCosine": 0.20112629739535035,
+          "meanSignAgreement": 0.5949003928170593
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.01068952664700567,
+          "count": 180,
+          "meanCosine": 0.8136270018538238,
+          "meanSignAgreement": 0.8214329805996471
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.007135917408598763,
+          "count": 180,
+          "meanCosine": 0.8116670079182645,
+          "meanSignAgreement": 0.8714983164983163
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007135917408598763,
+          "count": 180,
+          "meanCosine": 0.8116670079182645,
+          "meanSignAgreement": 0.8714983164983163
+        },
+        "stateKernel": {
+          "balancedRmse": 0.015814790656117284,
+          "count": 180,
+          "meanCosine": 0.23965346204121868,
+          "meanSignAgreement": 0.6186343594676926
+        },
+        "typeMean": {
+          "balancedRmse": 0.006559220267425134,
+          "count": 180,
+          "meanCosine": 0.9841276186639193,
+          "meanSignAgreement": 0.9076268638768639
+        },
+        "zero": {
+          "balancedRmse": 0.01652266558991272,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": -0.02359339868982939,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006559220267425134,
+        "circularGammaRmse": 0.006713974566288905,
+        "linearGammaRmse": 0.006713974566288905,
+        "linearImprovement": 0,
+        "pass": false,
+        "shuffledCircularRmse": 0.007135917408598763,
+        "shuffledImprovement": 0.05912944589316825
+      },
+      "seed": 1993643838
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "bde17563",
+      "meanConsequenceMagnitude": 0.005537264290344866,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.009075225161019298,
+          "count": 180,
+          "meanCosine": 0.9058265431429713,
+          "meanSignAgreement": 0.8775264550264548
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.006665705993703087,
+          "count": 180,
+          "meanCosine": 0.9816249355194531,
+          "meanSignAgreement": 0.9061191277857944
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006665705993703087,
+          "count": 180,
+          "meanCosine": 0.9816249355194531,
+          "meanSignAgreement": 0.9061191277857944
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.009074646134607563,
+          "count": 180,
+          "meanCosine": 0.9027176089785776,
+          "meanSignAgreement": 0.8344460477793807
+        },
+        "recency": {
+          "balancedRmse": 0.015229750318689554,
+          "count": 180,
+          "meanCosine": 0.22547512127789043,
+          "meanSignAgreement": 0.6265929132595797
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009175552882995573,
+          "count": 180,
+          "meanCosine": 0.8450773444185846,
+          "meanSignAgreement": 0.8566045374378708
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.007126368052029275,
+          "count": 180,
+          "meanCosine": 0.8216078561025272,
+          "meanSignAgreement": 0.8744558682058681
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007126368052029275,
+          "count": 180,
+          "meanCosine": 0.8216078561025272,
+          "meanSignAgreement": 0.8744558682058681
+        },
+        "stateKernel": {
+          "balancedRmse": 0.014857807911697258,
+          "count": 180,
+          "meanCosine": 0.2545355156044004,
+          "meanSignAgreement": 0.6338459996793327
+        },
+        "typeMean": {
+          "balancedRmse": 0.00649472240089079,
+          "count": 180,
+          "meanCosine": 0.980856464084085,
+          "meanSignAgreement": 0.8930966410133074
+        },
+        "zero": {
+          "balancedRmse": 0.015270076545344713,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": -0.026326543654713503,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.00649472240089079,
+        "circularGammaRmse": 0.006665705993703087,
+        "linearGammaRmse": 0.006665705993703087,
+        "linearImprovement": 0,
+        "pass": false,
+        "shuffledCircularRmse": 0.007126368052029275,
+        "shuffledImprovement": 0.06464191225641398
+      },
+      "seed": 2915565139
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "1b9480a5",
+      "meanConsequenceMagnitude": 0.005771170110302425,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.010016925836757827,
+          "count": 180,
+          "meanCosine": 0.9070045862028555,
+          "meanSignAgreement": 0.8658070787237447
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.006646380334070661,
+          "count": 180,
+          "meanCosine": 0.9864849740606044,
+          "meanSignAgreement": 0.9065724707391374
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.006646380334070661,
+          "count": 180,
+          "meanCosine": 0.9864849740606044,
+          "meanSignAgreement": 0.9065724707391374
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.01013731665024414,
+          "count": 180,
+          "meanCosine": 0.9144687987636192,
+          "meanSignAgreement": 0.823979276895943
+        },
+        "recency": {
+          "balancedRmse": 0.01565582909848541,
+          "count": 180,
+          "meanCosine": 0.2390697137854903,
+          "meanSignAgreement": 0.6429146624979959
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.010292142321313156,
+          "count": 180,
+          "meanCosine": 0.8474739809334562,
+          "meanSignAgreement": 0.8497075917909247
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.0068441958117871435,
+          "count": 180,
+          "meanCosine": 0.8432299421658981,
+          "meanSignAgreement": 0.8612744508577841
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.0068441958117871435,
+          "count": 180,
+          "meanCosine": 0.8432299421658981,
+          "meanSignAgreement": 0.8612744508577841
+        },
+        "stateKernel": {
+          "balancedRmse": 0.015298856753970448,
+          "count": 180,
+          "meanCosine": 0.25986620616320083,
+          "meanSignAgreement": 0.6527970177970177
+        },
+        "typeMean": {
+          "balancedRmse": 0.006389157842195742,
+          "count": 180,
+          "meanCosine": 0.9825794687625072,
+          "meanSignAgreement": 0.9111313532146864
+        },
+        "zero": {
+          "balancedRmse": 0.01587258913228762,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": -0.04025921697788579,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.006389157842195742,
+        "circularGammaRmse": 0.006646380334070661,
+        "linearGammaRmse": 0.006646380334070661,
+        "linearImprovement": 0,
+        "pass": false,
+        "shuffledCircularRmse": 0.0068441958117871435,
+        "shuffledImprovement": 0.02890266192790722
+      },
+      "seed": 4081553161
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "eb09331c",
+      "meanConsequenceMagnitude": 0.006376360868211738,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.009837992052119156,
+          "count": 180,
+          "meanCosine": 0.8995395005693576,
+          "meanSignAgreement": 0.8484920634920632
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.007528531345839801,
+          "count": 180,
+          "meanCosine": 0.9755509761740981,
+          "meanSignAgreement": 0.89103214686548
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.007528533122899021,
+          "count": 180,
+          "meanCosine": 0.9755509761774925,
+          "meanSignAgreement": 0.89103214686548
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.009805646680037007,
+          "count": 180,
+          "meanCosine": 0.9074098133481392,
+          "meanSignAgreement": 0.8215061327561326
+        },
+        "recency": {
+          "balancedRmse": 0.01753433246121751,
+          "count": 180,
+          "meanCosine": 0.21168352943858101,
+          "meanSignAgreement": 0.5859652076318742
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009839384566557769,
+          "count": 180,
+          "meanCosine": 0.9047546576885428,
+          "meanSignAgreement": 0.8574444845278176
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.00775750213266018,
+          "count": 180,
+          "meanCosine": 0.8441903658808242,
+          "meanSignAgreement": 0.8733164983164982
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.007757502617536323,
+          "count": 180,
+          "meanCosine": 0.8441903510658607,
+          "meanSignAgreement": 0.8733164983164982
+        },
+        "stateKernel": {
+          "balancedRmse": 0.016787778885794368,
+          "count": 180,
+          "meanCosine": 0.24778380137910522,
+          "meanSignAgreement": 0.6352160493827159
+        },
+        "typeMean": {
+          "balancedRmse": 0.0072598877313984015,
+          "count": 180,
+          "meanCosine": 0.974711535916541,
+          "meanSignAgreement": 0.8869706990540323
+        },
+        "zero": {
+          "balancedRmse": 0.017525400255007602,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": -0.03700406968261384,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.0072598877313984015,
+        "circularGammaRmse": 0.007528533122899021,
+        "linearGammaRmse": 0.007528531345839801,
+        "linearImprovement": -2.3604327838045638e-07,
+        "pass": false,
+        "shuffledCircularRmse": 0.007757502617536323,
+        "shuffledImprovement": 0.02951587719992534
+      },
+      "seed": 2794246745
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "finalWorldDigest": "8972d65f",
+      "meanConsequenceMagnitude": 0.0054101218336550854,
+      "modelMetrics": {
+        "gammaDyadic": {
+          "balancedRmse": 0.00890283117525972,
+          "count": 180,
+          "meanCosine": 0.8803408188152024,
+          "meanSignAgreement": 0.8665327881994549
+        },
+        "gammaRelational": {
+          "balancedRmse": 0.0058301128158312066,
+          "count": 180,
+          "meanCosine": 0.9751300727176639,
+          "meanSignAgreement": 0.9081110710277378
+        },
+        "gammaRelationalCircular": {
+          "balancedRmse": 0.005830110865570504,
+          "count": 180,
+          "meanCosine": 0.9751301035348159,
+          "meanSignAgreement": 0.9081110710277378
+        },
+        "pairTypeMean": {
+          "balancedRmse": 0.008959747976602072,
+          "count": 180,
+          "meanCosine": 0.8911220958636046,
+          "meanSignAgreement": 0.8508297258297257
+        },
+        "recency": {
+          "balancedRmse": 0.014443351258876448,
+          "count": 180,
+          "meanCosine": 0.22824988698033052,
+          "meanSignAgreement": 0.6219540644540642
+        },
+        "shuffledGammaDyadic": {
+          "balancedRmse": 0.009059081809268723,
+          "count": 180,
+          "meanCosine": 0.8399203915667306,
+          "meanSignAgreement": 0.8717402196568865
+        },
+        "shuffledGammaRelational": {
+          "balancedRmse": 0.0065690910225438106,
+          "count": 180,
+          "meanCosine": 0.8741634097515458,
+          "meanSignAgreement": 0.8867805034471702
+        },
+        "shuffledGammaRelationalCircular": {
+          "balancedRmse": 0.0065691083135157435,
+          "count": 180,
+          "meanCosine": 0.8741635343881762,
+          "meanSignAgreement": 0.8867805034471702
+        },
+        "stateKernel": {
+          "balancedRmse": 0.013739463296666749,
+          "count": 180,
+          "meanCosine": 0.2553296367045685,
+          "meanSignAgreement": 0.6570723104056435
+        },
+        "typeMean": {
+          "balancedRmse": 0.00616264057987519,
+          "count": 180,
+          "meanCosine": 0.96934074607735,
+          "meanSignAgreement": 0.9124216370049707
+        },
+        "zero": {
+          "balancedRmse": 0.014514737883384215,
+          "count": 180,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        }
+      },
+      "score": {
+        "baselineImprovement": 0.053958966127377335,
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.00616264057987519,
+        "circularGammaRmse": 0.005830110865570504,
+        "linearGammaRmse": 0.0058301128158312066,
+        "linearImprovement": 3.3451508822200657e-07,
+        "pass": true,
+        "shuffledCircularRmse": 0.0065691083135157435,
+        "shuffledImprovement": 0.11249585372565325
+      },
+      "seed": 2714469569
+    }
+  ],
+  "seeds": [
+    1620122227,
+    1121900541,
+    1167345866,
+    635455088,
+    152170300,
+    1993643838,
+    2915565139,
+    4081553161,
+    2794246745,
+    2714469569
+  ]
+}

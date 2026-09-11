@@ -1,0 +1,17 @@
+{
+  "allFiveGatesPassed": false,
+  "bScientificSha256": "8d3b01c54ef102c824f45218093a2e0caf1f38b3f918211a05093259195d974b",
+  "boundary": "Advancement authorizes drafting a separate causal experiment; it does not modify the canonical engine.",
+  "cScientificSha256": "9cd8a1413510f62be17a111a63282cd6159663ee05d25e9b6c54b6b804b972c0",
+  "gates": {
+    "independentReplication": false,
+    "ordinaryMagnitude": false,
+    "permutationMagnitude": false,
+    "primaryDirection": false,
+    "repairSpecificDirection": false
+  },
+  "matchingScientificHash": false,
+  "matchingSingleRunVerdict": true,
+  "schema": "EL-EXP-GAMMA-002-BC-comparison-v1",
+  "verdict": "DO_NOT_ADVANCE_CIRCULAR_PHASE_GAMMA_V1_6"
+}

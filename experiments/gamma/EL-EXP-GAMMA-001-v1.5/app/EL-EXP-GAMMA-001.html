@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EL-EXP-GAMMA-001</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07100f;
+      --panel: #0d1918;
+      --panel-2: #112321;
+      --line: #29403c;
+      --text: #e8f1ef;
+      --muted: #9bb0ac;
+      --cyan: #56e0c5;
+      --gold: #f0c66a;
+      --red: #ff7777;
+      --green: #83e28d;
+      --blue: #73a7ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 50% -20%, #18302d 0, var(--bg) 50%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    header, main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 34px 0 20px; }
+    h1 { margin: 0 0 4px; font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.035em; }
+    h2 { margin: 0 0 14px; font-size: 19px; }
+    h3 { margin: 0 0 8px; font-size: 15px; }
+    p { margin: 7px 0; }
+    code, pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .subtitle { color: var(--muted); font-size: 16px; max-width: 900px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge { border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; color: var(--muted); font-size: 12px; background: #0b1715cc; }
+    .badge strong { color: var(--cyan); }
+    main { padding-bottom: 50px; }
+    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; margin: 16px 0; }
+    .panel { background: linear-gradient(180deg, #10201eeb, #0a1514eb); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: 0 18px 50px #0005; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+    label { display: grid; gap: 5px; color: var(--muted); font-size: 12px; }
+    select, input, button {
+      font: inherit;
+      border-radius: 8px;
+      border: 1px solid #38534e;
+      background: #091311;
+      color: var(--text);
+      padding: 9px 11px;
+    }
+    input { width: 110px; }
+    button { cursor: pointer; background: #17332f; font-weight: 700; }
+    button.primary { background: var(--cyan); color: #04100e; border-color: var(--cyan); }
+    button.gold { background: var(--gold); color: #171007; border-color: var(--gold); }
+    button:disabled { opacity: 0.42; cursor: wait; }
+    .warning { border-left: 3px solid var(--gold); padding: 10px 12px; background: #2b2412; color: #f4ddb0; margin-top: 12px; }
+    .status { min-height: 44px; display: flex; align-items: center; color: var(--muted); }
+    .status.running { color: var(--gold); }
+    .status.good { color: var(--green); }
+    .status.bad { color: var(--red); }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .metric { background: #081210; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+    .metric .value { font-size: 20px; font-weight: 800; color: var(--cyan); }
+    .metric .label { color: var(--muted); font-size: 11px; }
+    .verdict { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #081210; }
+    .verdict.advance { border-color: #477f50; }
+    .verdict.hold { border-color: #78683d; }
+    .verdict.invalid { border-color: #7c4040; }
+    canvas { width: 100%; height: 360px; display: block; background: radial-gradient(circle, #102522, #050b0a 70%); border: 1px solid var(--line); border-radius: 10px; }
+    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; min-width: 740px; font-size: 12px; }
+    th, td { padding: 9px 10px; border-bottom: 1px solid #243734; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    th { background: #132724; color: #bcd1cd; position: sticky; top: 0; }
+    tr:last-child td { border-bottom: 0; }
+    .pass { color: var(--green); font-weight: 800; }
+    .fail { color: var(--gold); font-weight: 800; }
+    details { margin-top: 12px; }
+    summary { cursor: pointer; color: var(--cyan); font-weight: 700; }
+    .protocol-list { margin: 8px 0 0 20px; padding: 0; color: #cddbd8; }
+    .protocol-list li { margin: 6px 0; }
+    pre { white-space: pre-wrap; background: #07100f; border: 1px solid var(--line); border-radius: 8px; padding: 12px; color: #b7cbc7; max-height: 320px; overflow: auto; }
+    footer { color: var(--muted); padding: 20px 0 40px; font-size: 12px; }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EL-EXP-GAMMA-001</h1>
+    <div class="subtitle">Prospective Consequential-History Qualification: does structured Gamma history predict signed downstream consequences better than simpler memory and null controls?</div>
+    <div class="badge-row">
+      <span class="badge"><strong>Gamma:</strong> inert</span>
+      <span class="badge"><strong>Prediction:</strong> before settlement</span>
+      <span class="badge"><strong>State:</strong> synchronous</span>
+      <span class="badge"><strong>Official seeds:</strong> 5, 18, 103, 449, 871</span>
+      <span class="badge"><strong>Build:</strong> <span id="buildId"></span></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Run control</h2>
+      <div class="controls">
+        <label>Version label
+          <select id="version">
+            <option value="B" selected>Version B - Bobby</option>
+            <option value="C">Version C - Codex</option>
+            <option value="A">Version A - Adjudication only</option>
+          </select>
+        </label>
+        <button id="commission" type="button">Commissioning only</button>
+        <button id="runOfficial" class="primary" type="button">Run official Version B</button>
+        <button id="download" type="button" disabled>Download JSON</button>
+        <button id="copy" type="button" disabled>Copy summary</button>
+      </div>
+      <div class="warning"><strong>Version B goes first.</strong> Save its JSON before Version C is run. Changing any official parameter makes the run exploratory and noncanonical.</div>
+      <div id="status" class="status">Ready. No official seed has been run in this interface.</div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Experimental field</h2>
+        <canvas id="field" width="840" height="360" aria-label="Final six-node experimental field"></canvas>
+        <p class="subtitle">The field is observational. Rendering occurs after computation and consumes no experimental randomness.</p>
+      </section>
+      <section class="panel">
+        <h2>Decision boundary</h2>
+        <div id="verdict" class="verdict">
+          <h3>Awaiting run</h3>
+          <p>Passing this experiment advances the candidate to a separately preregistered causal-integration test. It does not make Gamma canonical.</p>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><div id="commissionMetric" class="value">-</div><div class="label">Commissioning</div></div>
+          <div class="metric"><div id="seedMetric" class="value">-</div><div class="label">Passing seeds</div></div>
+          <div class="metric"><div id="controlMetric" class="value">-</div><div class="label">Vs. best control</div></div>
+          <div class="metric"><div id="shuffleMetric" class="value">-</div><div class="label">Vs. shuffled</div></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Per-seed primary results</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Seed</th><th>Gamma RMSE</th><th>Best control</th><th>Control RMSE</th><th>Improvement</th><th>Vs. shuffled</th><th>Decision</th></tr></thead>
+          <tbody id="seedRows"><tr><td colspan="7" style="text-align:center;color:#9bb0ac">No run loaded</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Pooled model comparison</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Model</th><th>Balanced RMSE</th><th>Mean cosine</th><th>Sign agreement</th><th>Role</th></tr></thead>
+          <tbody id="modelRows"><tr><td colspan="5" style="text-align:center;color:#9bb0ac">No run loaded</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Frozen protocol</h2>
+      <ul class="protocol-list">
+        <li>Six nodes, 30 warmup ticks, 360 acquisition events, 180 prospective test events, horizon 10.</li>
+        <li>Every event is measured by paired factual and event-suppressed trajectories from the same cloned state.</li>
+        <li>Primary relational Gamma uses a 49-channel target-context, actor-state, pair-relation, and event signature to predict a signed 23-channel consequence vector.</li>
+        <li>Controls: zero, recency window, event-type mean, actor-plus-event-type mean, target-state kernel, and within-pair shuffled Gamma history.</li>
+        <li>Pass: Gamma improves balanced RMSE by at least 5% over the best ordinary control and 10% over shuffled history, pooled and in at least 4 of 5 seeds.</li>
+        <li>A negative result applies only to this realization and tested parameter region.</li>
+      </ul>
+      <details>
+        <summary>Exploratory adjustments - automatically noncanonical</summary>
+        <div class="controls" style="margin-top:12px">
+          <label>Sigma <input id="sigma" type="number" min="0.005" max="1" step="0.005" value="0.015"></label>
+          <label>Archive capacity <input id="capacity" type="number" min="4" max="256" step="1" value="48"></label>
+          <label>Horizon <input id="horizon" type="number" min="1" max="40" step="1" value="10"></label>
+          <button id="runExploratory" class="gold" type="button">Run exploratory</button>
+        </div>
+      </details>
+      <details>
+        <summary>Commissioning and export details</summary>
+        <pre id="details">No result.</pre>
+      </details>
+    </section>
+
+    <footer>Emergence Lab. Gamma remains candidate instrumentation until the evidence says otherwise.</footer>
+  </main>
+
+  <script src="./EL-EXP-GAMMA-001-core.js"></script>
+  <script>
+    'use strict';
+
+    const experiment = window.GammaExperiment;
+    const elements = {
+      buildId: document.getElementById('buildId'),
+      version: document.getElementById('version'),
+      commission: document.getElementById('commission'),
+      runOfficial: document.getElementById('runOfficial'),
+      runExploratory: document.getElementById('runExploratory'),
+      download: document.getElementById('download'),
+      copy: document.getElementById('copy'),
+      status: document.getElementById('status'),
+      verdict: document.getElementById('verdict'),
+      commissionMetric: document.getElementById('commissionMetric'),
+      seedMetric: document.getElementById('seedMetric'),
+      controlMetric: document.getElementById('controlMetric'),
+      shuffleMetric: document.getElementById('shuffleMetric'),
+      seedRows: document.getElementById('seedRows'),
+      modelRows: document.getElementById('modelRows'),
+      details: document.getElementById('details'),
+      field: document.getElementById('field'),
+      sigma: document.getElementById('sigma'),
+      capacity: document.getElementById('capacity'),
+      horizon: document.getElementById('horizon')
+    };
+    let currentResult = null;
+
+    elements.buildId.textContent = experiment.BUILD_ID;
+
+    function percent(value) {
+      return `${(100 * value).toFixed(2)}%`;
+    }
+
+    async function sha256(text) {
+      const bytes = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest('SHA-256', bytes);
+      return Array.from(new Uint8Array(digest)).map(value => value.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function attachHashes(result) {
+      const payload = experiment.stableStringify(experiment.scientificPayload(result));
+      result.scientificSha256 = await sha256(payload);
+      try {
+        const [coreText, protocolText] = await Promise.all([
+          fetch('./EL-EXP-GAMMA-001-core.js').then(response => response.text()),
+          fetch('./EL-EXP-GAMMA-001-PROTOCOL.md').then(response => response.text())
+        ]);
+        result.artifacts = {
+          coreSha256: await sha256(coreText),
+          protocolSha256: await sha256(protocolText)
+        };
+      } catch (error) {
+        result.artifacts = { coreSha256: null, warning: error.message };
+      }
+      return result;
+    }
+
+    function setBusy(busy, message) {
+      [elements.commission, elements.runOfficial, elements.runExploratory].forEach(button => { button.disabled = busy; });
+      elements.status.className = busy ? 'status running' : 'status';
+      elements.status.textContent = message;
+    }
+
+    function modelRole(name) {
+      return {
+        zero: 'Null: predicts no consequence',
+        recency: 'Simple recent-history control',
+        typeMean: 'Simple event-class control',
+        pairTypeMean: 'Actor + event-class control',
+        stateKernel: 'Target-state similarity control',
+        shuffledGammaRelational: 'Broken relational-history null',
+        gammaRelational: 'Primary type baseline + Gamma residual',
+        shuffledGammaDyadic: 'Within-pair broken-history null',
+        gammaDyadic: 'Secondary pair-specific Gamma'
+      }[name] || '';
+    }
+
+    function renderResult(result) {
+      currentResult = result;
+      elements.download.disabled = false;
+      elements.copy.disabled = false;
+      elements.commissionMetric.textContent = `${result.commissioning.passed}/${result.commissioning.total}`;
+      elements.seedMetric.textContent = `${result.passingSeeds}/${result.seeds.length}`;
+      elements.controlMetric.textContent = percent(result.pooledScore.baselineImprovement);
+      elements.shuffleMetric.textContent = percent(result.pooledScore.shuffledImprovement);
+
+      const verdictClass = !result.decision.valid ? 'invalid' : result.decision.advance ? 'advance' : 'hold';
+      elements.verdict.className = `verdict ${verdictClass}`;
+      elements.verdict.innerHTML = `<h3>${result.decision.verdict}</h3><p>${result.decision.boundary}</p>`;
+
+      elements.seedRows.innerHTML = result.seedResults.map(seed => `
+        <tr>
+          <td>${seed.seed}</td>
+          <td>${seed.score.gammaRmse.toFixed(8)}</td>
+          <td>${seed.score.bestBaseline}</td>
+          <td>${seed.score.bestBaselineRmse.toFixed(8)}</td>
+          <td>${percent(seed.score.baselineImprovement)}</td>
+          <td>${percent(seed.score.shuffledImprovement)}</td>
+          <td class="${seed.score.pass ? 'pass' : 'fail'}">${seed.score.pass ? 'PASS' : 'NO'}</td>
+        </tr>`).join('');
+
+      elements.modelRows.innerHTML = Object.entries(result.pooledMetrics).map(([name, metric]) => `
+        <tr>
+          <td>${name}</td>
+          <td>${metric.balancedRmse.toFixed(8)}</td>
+          <td>${metric.meanCosine.toFixed(5)}</td>
+          <td>${percent(metric.meanSignAgreement)}</td>
+          <td>${modelRole(name)}</td>
+        </tr>`).join('');
+
+      elements.details.textContent = JSON.stringify({
+        buildId: result.buildId,
+        runVersion: result.runVersion,
+        canonical: result.canonical,
+        configHash: result.configHash,
+        scientificFingerprint: result.scientificFingerprint,
+        scientificSha256: result.scientificSha256,
+        artifacts: result.artifacts,
+        commissioning: result.commissioning,
+        decision: result.decision
+      }, null, 2);
+      drawWorld(result.seedResults[result.seedResults.length - 1].finalWorld);
+      elements.status.className = result.decision.valid ? 'status good' : 'status bad';
+      elements.status.textContent = `${result.runVersion} complete. Save the JSON before another official replication.`;
+    }
+
+    function drawWorld(world) {
+      const canvas = elements.field;
+      const context = canvas.getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const radius = Math.min(canvas.width, canvas.height) * 0.36;
+      const points = world.nodes.map((node, index) => {
+        const angle = -Math.PI / 2 + index * 2 * Math.PI / world.nodes.length;
+        return { x: centerX + Math.cos(angle) * radius, y: centerY + Math.sin(angle) * radius, node };
+      });
+
+      for (let a = 0; a < points.length; a += 1) {
+        for (let b = a + 1; b < points.length; b += 1) {
+          const similarity = 1 - Math.abs(points[a].node.theta.coherence - points[b].node.theta.coherence);
+          context.strokeStyle = `rgba(86, 224, 197, ${0.08 + 0.26 * similarity})`;
+          context.lineWidth = 0.5 + 2 * similarity;
+          context.beginPath();
+          context.moveTo(points[a].x, points[a].y);
+          context.lineTo(points[b].x, points[b].y);
+          context.stroke();
+        }
+      }
+
+      points.forEach(({ x, y, node }) => {
+        const nodeRadius = 19 + 12 * node.X;
+        const gradient = context.createRadialGradient(x - 5, y - 6, 2, x, y, nodeRadius);
+        gradient.addColorStop(0, '#effffb');
+        gradient.addColorStop(0.25, `hsl(${155 + 80 * node.Y} 72% 58%)`);
+        gradient.addColorStop(1, '#0e4e45');
+        context.fillStyle = gradient;
+        context.beginPath();
+        context.arc(x, y, nodeRadius, 0, Math.PI * 2);
+        context.fill();
+        context.strokeStyle = '#a4f4e5';
+        context.lineWidth = 1.4;
+        context.stroke();
+        context.fillStyle = '#07100f';
+        context.font = '700 13px system-ui';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(String(node.id + 1), x, y);
+      });
+
+      context.fillStyle = '#9bb0ac';
+      context.font = '12px system-ui';
+      context.textAlign = 'left';
+      context.fillText(`Seed ${world.seed} - final tick ${world.tick}`, 14, canvas.height - 14);
+    }
+
+    async function execute(operation, label) {
+      setBusy(true, label);
+      await new Promise(resolve => setTimeout(resolve, 30));
+      try {
+        const result = operation();
+        await attachHashes(result);
+        renderResult(result);
+      } catch (error) {
+        elements.status.className = 'status bad';
+        elements.status.textContent = `Run failed: ${error.message}`;
+        elements.details.textContent = error.stack || error.message;
+      } finally {
+        [elements.commission, elements.runOfficial, elements.runExploratory].forEach(button => { button.disabled = false; });
+      }
+    }
+
+    elements.version.addEventListener('change', () => {
+      elements.runOfficial.textContent = `Run official Version ${elements.version.value}`;
+    });
+
+    elements.commission.addEventListener('click', () => execute(
+      () => experiment.runCommissioningSmoke(),
+      'Running excluded commissioning seed 13579...'
+    ));
+
+    elements.runOfficial.addEventListener('click', () => execute(
+      () => experiment.runSuite({ runVersion: elements.version.value, canonical: true }),
+      `Running official Version ${elements.version.value}...`
+    ));
+
+    elements.runExploratory.addEventListener('click', () => {
+      const config = {
+        ...JSON.parse(JSON.stringify(experiment.DEFAULT_CONFIG)),
+        sigma: Number(elements.sigma.value),
+        archiveCapacity: Number(elements.capacity.value),
+        horizon: Number(elements.horizon.value)
+      };
+      execute(
+        () => experiment.runSuite({ runVersion: 'EXPLORATORY', canonical: false, config }),
+        'Running noncanonical exploratory configuration...'
+      );
+    });
+
+    elements.download.addEventListener('click', () => {
+      if (!currentResult) return;
+      const blob = new Blob([`${JSON.stringify(currentResult, null, 2)}\n`], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `EL-EXP-GAMMA-001-${currentResult.runVersion}-${currentResult.scientificFingerprint}.json`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+
+    elements.copy.addEventListener('click', async () => {
+      if (!currentResult) return;
+      const summary = [
+        `${currentResult.buildId} - Version ${currentResult.runVersion}`,
+        `Canonical: ${currentResult.canonical}`,
+        `Commissioning: ${currentResult.commissioning.passed}/${currentResult.commissioning.total}`,
+        `Passing seeds: ${currentResult.passingSeeds}/${currentResult.seeds.length}`,
+        `Vs best control: ${percent(currentResult.pooledScore.baselineImprovement)}`,
+        `Vs shuffled: ${percent(currentResult.pooledScore.shuffledImprovement)}`,
+        `Verdict: ${currentResult.decision.verdict}`,
+        `Scientific fingerprint: ${currentResult.scientificFingerprint}`,
+        `Scientific SHA-256: ${currentResult.scientificSha256}`
+      ].join('\n');
+      await navigator.clipboard.writeText(summary);
+      elements.status.textContent = 'Summary copied.';
+    });
+
+    drawWorld(experiment.createWorld(experiment.DEFAULT_CONFIG.commissioningSeed));
+  </script>
+</body>
+</html>

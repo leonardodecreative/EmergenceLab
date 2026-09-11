@@ -1,0 +1,19 @@
+{
+  "schema": "EL-EXP-GAMMA-002-freeze-v1",
+  "buildId": "EL-EXP-GAMMA-002-v1.6.0-candidate",
+  "protocolId": "circular-phase-retrieval-repair",
+  "status": "FROZEN_BEFORE_CONFIRMATORY_EXECUTION",
+  "confirmatoryExecutionStarted": false,
+  "protocolSha256": "b8ea9d564fc135e782cf65b2ffea252e9bb0a3854fab4ba3f7e4d72c2505e55a",
+  "coreSha256": "35380e6f2da36e53226a3beef2de7c7d8c0dcc71b2bd186f1541ef4de28a6b34",
+  "frozenV15ReferenceCoreSha256": "33d4c44561382c581625aa801347b5da7d7e1c901b2cb6cdff9694b1211ead85",
+  "batchRunnerSha256": "8014390979dc729331161eb230ef2406166c3fc127382c0a8eb3fc3c20e00862",
+  "aggregateRunnerSha256": "098b142e67b309448886540f65ee4cbfc4effe3dd577c096eff3c7188edcf824",
+  "replicationComparatorSha256": "6065dec20adfc3871d0c7ff1de5d4608e5aeb8a772d72441a83631d070a9d47c",
+  "commissioningArtifactSha256": "4d0f58f75d65dd4982ed3495d604b09b98a3b3379c8d308bcc78168062584ed3",
+  "commissioningRoundedScientificSha256": "d3220dc7dbb67ba2e6d66d14af957913582045f7199f5a97bb69df6178cbc1a6",
+  "commissioningSeed": 13579,
+  "commissioningStatus": "PASS_NON_EVIDENTIARY",
+  "replicationOrder": "Bobby B first; Codex C second; Version A only for material discrepancy",
+  "architectureBoundary": "Noncausal retrieval experiment only; canonical engine untouched"
+}

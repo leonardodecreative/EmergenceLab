@@ -1,0 +1,2177 @@
+{
+  "schema": "EL-EXP-GAMMA-001-v1.5-diagnostic-decomposition-v1",
+  "status": "EXPLORATORY_NONCAUSAL",
+  "buildId": "EL-EXP-GAMMA-001-v1.5.0",
+  "coreSha256": "33d4c44561382c581625aa801347b5da7d7e1c901b2cb6cdff9694b1211ead85",
+  "configHash": "13094d04",
+  "sourceSeedCount": 30,
+  "testEventCount": 5400,
+  "actualAcquisitionEventsPerSeed": 360,
+  "configuredAcquisitionEvents": 360,
+  "scheduleObservation": "The frozen schedule executes the configured 360 acquisition events followed by 180 held-out test events per seed.",
+  "validation": {
+    "allFinalWorldDigestsMatched": true,
+    "pooledGammaRmseMatched": true,
+    "pooledTypeMeanRmseMatched": true
+  },
+  "overall": {
+    "versusTypeMean": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.006603576019331871,
+      "controlRmse": 0.0067640847730488915,
+      "pooledImprovement": 0.023729559741261425,
+      "meanSeedImprovement": 0.023356405522844244,
+      "meanSeedImprovement95PercentTInterval": [
+        0.008953971727036533,
+        0.037758839318651954
+      ],
+      "medianSeedImprovement": 0.020145451232662377,
+      "signTest": {
+        "positive": 22,
+        "negative": 8,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.016124801710247993,
+        "direction": "positive"
+      }
+    },
+    "versusShuffled": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.006603576019331871,
+      "controlRmse": 0.007228927116219242,
+      "pooledImprovement": 0.0865067646738749,
+      "meanSeedImprovement": 0.08604232070712482,
+      "meanSeedImprovement95PercentTInterval": [
+        0.06993740057357122,
+        0.10214724084067843
+      ],
+      "medianSeedImprovement": 0.08189540626641331,
+      "signTest": {
+        "positive": 29,
+        "negative": 1,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.774199962615967e-08,
+        "direction": "positive"
+      }
+    },
+    "relationalVersusDyadic": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.006603576019331871,
+      "controlRmse": 0.009689160669157563,
+      "pooledImprovement": 0.31845737264401996,
+      "meanSeedImprovement": 0.3142626269651981,
+      "meanSeedImprovement95PercentTInterval": [
+        0.29790958061222284,
+        0.3306156733181733
+      ],
+      "medianSeedImprovement": 0.311841830671512,
+      "signTest": {
+        "positive": 30,
+        "negative": 0,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.862645149230957e-09,
+        "direction": "positive"
+      }
+    }
+  },
+  "byEventKind": {
+    "ALIGN_THETA": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.00024315246497638745,
+      "controlRmse": 0.00023894092963881776,
+      "pooledImprovement": -0.017625843106644935,
+      "meanSeedImprovement": -0.020384190514184965,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.039670945912718754,
+        -0.001097435115651177
+      ],
+      "medianSeedImprovement": -0.03300313141397862,
+      "signTest": {
+        "positive": 7,
+        "negative": 23,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.005222879350185394,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.015668638050556183
+      }
+    },
+    "DISRUPT_PHASE": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.005387811644657151,
+      "controlRmse": 0.005861173294611292,
+      "pooledImprovement": 0.08076226826279738,
+      "meanSeedImprovement": 0.0789705169816171,
+      "meanSeedImprovement95PercentTInterval": [
+        0.06280069808511712,
+        0.09514033587811707
+      ],
+      "medianSeedImprovement": 0.08286006047518113,
+      "signTest": {
+        "positive": 29,
+        "negative": 1,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.774199962615967e-08,
+        "direction": "positive",
+        "benjaminiHochbergQ": 3.46451997756958e-07
+      }
+    },
+    "ERODE_MEMORY": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.0012413208466703369,
+      "controlRmse": 0.001280890324436206,
+      "pooledImprovement": 0.03089216696463527,
+      "meanSeedImprovement": 0.03357981894381147,
+      "meanSeedImprovement95PercentTInterval": [
+        0.009580727718800985,
+        0.05757891016882195
+      ],
+      "medianSeedImprovement": 0.029531235397593142,
+      "signTest": {
+        "positive": 20,
+        "negative": 10,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.09873714670538902,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.19747429341077805
+      }
+    },
+    "INTEGRATION_PULSE": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.0009782865607242705,
+      "controlRmse": 0.0009692844639968607,
+      "pooledImprovement": -0.00928736306191214,
+      "meanSeedImprovement": -0.008884902053977985,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.02672165453122859,
+        0.008951850423272619
+      ],
+      "medianSeedImprovement": -0.0044028780903189665,
+      "signTest": {
+        "positive": 13,
+        "negative": 17,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.7015976540744304
+      }
+    },
+    "RECOVERY_SHOCK": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.014374772321799926,
+      "controlRmse": 0.014608145138235194,
+      "pooledImprovement": 0.015975526956152702,
+      "meanSeedImprovement": 0.015639144469797882,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.0015447176026084052,
+        0.03282300654220417
+      ],
+      "medianSeedImprovement": 0.007686002238472338,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7015976540744304
+      }
+    },
+    "SUPPORT_MEMORY": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.004839799445863965,
+      "controlRmse": 0.004912078477539364,
+      "pooledImprovement": 0.014714551488926166,
+      "meanSeedImprovement": 0.012666815893054482,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.005544572540421906,
+        0.03087820432653087
+      ],
+      "medianSeedImprovement": 0.00573439807191424,
+      "signTest": {
+        "positive": 16,
+        "negative": 14,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.855535551905632
+      }
+    }
+  },
+  "byStrength": {
+    "0.12": {
+      "eventCount": 1739,
+      "seedCount": 30,
+      "modelRmse": 0.007297023484981344,
+      "controlRmse": 0.007606940050864473,
+      "pooledImprovement": 0.04074129200583212,
+      "meanSeedImprovement": 0.03993230557132557,
+      "meanSeedImprovement95PercentTInterval": [
+        0.01958820673924426,
+        0.06027640440340688
+      ],
+      "medianSeedImprovement": 0.04354456974446505,
+      "signTest": {
+        "positive": 22,
+        "negative": 8,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.016124801710247993,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.02418720256537199
+      }
+    },
+    "0.2": {
+      "eventCount": 1823,
+      "seedCount": 30,
+      "modelRmse": 0.0035600107160783105,
+      "controlRmse": 0.0032329168864444124,
+      "pooledImprovement": -0.10117607136929478,
+      "meanSeedImprovement": -0.11228420232437848,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.1794670516379288,
+        -0.04510135301082817
+      ],
+      "medianSeedImprovement": -0.06443137391313619,
+      "signTest": {
+        "positive": 10,
+        "negative": 20,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.09873714670538902,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.09873714670538902
+      }
+    },
+    "0.28": {
+      "eventCount": 1838,
+      "seedCount": 30,
+      "modelRmse": 0.008072680670089625,
+      "controlRmse": 0.00832499675095523,
+      "pooledImprovement": 0.030308249770386216,
+      "meanSeedImprovement": 0.03371411934718218,
+      "meanSeedImprovement95PercentTInterval": [
+        0.01017529402471114,
+        0.05725294466965322
+      ],
+      "medianSeedImprovement": 0.035598189889254284,
+      "signTest": {
+        "positive": 22,
+        "negative": 8,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.016124801710247993,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.02418720256537199
+      }
+    }
+  },
+  "byConsequenceFamily": {
+    "X": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.009579185236862067,
+      "controlRmse": 0.009716203093414056,
+      "pooledImprovement": 0.014101995937576038,
+      "meanSeedImprovement": 0.013722956029703625,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.004217997741072203,
+        0.03166390980047945
+      ],
+      "medianSeedImprovement": 0.01750200003996842,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.46780631815393764
+      }
+    },
+    "Y": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.007269980546638107,
+      "controlRmse": 0.0073878189456133,
+      "pooledImprovement": 0.015950363678736732,
+      "meanSeedImprovement": 0.015186358481965102,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0022222424273172017,
+        0.028150474536613002
+      ],
+      "medianSeedImprovement": 0.01663489938585123,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5062324512749911
+      }
+    },
+    "Z1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.01133576526530035,
+      "controlRmse": 0.011534086386420358,
+      "pooledImprovement": 0.01719435024810468,
+      "meanSeedImprovement": 0.01716824617857904,
+      "meanSeedImprovement95PercentTInterval": [
+        0.00029711769782900244,
+        0.034039374659329075
+      ],
+      "medianSeedImprovement": 0.012787004852077307,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5062324512749911
+      }
+    },
+    "Z2": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Theta": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.005376453743036168,
+      "controlRmse": 0.005889989365489678,
+      "pooledImprovement": 0.08718786921117228,
+      "meanSeedImprovement": 0.08587108360018034,
+      "meanSeedImprovement95PercentTInterval": [
+        0.06949077390895056,
+        0.10225139329141011
+      ],
+      "medianSeedImprovement": 0.09429928155159069,
+      "signTest": {
+        "positive": 29,
+        "negative": 1,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.774199962615967e-08,
+        "direction": "positive",
+        "benjaminiHochbergQ": 4.041939973831177e-07
+      }
+    },
+    "Relation": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0017975755199864385,
+      "controlRmse": 0.0018863469718804152,
+      "pooledImprovement": 0.04705998059597935,
+      "meanSeedImprovement": 0.04340243054573631,
+      "meanSeedImprovement95PercentTInterval": [
+        0.028000994323245765,
+        0.05880386676822685
+      ],
+      "medianSeedImprovement": 0.03704533766126625,
+      "signTest": {
+        "positive": 26,
+        "negative": 4,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.947612226009369e-05,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.0002081664279103279
+      }
+    },
+    "Environment": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    }
+  },
+  "byChannel": {
+    "X": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.009579185236862067,
+      "controlRmse": 0.009716203093414056,
+      "pooledImprovement": 0.014101995937576038,
+      "meanSeedImprovement": 0.013722956029703625,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.004217997741072203,
+        0.03166390980047945
+      ],
+      "medianSeedImprovement": 0.01750200003996842,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.41920306431976234
+      }
+    },
+    "Y": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.007269980546638107,
+      "controlRmse": 0.0073878189456133,
+      "pooledImprovement": 0.015950363678736732,
+      "meanSeedImprovement": 0.015186358481965102,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0022222424273172017,
+        0.028150474536613002
+      ],
+      "medianSeedImprovement": 0.01663489938585123,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5940482846594283
+      }
+    },
+    "Z1.recovery.0": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.01458576474683018,
+      "controlRmse": 0.014846913752219347,
+      "pooledImprovement": 0.01758944719067489,
+      "meanSeedImprovement": 0.01760582804713343,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.00035537181211486163,
+        0.03556702790638172
+      ],
+      "medianSeedImprovement": 0.012882620425021984,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.8964858913173278
+      }
+    },
+    "Z1.recovery.1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.013143598791811007,
+      "controlRmse": 0.013366921797571138,
+      "pooledImprovement": 0.016707137899221534,
+      "meanSeedImprovement": 0.016645618252843327,
+      "meanSeedImprovement95PercentTInterval": [
+        0.001001367406340152,
+        0.0322898690993465
+      ],
+      "medianSeedImprovement": 0.01164006346122239,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.41920306431976234
+      }
+    },
+    "Z1.active": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Z2.integration.0": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Z2.integration.1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Theta.frequency.0": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 3.4985278217340445e-09,
+      "controlRmse": 8.405601708476882e-09,
+      "pooledImprovement": 0.583786153202352,
+      "meanSeedImprovement": 0.10393728729810683,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.32963889403868674,
+        0.5375134686349003
+      ],
+      "medianSeedImprovement": 0.37923313866184083,
+      "signTest": {
+        "positive": 25,
+        "negative": 5,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.00032491423189640045,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.0009341284167021513
+      }
+    },
+    "Theta.frequency.1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 2.92888404233542e-09,
+      "controlRmse": 7.053136869452587e-09,
+      "pooledImprovement": 0.5847402231735312,
+      "meanSeedImprovement": 0.03346927404449362,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.5974300098474238,
+        0.664368557936411
+      ],
+      "medianSeedImprovement": 0.40145280688999624,
+      "signTest": {
+        "positive": 26,
+        "negative": 4,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.947612226009369e-05,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.00022799180199702582
+      }
+    },
+    "Theta.frequency.2": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 5.6284156070683776e-09,
+      "controlRmse": 1.3598512207369918e-08,
+      "pooledImprovement": 0.586100632095769,
+      "meanSeedImprovement": -0.12012267412348306,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.9379575091871958,
+        0.6977121609402296
+      ],
+      "medianSeedImprovement": 0.38873025709085357,
+      "signTest": {
+        "positive": 25,
+        "negative": 5,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.00032491423189640045,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.0009341284167021513
+      }
+    },
+    "Theta.phase.0": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.00628597427760813,
+      "controlRmse": 0.007831418153563736,
+      "pooledImprovement": 0.197338955174082,
+      "meanSeedImprovement": 0.24952200121835208,
+      "meanSeedImprovement95PercentTInterval": [
+        0.2084691654009175,
+        0.2905748370357866
+      ],
+      "medianSeedImprovement": 0.22168682370818282,
+      "signTest": {
+        "positive": 30,
+        "negative": 0,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.862645149230957e-09,
+        "direction": "positive",
+        "benjaminiHochbergQ": 2.1420419216156006e-08
+      }
+    },
+    "Theta.phase.1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.006533105218130455,
+      "controlRmse": 0.007684176099463525,
+      "pooledImprovement": 0.14979756664002444,
+      "meanSeedImprovement": 0.22389127491274893,
+      "meanSeedImprovement95PercentTInterval": [
+        0.18297676484190434,
+        0.26480578498359353
+      ],
+      "medianSeedImprovement": 0.1997423534821293,
+      "signTest": {
+        "positive": 30,
+        "negative": 0,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.862645149230957e-09,
+        "direction": "positive",
+        "benjaminiHochbergQ": 2.1420419216156006e-08
+      }
+    },
+    "Theta.phase.2": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.01014371052733745,
+      "controlRmse": 0.010879373649007734,
+      "pooledImprovement": 0.06761998855856755,
+      "meanSeedImprovement": 0.11237485831562846,
+      "meanSeedImprovement95PercentTInterval": [
+        0.07594799050345372,
+        0.1488017261278032
+      ],
+      "medianSeedImprovement": 0.10197130629112225,
+      "signTest": {
+        "positive": 27,
+        "negative": 3,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 8.430331945419312e-06,
+        "direction": "positive",
+        "benjaminiHochbergQ": 6.463254491488139e-05
+      }
+    },
+    "Theta.amplitude.0": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Theta.amplitude.1": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Theta.amplitude.2": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Theta.coherence": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.010196702841492081,
+      "controlRmse": 0.01040102416290106,
+      "pooledImprovement": 0.01964434638444203,
+      "meanSeedImprovement": 0.01981159450232425,
+      "meanSeedImprovement95PercentTInterval": [
+        0.006751277391311858,
+        0.03287191161333664
+      ],
+      "medianSeedImprovement": 0.010419628617359428,
+      "signTest": {
+        "positive": 21,
+        "negative": 9,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.04277394525706768,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.10931119343472852
+      }
+    },
+    "Relation.resonance": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.002805622791967518,
+      "controlRmse": 0.0029469806988128865,
+      "pooledImprovement": 0.04796702839021342,
+      "meanSeedImprovement": 0.04420991859760908,
+      "meanSeedImprovement95PercentTInterval": [
+        0.028533658873020472,
+        0.05988617832219769
+      ],
+      "medianSeedImprovement": 0.037416957814219415,
+      "signTest": {
+        "positive": 26,
+        "negative": 4,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.947612226009369e-05,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.00022799180199702582
+      }
+    },
+    "Relation.memory": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0005767969763245513,
+      "controlRmse": 0.0005860888217514758,
+      "pooledImprovement": 0.01585398847764505,
+      "meanSeedImprovement": 0.015023877924912808,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0020188141801110223,
+        0.02802894166971459
+      ],
+      "medianSeedImprovement": 0.015324715896287734,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5940482846594283
+      }
+    },
+    "Relation.recovery": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.00028399911401307405,
+      "controlRmse": 0.000280417378702978,
+      "pooledImprovement": -0.012772872090391725,
+      "meanSeedImprovement": -0.011683543882655039,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.03974410544563875,
+        0.01637701768032867
+      ],
+      "medianSeedImprovement": -0.01587994149297695,
+      "signTest": {
+        "positive": 12,
+        "negative": 18,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.5940482846594283
+      }
+    },
+    "Relation.integration": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "Relation.thetaAlignment": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.002805622791967518,
+      "controlRmse": 0.0029469806988128865,
+      "pooledImprovement": 0.04796702839021342,
+      "meanSeedImprovement": 0.04420991859760908,
+      "meanSeedImprovement95PercentTInterval": [
+        0.028533658873020472,
+        0.05988617832219769
+      ],
+      "medianSeedImprovement": 0.037416957814219415,
+      "signTest": {
+        "positive": 26,
+        "negative": 4,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 5.947612226009369e-05,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.00022799180199702582
+      }
+    },
+    "Environment": {
+      "eventCount": 5400,
+      "seedCount": 30,
+      "modelRmse": 0.0,
+      "controlRmse": 0.0,
+      "pooledImprovement": 0.0,
+      "meanSeedImprovement": 0.0,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0,
+        0.0
+      ],
+      "medianSeedImprovement": 0.0,
+      "signTest": {
+        "positive": 0,
+        "negative": 0,
+        "ties": 30,
+        "effectiveN": 0,
+        "twoSidedP": 1.0,
+        "direction": "none",
+        "benjaminiHochbergQ": 1.0
+      }
+    }
+  },
+  "byTarget": {
+    "0": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.006613053279740216,
+      "controlRmse": 0.006865461099953099,
+      "pooledImprovement": 0.03676487515377629,
+      "meanSeedImprovement": 0.03661691728192031,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.0025457446805245143,
+        0.07577957924436514
+      ],
+      "medianSeedImprovement": 0.02698615605338152,
+      "signTest": {
+        "positive": 16,
+        "negative": 14,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "positive",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "1": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.006242037890349103,
+      "controlRmse": 0.006532716400396523,
+      "pooledImprovement": 0.04449581035383327,
+      "meanSeedImprovement": 0.045220982402757536,
+      "meanSeedImprovement95PercentTInterval": [
+        0.006939342828445209,
+        0.08350262197706987
+      ],
+      "medianSeedImprovement": 0.06378479576384218,
+      "signTest": {
+        "positive": 20,
+        "negative": 10,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.09873714670538902,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5924228802323341
+      }
+    },
+    "2": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.006681905392510183,
+      "controlRmse": 0.0069344019146131905,
+      "pooledImprovement": 0.03641215568582914,
+      "meanSeedImprovement": 0.03250745238151455,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.004303053041807982,
+        0.06931795780483707
+      ],
+      "medianSeedImprovement": 0.022092019509619417,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.8769970675930381
+      }
+    },
+    "3": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.006812206260171458,
+      "controlRmse": 0.00689042478005321,
+      "pooledImprovement": 0.011351770373893953,
+      "meanSeedImprovement": 0.0019692643965860163,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.02866364672221356,
+        0.03260217551538559
+      ],
+      "medianSeedImprovement": 0.008729859975804126,
+      "signTest": {
+        "positive": 15,
+        "negative": 15,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.0,
+        "direction": "balanced",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "4": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.0063547010649519075,
+      "controlRmse": 0.006575694525872314,
+      "pooledImprovement": 0.03360762274629698,
+      "meanSeedImprovement": 0.028288880066624198,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.01841971067564289,
+        0.07499747080889128
+      ],
+      "medianSeedImprovement": 0.009662601964066273,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.8769970675930381
+      }
+    },
+    "5": {
+      "eventCount": 900,
+      "seedCount": 30,
+      "modelRmse": 0.006892862055986345,
+      "controlRmse": 0.0067751365416811125,
+      "pooledImprovement": -0.017376109482218894,
+      "meanSeedImprovement": -0.020251766922938185,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.05817537329512927,
+        0.017671839449252904
+      ],
+      "medianSeedImprovement": -0.0024075505202033956,
+      "signTest": {
+        "positive": 13,
+        "negative": 17,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.8769970675930381
+      }
+    }
+  },
+  "byDyad": {
+    "0->1": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006977336750915493,
+      "controlRmse": 0.0071231160311660754,
+      "pooledImprovement": 0.020465661321919838,
+      "meanSeedImprovement": 0.04165562292469808,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.018726823058650068,
+        0.10203806890804623
+      ],
+      "medianSeedImprovement": 0.033348832463124735,
+      "signTest": {
+        "positive": 22,
+        "negative": 8,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.016124801710247993,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.3208045894280076
+      }
+    },
+    "0->2": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.0064821401478817086,
+      "controlRmse": 0.0069558087180472345,
+      "pooledImprovement": 0.06809683666782934,
+      "meanSeedImprovement": 0.03768443144990425,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.04572284800686394,
+        0.12109171090667245
+      ],
+      "medianSeedImprovement": 0.08633104478281492,
+      "signTest": {
+        "positive": 20,
+        "negative": 10,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.09873714670538902,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.4936857335269451
+      }
+    },
+    "0->3": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.0074111497354006454,
+      "controlRmse": 0.007236465114093371,
+      "pooledImprovement": -0.024139496087263304,
+      "meanSeedImprovement": -0.0028171611325285696,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.06419461701726088,
+        0.05856029475220375
+      ],
+      "medianSeedImprovement": -0.001819402161938475,
+      "signTest": {
+        "positive": 14,
+        "negative": 16,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.9166452341846058
+      }
+    },
+    "0->4": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006281146151447645,
+      "controlRmse": 0.006323173083596382,
+      "pooledImprovement": 0.006646494029676933,
+      "meanSeedImprovement": -0.039766392334118675,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.16897881522447988,
+        0.08944603055624252
+      ],
+      "medianSeedImprovement": 0.02769828090364297,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "0->5": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007441367080701932,
+      "controlRmse": 0.007434086147939941,
+      "pooledImprovement": -0.0009793984919059166,
+      "meanSeedImprovement": 0.014581914950139146,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.060270860026378575,
+        0.08943468992665687
+      ],
+      "medianSeedImprovement": 0.025713418878343046,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "1->0": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.005959164552032605,
+      "controlRmse": 0.00664155053225963,
+      "pooledImprovement": 0.10274498054520705,
+      "meanSeedImprovement": 0.09007777207470855,
+      "meanSeedImprovement95PercentTInterval": [
+        0.0191118196525302,
+        0.1610437244968869
+      ],
+      "medianSeedImprovement": 0.12096270389622166,
+      "signTest": {
+        "positive": 21,
+        "negative": 9,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.04277394525706768,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.3208045894280076
+      }
+    },
+    "1->2": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006463667306653268,
+      "controlRmse": 0.0067535411300727235,
+      "pooledImprovement": 0.04292175287549244,
+      "meanSeedImprovement": 0.007990287953143532,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.10310016616426738,
+        0.11908074207055445
+      ],
+      "medianSeedImprovement": 0.050200603575288244,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.6381081318592324
+      }
+    },
+    "1->3": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007310781522014312,
+      "controlRmse": 0.007472954787193174,
+      "pooledImprovement": 0.021701357735602486,
+      "meanSeedImprovement": 0.01809602352706181,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.06388695916832278,
+        0.1000790062224464
+      ],
+      "medianSeedImprovement": -0.007776204733874609,
+      "signTest": {
+        "positive": 14,
+        "negative": 16,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.9166452341846058
+      }
+    },
+    "1->4": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.0055773746543718245,
+      "controlRmse": 0.006440179543615416,
+      "pooledImprovement": 0.13397217940902717,
+      "meanSeedImprovement": 0.11759752615579333,
+      "meanSeedImprovement95PercentTInterval": [
+        0.01756203838839132,
+        0.21763301392319534
+      ],
+      "medianSeedImprovement": 0.04474406180083256,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.6381081318592324
+      }
+    },
+    "1->5": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006574811582271923,
+      "controlRmse": 0.006512787757562407,
+      "pooledImprovement": -0.009523391060532667,
+      "meanSeedImprovement": -0.030513749474562098,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.2154206100103724,
+        0.15439311106124823
+      ],
+      "medianSeedImprovement": 0.00047950864550946014,
+      "signTest": {
+        "positive": 15,
+        "negative": 15,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.0,
+        "direction": "balanced",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "2->0": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007087297821438979,
+      "controlRmse": 0.007250417190645883,
+      "pooledImprovement": 0.022497928728480984,
+      "meanSeedImprovement": 0.024638624585855733,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.06278058881110596,
+        0.11205783798281743
+      ],
+      "medianSeedImprovement": 0.05496119722070812,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.6381081318592324
+      }
+    },
+    "2->1": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006192394831346384,
+      "controlRmse": 0.006757478709241051,
+      "pooledImprovement": 0.08362347884602267,
+      "meanSeedImprovement": 0.12151484643539252,
+      "meanSeedImprovement95PercentTInterval": [
+        0.04741766636831249,
+        0.19561202650247256
+      ],
+      "medianSeedImprovement": 0.09439577719469772,
+      "signTest": {
+        "positive": 20,
+        "negative": 10,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.09873714670538902,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.4936857335269451
+      }
+    },
+    "2->3": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.0063755592124755366,
+      "controlRmse": 0.006511388841937329,
+      "pooledImprovement": 0.020860316095233984,
+      "meanSeedImprovement": -0.022995948620717323,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.1769196269095771,
+        0.13092772966814245
+      ],
+      "medianSeedImprovement": 0.012091769633215852,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "2->4": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006752579337580347,
+      "controlRmse": 0.006916542173925877,
+      "pooledImprovement": 0.02370589699628232,
+      "meanSeedImprovement": 0.04935036707380705,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.036779669222770664,
+        0.13548040337038475
+      ],
+      "medianSeedImprovement": 0.05265043879831695,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "2->5": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007065236959958994,
+      "controlRmse": 0.006737442975451268,
+      "pooledImprovement": -0.048652580170561024,
+      "meanSeedImprovement": -0.059612153394318454,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.14541168723878303,
+        0.026187380450146125
+      ],
+      "medianSeedImprovement": 0.005194344388271028,
+      "signTest": {
+        "positive": 16,
+        "negative": 14,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.9166452341846058
+      }
+    },
+    "3->0": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006830527146853046,
+      "controlRmse": 0.006546818600815025,
+      "pooledImprovement": -0.043335330232412664,
+      "meanSeedImprovement": -0.06175306873578405,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.1364346073424046,
+        0.012928469870836498
+      ],
+      "medianSeedImprovement": -0.0405749907277807,
+      "signTest": {
+        "positive": 9,
+        "negative": 21,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.04277394525706768,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.3208045894280076
+      }
+    },
+    "3->1": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006298736483609926,
+      "controlRmse": 0.006483390578807117,
+      "pooledImprovement": 0.02848109996654962,
+      "meanSeedImprovement": 0.06676723982306927,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.028235139065289835,
+        0.16176961871142836
+      ],
+      "medianSeedImprovement": 0.038051781052058024,
+      "signTest": {
+        "positive": 21,
+        "negative": 9,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.04277394525706768,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.3208045894280076
+      }
+    },
+    "3->2": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006485237270713738,
+      "controlRmse": 0.006836456687830362,
+      "pooledImprovement": 0.05137448142424904,
+      "meanSeedImprovement": 0.03403468981719641,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.04019122468281847,
+        0.1082606043172113
+      ],
+      "medianSeedImprovement": 0.04002378384294303,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.6381081318592324
+      }
+    },
+    "3->4": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006701677033967102,
+      "controlRmse": 0.006770706517299048,
+      "pooledImprovement": 0.01019531464782536,
+      "meanSeedImprovement": -0.024814707794037064,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.12298869305083539,
+        0.07335927746276126
+      ],
+      "medianSeedImprovement": 0.011236356604252143,
+      "signTest": {
+        "positive": 15,
+        "negative": 15,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 1.0,
+        "direction": "balanced",
+        "benjaminiHochbergQ": 1.0
+      }
+    },
+    "3->5": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006013023520777181,
+      "controlRmse": 0.006452629232671439,
+      "pooledImprovement": 0.06812815304316777,
+      "meanSeedImprovement": 0.06969177970951859,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.011860460383647714,
+        0.1512440198026849
+      ],
+      "medianSeedImprovement": 0.036394765837672434,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "4->0": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006630444295784097,
+      "controlRmse": 0.007196429218261107,
+      "pooledImprovement": 0.078648021860732,
+      "meanSeedImprovement": 0.06562723365852485,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.02278126310561443,
+        0.15403573042266414
+      ],
+      "medianSeedImprovement": 0.046036415957092625,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "4->1": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.005987996156946723,
+      "controlRmse": 0.006246164554900571,
+      "pooledImprovement": 0.04133230812039628,
+      "meanSeedImprovement": 0.042627624893544595,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.0727799100637459,
+        0.1580351598508351
+      ],
+      "medianSeedImprovement": 0.05725488629391139,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "4->2": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007112483699799804,
+      "controlRmse": 0.007078993071895196,
+      "pooledImprovement": -0.004730987523857274,
+      "meanSeedImprovement": 0.018757562549390115,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.08436915675121748,
+        0.1218842818499977
+      ],
+      "medianSeedImprovement": 0.017494911313216777,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "4->3": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006317926095009809,
+      "controlRmse": 0.0064919723210914585,
+      "pooledImprovement": 0.02680945288632843,
+      "meanSeedImprovement": 0.03997423768745197,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.05343833632384971,
+        0.13338681169875366
+      ],
+      "medianSeedImprovement": 0.06402960036695611,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "4->5": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.007271974977979495,
+      "controlRmse": 0.006693337934116476,
+      "pooledImprovement": -0.08644969812649979,
+      "meanSeedImprovement": -0.062386102166346796,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.17572194750391312,
+        0.050949743171219544
+      ],
+      "medianSeedImprovement": -0.005115936303567704,
+      "signTest": {
+        "positive": 14,
+        "negative": 16,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.855535551905632,
+        "direction": "negative",
+        "benjaminiHochbergQ": 0.9166452341846058
+      }
+    },
+    "5->0": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006504002088871607,
+      "controlRmse": 0.006659174902227366,
+      "pooledImprovement": 0.023302108089075207,
+      "meanSeedImprovement": 0.012027119705006346,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.10599037420567264,
+        0.13004461361568534
+      ],
+      "medianSeedImprovement": 0.05081782295030308,
+      "signTest": {
+        "positive": 19,
+        "negative": 11,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.20048842206597328,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.5012210551649332
+      }
+    },
+    "5->1": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.005679438702393096,
+      "controlRmse": 0.0059942215755247295,
+      "pooledImprovement": 0.05251438725871216,
+      "meanSeedImprovement": 0.007420417567092349,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.12101356963550093,
+        0.13585440476968563
+      ],
+      "medianSeedImprovement": 0.06412246299682828,
+      "signTest": {
+        "positive": 18,
+        "negative": 12,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.361594608053565,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.6381081318592324
+      }
+    },
+    "5->2": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006840792029219469,
+      "controlRmse": 0.00704178769154459,
+      "pooledImprovement": 0.028543272124842086,
+      "meanSeedImprovement": 0.03757329449001223,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.04993863960982284,
+        0.1250852285898473
+      ],
+      "medianSeedImprovement": 0.017505380468361167,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "5->3": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006564614107367884,
+      "controlRmse": 0.006680898021988462,
+      "pooledImprovement": 0.01740543176049964,
+      "meanSeedImprovement": 0.007320684340489879,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.1069315284457704,
+        0.12157289712675017
+      ],
+      "medianSeedImprovement": 0.027097556224961517,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    },
+    "5->4": {
+      "eventCount": 180,
+      "seedCount": 30,
+      "modelRmse": 0.006390729249116304,
+      "controlRmse": 0.0064077562142862655,
+      "pooledImprovement": 0.002657242972508705,
+      "meanSeedImprovement": 0.001571708243998819,
+      "meanSeedImprovement95PercentTInterval": [
+        -0.10715708282535975,
+        0.11030049931335738
+      ],
+      "medianSeedImprovement": 0.04494845204420652,
+      "signTest": {
+        "positive": 17,
+        "negative": 13,
+        "ties": 0,
+        "effectiveN": 30,
+        "twoSidedP": 0.584664711728692,
+        "direction": "positive",
+        "benjaminiHochbergQ": 0.7308308896608651
+      }
+    }
+  },
+  "byStateRegime": {
+    "target.X": {
+      "cuts": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "quartiles": {
+        "Q1": {
+          "eventCount": 5400,
+          "seedCount": 30,
+          "modelRmse": 0.006603576019331871,
+          "controlRmse": 0.0067640847730488915,
+          "pooledImprovement": 0.023729559741261425,
+          "meanSeedImprovement": 0.023356405522844244,
+          "meanSeedImprovement95PercentTInterval": [
+            0.008953971727036533,
+            0.037758839318651954
+          ],
+          "medianSeedImprovement": 0.020145451232662377,
+          "signTest": {
+            "positive": 22,
+            "negative": 8,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.016124801710247993,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.016124801710247993
+          }
+        }
+      }
+    },
+    "target.Y": {
+      "cuts": [
+        0.47043885213462366,
+        0.5003188867131091,
+        0.5298238961015025
+      ],
+      "quartiles": {
+        "Q1": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006762777310797333,
+          "controlRmse": 0.006780323800056058,
+          "pooledImprovement": 0.0025878541757223803,
+          "meanSeedImprovement": 0.004587303950555398,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.03378447244026067,
+            0.04295908034137147
+          ],
+          "medianSeedImprovement": -0.0033716444105719224,
+          "signTest": {
+            "positive": 15,
+            "negative": 15,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 1.0,
+            "direction": "balanced",
+            "benjaminiHochbergQ": 1.0
+          }
+        },
+        "Q2": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006617558398101923,
+          "controlRmse": 0.006764198906415459,
+          "pooledImprovement": 0.02167891724391132,
+          "meanSeedImprovement": 0.01520448255683279,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.017920364702173845,
+            0.04832932981583943
+          ],
+          "medianSeedImprovement": 0.023022275046074563,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.7795529489715894
+          }
+        },
+        "Q3": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.00653160391398643,
+          "controlRmse": 0.006869034247342015,
+          "pooledImprovement": 0.049123402388939065,
+          "meanSeedImprovement": 0.051238461121942504,
+          "meanSeedImprovement95PercentTInterval": [
+            0.0184242757511306,
+            0.0840526464927544
+          ],
+          "medianSeedImprovement": 0.028502129246320312,
+          "signTest": {
+            "positive": 21,
+            "negative": 9,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.04277394525706768,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.17109578102827072
+          }
+        },
+        "Q4": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006499213735172318,
+          "controlRmse": 0.006640825407857915,
+          "pooledImprovement": 0.021324408336052886,
+          "meanSeedImprovement": 0.023373721521016442,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.001469171896129353,
+            0.04821661493816223
+          ],
+          "medianSeedImprovement": 0.021206271290804362,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.7795529489715894
+          }
+        }
+      }
+    },
+    "target.ThetaCoherence": {
+      "cuts": [
+        0.7883005542872934,
+        0.7976138499009396,
+        0.7989378893503635
+      ],
+      "quartiles": {
+        "Q1": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006795136009023134,
+          "controlRmse": 0.006860622600911193,
+          "pooledImprovement": 0.00954528410866981,
+          "meanSeedImprovement": 0.011310661726884974,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.026582760717717008,
+            0.04920408417148696
+          ],
+          "medianSeedImprovement": 0.0335467321436469,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.584664711728692
+          }
+        },
+        "Q2": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.00637700129777346,
+          "controlRmse": 0.00649793475154306,
+          "pooledImprovement": 0.01861106003578786,
+          "meanSeedImprovement": 0.022785003856125124,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.007435878682780724,
+            0.05300588639503097
+          ],
+          "medianSeedImprovement": 0.022940891109225023,
+          "signTest": {
+            "positive": 18,
+            "negative": 12,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.361594608053565,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.48212614407142
+          }
+        },
+        "Q3": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006288543395615804,
+          "controlRmse": 0.006394029311296432,
+          "pooledImprovement": 0.01649756523547127,
+          "meanSeedImprovement": 0.012456790745902339,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.026423118917386548,
+            0.05133670040919122
+          ],
+          "medianSeedImprovement": 0.004318166150443674,
+          "signTest": {
+            "positive": 18,
+            "negative": 12,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.361594608053565,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.48212614407142
+          }
+        },
+        "Q4": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006931310698627604,
+          "controlRmse": 0.007268869370597128,
+          "pooledImprovement": 0.04643895147365872,
+          "meanSeedImprovement": 0.04469110383638878,
+          "meanSeedImprovement95PercentTInterval": [
+            0.012030017360203538,
+            0.07735219031257402
+          ],
+          "medianSeedImprovement": 0.050983707381003905,
+          "signTest": {
+            "positive": 21,
+            "negative": 9,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.04277394525706768,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.17109578102827072
+          }
+        }
+      }
+    },
+    "relation.resonance": {
+      "cuts": [
+        0.995958877678003,
+        0.9976567794244899,
+        0.998766924349829
+      ],
+      "quartiles": {
+        "Q1": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006725686603610665,
+          "controlRmse": 0.0068602449973997935,
+          "pooledImprovement": 0.01961422570770138,
+          "meanSeedImprovement": 0.02314901171347098,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.009009212567625907,
+            0.05530723599456787
+          ],
+          "medianSeedImprovement": 0.036480676201689016,
+          "signTest": {
+            "positive": 20,
+            "negative": 10,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.09873714670538902,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.3949485868215561
+          }
+        },
+        "Q2": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006202855926114164,
+          "controlRmse": 0.006465471810445638,
+          "pooledImprovement": 0.040618208853248905,
+          "meanSeedImprovement": 0.03409495282490825,
+          "meanSeedImprovement95PercentTInterval": [
+            0.0030981037357165654,
+            0.06509180191409994
+          ],
+          "medianSeedImprovement": 0.05277765892940177,
+          "signTest": {
+            "positive": 18,
+            "negative": 12,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.361594608053565,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.584664711728692
+          }
+        },
+        "Q3": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006703251968526397,
+          "controlRmse": 0.0067937656440433284,
+          "pooledImprovement": 0.013323049433754442,
+          "meanSeedImprovement": 0.018177732055286448,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.012547616982866498,
+            0.048903081093439396
+          ],
+          "medianSeedImprovement": 0.01772412517345355,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.584664711728692
+          }
+        },
+        "Q4": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006766461120017559,
+          "controlRmse": 0.006927541590331155,
+          "pooledImprovement": 0.023252183796112904,
+          "meanSeedImprovement": 0.02294611225003857,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.0057612453124467125,
+            0.051653469812523854
+          ],
+          "medianSeedImprovement": 0.014091923397957621,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.584664711728692
+          }
+        }
+      }
+    },
+    "environment": {
+      "cuts": [
+        0.3854902383577404,
+        0.5004064153932585,
+        0.6167183005283833
+      ],
+      "quartiles": {
+        "Q1": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006637554338740447,
+          "controlRmse": 0.006754641049916583,
+          "pooledImprovement": 0.017334261037835894,
+          "meanSeedImprovement": 0.016265719057081237,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.018233719851010095,
+            0.05076515796517257
+          ],
+          "medianSeedImprovement": 0.012869487975330619,
+          "signTest": {
+            "positive": 17,
+            "negative": 13,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.584664711728692,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.584664711728692
+          }
+        },
+        "Q2": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.00678495273538776,
+          "controlRmse": 0.006873716972462065,
+          "pooledImprovement": 0.01291357171526242,
+          "meanSeedImprovement": 0.019399980388240572,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.018724455690711798,
+            0.057524416467192946
+          ],
+          "medianSeedImprovement": 0.024292285355749108,
+          "signTest": {
+            "positive": 18,
+            "negative": 12,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.361594608053565,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.48212614407142
+          }
+        },
+        "Q3": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006271596009794809,
+          "controlRmse": 0.006565835846346919,
+          "pooledImprovement": 0.04481376681322577,
+          "meanSeedImprovement": 0.04272469205399696,
+          "meanSeedImprovement95PercentTInterval": [
+            0.008806597066985632,
+            0.0766427870410083
+          ],
+          "medianSeedImprovement": 0.04756629536818478,
+          "signTest": {
+            "positive": 20,
+            "negative": 10,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.09873714670538902,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.19747429341077805
+          }
+        },
+        "Q4": {
+          "eventCount": 1350,
+          "seedCount": 30,
+          "modelRmse": 0.006708445217867379,
+          "controlRmse": 0.0068576971481731416,
+          "pooledImprovement": 0.021764147217484306,
+          "meanSeedImprovement": 0.030647991753687185,
+          "meanSeedImprovement95PercentTInterval": [
+            -0.00445909491814114,
+            0.0657550784255155
+          ],
+          "medianSeedImprovement": 0.022353566233444398,
+          "signTest": {
+            "positive": 20,
+            "negative": 10,
+            "ties": 0,
+            "effectiveN": 30,
+            "twoSidedP": 0.09873714670538902,
+            "direction": "positive",
+            "benjaminiHochbergQ": 0.19747429341077805
+          }
+        }
+      }
+    }
+  },
+  "negativeSeeds": [
+    1,
+    5,
+    6,
+    8,
+    13,
+    14,
+    16,
+    29
+  ],
+  "multiplicity": "Benjamini-Hochberg q-values are calculated separately within each diagnostic family. All subgroup results are exploratory.",
+  "scientificSha256": "bffcee877c6c91aca08f526e8856ec3b14c6cb4c67458b0298abe72843b848ab"
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "EL-EXP-GAMMA-002-Version-A-adjudication-v1",
+  "status": "FINAL_ADJUDICATION",
+  "buildId": "EL-EXP-GAMMA-002-v1.6.0-candidate",
+  "protocolId": "circular-phase-retrieval-repair",
+  "bobbyBOriginalScientificSha256": "8d3b01c54ef102c824f45218093a2e0caf1f38b3f918211a05093259195d974b",
+  "codexCOriginalScientificSha256": "9cd8a1413510f62be17a111a63282cd6159663ee05d25e9b6c54b6b804b972c0",
+  "adjudicatedRoundedScientificSha256": "9ed3471b9d203e4494cde80f5b41c0c7632e03c56bcb43383ff71e0159e2f037",
+  "adjudicatedPayloadsEqual": true,
+  "numericDifferenceCountBeforeRounding": 58,
+  "maximumAbsoluteNumericDifference": 1.1102230246251565e-15,
+  "allNumericDifferencesDisappearAt12Decimals": true,
+  "rawFinalWorldDigestDifferences": [
+    {
+      "seed": 1121900541,
+      "bobbyB": "88a55925",
+      "codexC": "8a0fed9e"
+    },
+    {
+      "seed": 473552552,
+      "bobbyB": "89bebe6a",
+      "codexC": "53a37d3b"
+    },
+    {
+      "seed": 1924554172,
+      "bobbyB": "2f760e95",
+      "codexC": "3b61b9d0"
+    }
+  ],
+  "cause": "The runtime computed finalWorldDigest from unrounded floating-point world serialization. Platform-level Math differences below 12 decimals therefore produced different FNV digests and contaminated Batch 1, Batch 2, and final SHA-256 fingerprints.",
+  "adjudicationRule": "Remove only raw finalWorldDigest strings and their derivative batchScientificHashes, then apply the preregistered 12-decimal rounding rule to the complete remaining role-neutral scientific payload.",
+  "pooledComparisons": {
+    "bestOrdinary": "typeMean",
+    "bestOrdinaryRmse": 0.00651337044363298,
+    "linearGammaRmse": 0.006456199465929468,
+    "circularGammaRmse": 0.0064561988739101584,
+    "shuffledCircularGammaRmse": 0.007013929353420336,
+    "ordinaryImprovement": 0.008777570724341158,
+    "shuffledImprovement": 0.07951755020717463,
+    "linearImprovement": 9.16978034163557e-08
+  },
+  "gates": {
+    "ordinaryMagnitude": false,
+    "permutationMagnitude": false,
+    "repairSpecificDirection": false,
+    "primaryDirection": false,
+    "independentReplication": true
+  },
+  "allFiveGatesPassed": false,
+  "verdict": "DO_NOT_ADVANCE_CIRCULAR_PHASE_GAMMA_V1_6",
+  "interpretation": "The circular-phase repair produced no meaningful improvement over linear Gamma and did not meet either practical magnitude threshold. This rejects only the v1.6 circular-distance repair under the frozen noncausal field; it does not reject consequential-history architectures as a class.",
+  "requiredInstrumentationRepair": "Future cross-runtime world fingerprints must hash a canonical world payload after 12-decimal rounding rather than hash raw JavaScript floating-point serialization."
+}
