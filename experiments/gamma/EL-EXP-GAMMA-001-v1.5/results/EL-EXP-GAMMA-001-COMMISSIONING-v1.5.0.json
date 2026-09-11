@@ -1,0 +1,664 @@
+{
+  "schema": "EL-EXP-GAMMA-001-result-v1",
+  "buildId": "EL-EXP-GAMMA-001-v1.5.0",
+  "protocolId": "prospective-consequential-history-qualification",
+  "runVersion": "COMMISSIONING-NON-EVIDENTIARY",
+  "canonical": false,
+  "startedAt": "2026-09-10T06:17:22.901Z",
+  "completedAt": "2026-09-10T06:17:22.933Z",
+  "config": {
+    "nodeCount": 6,
+    "warmupTicks": 8,
+    "horizon": 4,
+    "acquisitionEvents": 36,
+    "testEvents": 18,
+    "archiveCapacity": 24,
+    "sigma": 0.015,
+    "epsilon": 1e-9,
+    "recencyWindow": 8,
+    "primaryImprovementMargin": 0.05,
+    "shuffledImprovementMargin": 0.1,
+    "requiredPassingSeeds": 1,
+    "minimumMeanConsequenceMagnitude": 0.0001,
+    "officialSeeds": [
+      13579
+    ],
+    "commissioningSeed": 13579,
+    "strengthLevels": [
+      0.12,
+      0.2,
+      0.28
+    ]
+  },
+  "configHash": "bb2d5597",
+  "frozenConfigHash": "13094d04",
+  "seeds": [
+    13579
+  ],
+  "commissioning": {
+    "pass": true,
+    "passed": 9,
+    "total": 9,
+    "tests": [
+      {
+        "name": "schema widths are fixed and internally consistent",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "same seed produces identical Tick-0 world",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "matched no-event branches remain identical",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "zero-strength event equals suppression",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "known support event has positive immediate Y consequence",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "measurement does not mutate the supplied pre-event world",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "empty Gamma archive returns a zero vector",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "archive capacity is enforced without merging records",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "test prediction is generated before current consequence is archived",
+        "pass": true,
+        "detail": null
+      }
+    ]
+  },
+  "seedResults": [
+    {
+      "seed": 13579,
+      "modelMetrics": {
+        "zero": {
+          "count": 18,
+          "balancedRmse": 0.020474471622435417,
+          "meanCosine": 0,
+          "meanSignAgreement": 0
+        },
+        "recency": {
+          "count": 18,
+          "balancedRmse": 0.018744217497377574,
+          "meanCosine": 0.21084804756133838,
+          "meanSignAgreement": 0.6358787764618519
+        },
+        "typeMean": {
+          "count": 18,
+          "balancedRmse": 0.012287848388188633,
+          "meanCosine": 0.4906277105346619,
+          "meanSignAgreement": 0.6135530820515341
+        },
+        "pairTypeMean": {
+          "count": 18,
+          "balancedRmse": 0.019614078313014087,
+          "meanCosine": 0.05354242858500353,
+          "meanSignAgreement": 0.05555555555555555
+        },
+        "stateKernel": {
+          "count": 18,
+          "balancedRmse": 0.01996666342251916,
+          "meanCosine": 0.23145143139814225,
+          "meanSignAgreement": 0.5849769874279678
+        },
+        "shuffledGammaRelational": {
+          "count": 18,
+          "balancedRmse": 0.012296282841003184,
+          "meanCosine": 0.5116541985346102,
+          "meanSignAgreement": 0.793166678331797
+        },
+        "gammaRelational": {
+          "count": 18,
+          "balancedRmse": 0.012279937147359242,
+          "meanCosine": 0.5036268366934792,
+          "meanSignAgreement": 0.711717263549049
+        },
+        "shuffledGammaDyadic": {
+          "count": 18,
+          "balancedRmse": 0.019614078313014087,
+          "meanCosine": 0.05354242858500353,
+          "meanSignAgreement": 0.05555555555555555
+        },
+        "gammaDyadic": {
+          "count": 18,
+          "balancedRmse": 0.019614078313014087,
+          "meanCosine": 0.05354242858500353,
+          "meanSignAgreement": 0.05555555555555555
+        }
+      },
+      "score": {
+        "bestBaseline": "typeMean",
+        "bestBaselineRmse": 0.012287848388188633,
+        "gammaRmse": 0.012279937147359242,
+        "baselineImprovement": 0.0006438263705300072,
+        "shuffledImprovement": 0.0013293199136112492,
+        "pass": false
+      },
+      "meanConsequenceMagnitude": 0.008873120962848632,
+      "archiveSizes": [
+        3,
+        6,
+        12,
+        13,
+        10,
+        10
+      ],
+      "finalWorldDigest": "59903471",
+      "finalWorld": {
+        "seed": 13579,
+        "tick": 224,
+        "nodes": [
+          {
+            "id": 0,
+            "position": 0.010635619581444189,
+            "X": 1,
+            "Y": 0.4871498964920725,
+            "Z1": {
+              "recovery": [
+                0.018188943986869002,
+                0.020566271594079692
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.4921000720371805,
+                0.562974876014161,
+                0.48374990505302135
+              ],
+              "phase": [
+                0.8851716359771868,
+                0.3840275032589014,
+                0.5634755240004871
+              ],
+              "amplitude": [
+                1,
+                1,
+                0.9903571108128272
+              ],
+              "coherence": 0.8660724324339479
+            }
+          },
+          {
+            "id": 1,
+            "position": 0.18990232765596982,
+            "X": 1,
+            "Y": 0.4729838239750497,
+            "Z1": {
+              "recovery": [
+                0.04165503998302492,
+                0.04388561160793486
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.4911943539458743,
+                0.5661424319331256,
+                0.48636049993846325
+              ],
+              "phase": [
+                0.8790921859273151,
+                0.3923764697292664,
+                0.563659921455384
+              ],
+              "amplitude": [
+                1,
+                0.9915718068287576,
+                0.9752725422091556
+              ],
+              "coherence": 0.8537236210757607
+            }
+          },
+          {
+            "id": 2,
+            "position": 0.33774625057315766,
+            "X": 1,
+            "Y": 0.5985527611254643,
+            "Z1": {
+              "recovery": [
+                0,
+                0.00031251747280924315
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.49288582234538136,
+                0.5682021936094189,
+                0.48785455763903113
+              ],
+              "phase": [
+                0.8578465756191974,
+                0.4090992908232262,
+                0.5490735563121669
+              ],
+              "amplitude": [
+                1,
+                0.9933401380083455,
+                0.9788944180097175
+              ],
+              "coherence": 0.8825536932163064
+            }
+          },
+          {
+            "id": 3,
+            "position": 0.5238539804820902,
+            "X": 1,
+            "Y": 0.5409519385176179,
+            "Z1": {
+              "recovery": [
+                0.013617049593065774,
+                0.012868705421027844
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.4933894803386145,
+                0.5663925607426712,
+                0.4865218231609564
+              ],
+              "phase": [
+                0.8667917073836345,
+                0.3968294607682305,
+                0.5520717340883402
+              ],
+              "amplitude": [
+                1,
+                1,
+                0.9998788457684845
+              ],
+              "coherence": 0.8773479869466552
+            }
+          },
+          {
+            "id": 4,
+            "position": 0.6901020710046093,
+            "X": 1,
+            "Y": 0.4217348631237658,
+            "Z1": {
+              "recovery": [
+                0.11389030131870527,
+                0.14035499103657076
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.4937601605383021,
+                0.562806913713488,
+                0.48386651139665315
+              ],
+              "phase": [
+                0.971096070443239,
+                0.291231684408586,
+                0.6322097968754891
+              ],
+              "amplitude": [
+                1,
+                0.9819173601336059,
+                0.9687293641290005
+              ],
+              "coherence": 0.7371396410811749
+            }
+          },
+          {
+            "id": 5,
+            "position": 0.8488876102977277,
+            "X": 1,
+            "Y": 0.5570363427569728,
+            "Z1": {
+              "recovery": [
+                0.005171327218897325,
+                0.02990662012424625
+              ],
+              "active": false
+            },
+            "Z2": {
+              "integration": [
+                1,
+                1
+              ]
+            },
+            "theta": {
+              "frequency": [
+                0.4940601425282037,
+                0.5614256765857173,
+                0.4830617974790022
+              ],
+              "phase": [
+                0.9338355796445718,
+                0.3377899641310611,
+                0.5961950284141513
+              ],
+              "amplitude": [
+                1,
+                1,
+                0.99578904201172
+              ],
+              "coherence": 0.8152784961923001
+            }
+          }
+        ]
+      },
+      "testRecords": [
+        {
+          "eventId": "13579-1-0-0",
+          "actorId": 1,
+          "targetId": 3,
+          "kind": "ALIGN_THETA",
+          "strength": 0.2,
+          "tick": 152,
+          "consequenceMagnitude": 0.00026763961351631036,
+          "gammaPredictionMagnitude": 0.00045355961568638433
+        },
+        {
+          "eventId": "13579-1-0-1",
+          "actorId": 0,
+          "targetId": 1,
+          "kind": "ERODE_MEMORY",
+          "strength": 0.2,
+          "tick": 156,
+          "consequenceMagnitude": 0.002762720471756797,
+          "gammaPredictionMagnitude": 0
+        },
+        {
+          "eventId": "13579-1-0-2",
+          "actorId": 2,
+          "targetId": 4,
+          "kind": "RECOVERY_SHOCK",
+          "strength": 0.2,
+          "tick": 160,
+          "consequenceMagnitude": 0.030610596427186693,
+          "gammaPredictionMagnitude": 0.014127861652575067
+        },
+        {
+          "eventId": "13579-1-0-3",
+          "actorId": 5,
+          "targetId": 4,
+          "kind": "INTEGRATION_PULSE",
+          "strength": 0.12,
+          "tick": 164,
+          "consequenceMagnitude": 0.0031450913418119447,
+          "gammaPredictionMagnitude": 1.9748234900248047e-9
+        },
+        {
+          "eventId": "13579-1-0-4",
+          "actorId": 5,
+          "targetId": 3,
+          "kind": "INTEGRATION_PULSE",
+          "strength": 0.28,
+          "tick": 168,
+          "consequenceMagnitude": 0.002064301409655172,
+          "gammaPredictionMagnitude": 0.006467501052137824
+        },
+        {
+          "eventId": "13579-1-0-5",
+          "actorId": 3,
+          "targetId": 4,
+          "kind": "DISRUPT_PHASE",
+          "strength": 0.2,
+          "tick": 172,
+          "consequenceMagnitude": 0.012013898993089536,
+          "gammaPredictionMagnitude": 1.0113906448232367e-9
+        },
+        {
+          "eventId": "13579-1-0-6",
+          "actorId": 5,
+          "targetId": 1,
+          "kind": "SUPPORT_MEMORY",
+          "strength": 0.12,
+          "tick": 176,
+          "consequenceMagnitude": 0.004272150795607063,
+          "gammaPredictionMagnitude": 2.5454967854650245e-21
+        },
+        {
+          "eventId": "13579-1-0-7",
+          "actorId": 2,
+          "targetId": 1,
+          "kind": "DISRUPT_PHASE",
+          "strength": 0.12,
+          "tick": 180,
+          "consequenceMagnitude": 0.006874844171283485,
+          "gammaPredictionMagnitude": 7.98193607773464e-18
+        },
+        {
+          "eventId": "13579-1-0-8",
+          "actorId": 0,
+          "targetId": 1,
+          "kind": "RECOVERY_SHOCK",
+          "strength": 0.12,
+          "tick": 184,
+          "consequenceMagnitude": 0.015932251392359854,
+          "gammaPredictionMagnitude": 4.0798417305647467e-16
+        },
+        {
+          "eventId": "13579-1-0-9",
+          "actorId": 1,
+          "targetId": 5,
+          "kind": "DISRUPT_PHASE",
+          "strength": 0.28,
+          "tick": 188,
+          "consequenceMagnitude": 0.015924623571018044,
+          "gammaPredictionMagnitude": 0.00865265867710791
+        },
+        {
+          "eventId": "13579-1-0-10",
+          "actorId": 3,
+          "targetId": 4,
+          "kind": "RECOVERY_SHOCK",
+          "strength": 0.2,
+          "tick": 192,
+          "consequenceMagnitude": 0.028565934798524616,
+          "gammaPredictionMagnitude": 0.019423627464037585
+        },
+        {
+          "eventId": "13579-1-0-11",
+          "actorId": 1,
+          "targetId": 2,
+          "kind": "INTEGRATION_PULSE",
+          "strength": 0.12,
+          "tick": 196,
+          "consequenceMagnitude": 0.0008651611420058847,
+          "gammaPredictionMagnitude": 0.004634955194729759
+        },
+        {
+          "eventId": "13579-1-0-12",
+          "actorId": 1,
+          "targetId": 3,
+          "kind": "INTEGRATION_PULSE",
+          "strength": 0.2,
+          "tick": 200,
+          "consequenceMagnitude": 0.0014470338030333075,
+          "gammaPredictionMagnitude": 0.004991280066598741
+        },
+        {
+          "eventId": "13579-1-0-13",
+          "actorId": 1,
+          "targetId": 5,
+          "kind": "ALIGN_THETA",
+          "strength": 0.28,
+          "tick": 204,
+          "consequenceMagnitude": 0.0007950973033297073,
+          "gammaPredictionMagnitude": 0.0002363684119691032
+        },
+        {
+          "eventId": "13579-1-0-14",
+          "actorId": 1,
+          "targetId": 4,
+          "kind": "DISRUPT_PHASE",
+          "strength": 0.28,
+          "tick": 208,
+          "consequenceMagnitude": 0.015938821370996246,
+          "gammaPredictionMagnitude": 0.012013898993135026
+        },
+        {
+          "eventId": "13579-1-0-15",
+          "actorId": 3,
+          "targetId": 2,
+          "kind": "INTEGRATION_PULSE",
+          "strength": 0.2,
+          "tick": 212,
+          "consequenceMagnitude": 0.001461435898233682,
+          "gammaPredictionMagnitude": 0.002475829845240452
+        },
+        {
+          "eventId": "13579-1-0-16",
+          "actorId": 1,
+          "targetId": 2,
+          "kind": "SUPPORT_MEMORY",
+          "strength": 0.28,
+          "tick": 216,
+          "consequenceMagnitude": 0.009712772367480282,
+          "gammaPredictionMagnitude": 0.01079592129331844
+        },
+        {
+          "eventId": "13579-1-0-17",
+          "actorId": 3,
+          "targetId": 2,
+          "kind": "SUPPORT_MEMORY",
+          "strength": 0.2,
+          "tick": 220,
+          "consequenceMagnitude": 0.0070618024603867685,
+          "gammaPredictionMagnitude": 0.010226898947428693
+        }
+      ]
+    }
+  ],
+  "pooledMetrics": {
+    "zero": {
+      "count": 18,
+      "balancedRmse": 0.020474471622435417,
+      "meanCosine": 0,
+      "meanSignAgreement": 0
+    },
+    "recency": {
+      "count": 18,
+      "balancedRmse": 0.018744217497377574,
+      "meanCosine": 0.21084804756133838,
+      "meanSignAgreement": 0.6358787764618519
+    },
+    "typeMean": {
+      "count": 18,
+      "balancedRmse": 0.012287848388188633,
+      "meanCosine": 0.4906277105346619,
+      "meanSignAgreement": 0.6135530820515341
+    },
+    "pairTypeMean": {
+      "count": 18,
+      "balancedRmse": 0.019614078313014087,
+      "meanCosine": 0.05354242858500353,
+      "meanSignAgreement": 0.05555555555555555
+    },
+    "stateKernel": {
+      "count": 18,
+      "balancedRmse": 0.01996666342251916,
+      "meanCosine": 0.23145143139814225,
+      "meanSignAgreement": 0.5849769874279678
+    },
+    "shuffledGammaRelational": {
+      "count": 18,
+      "balancedRmse": 0.012296282841003184,
+      "meanCosine": 0.5116541985346102,
+      "meanSignAgreement": 0.793166678331797
+    },
+    "gammaRelational": {
+      "count": 18,
+      "balancedRmse": 0.012279937147359242,
+      "meanCosine": 0.5036268366934792,
+      "meanSignAgreement": 0.711717263549049
+    },
+    "shuffledGammaDyadic": {
+      "count": 18,
+      "balancedRmse": 0.019614078313014087,
+      "meanCosine": 0.05354242858500353,
+      "meanSignAgreement": 0.05555555555555555
+    },
+    "gammaDyadic": {
+      "count": 18,
+      "balancedRmse": 0.019614078313014087,
+      "meanCosine": 0.05354242858500353,
+      "meanSignAgreement": 0.05555555555555555
+    }
+  },
+  "pooledScore": {
+    "bestBaseline": "typeMean",
+    "bestBaselineRmse": 0.012287848388188633,
+    "gammaRmse": 0.012279937147359242,
+    "baselineImprovement": 0.0006438263705300072,
+    "shuffledImprovement": 0.0013293199136112492,
+    "pass": false
+  },
+  "passingSeeds": 0,
+  "meanConsequenceMagnitude": 0.008873120962848632,
+  "decision": {
+    "valid": true,
+    "advance": false,
+    "canonicalConfigMatch": true,
+    "canonicalSeedsMatch": true,
+    "verdict": "DO_NOT_ADVANCE_THIS_GAMMA_REALIZATION",
+    "boundary": "A negative result applies only to this measurement, representation, retrieval law, placement, parameterization, and protocol."
+  },
+  "scientificFingerprint": "da3123c8",
+  "scientificSha256": "c437f3d095e015603ba142e1b6c3e075f8c222260036d771ab1faaff53e128b6",
+  "artifacts": {
+    "coreSha256": "33d4c44561382c581625aa801347b5da7d7e1c901b2cb6cdff9694b1211ead85",
+    "runnerSha256": "b8ec0fb1d70db479ab691db769e672b009a5dadafa9a84bd6ef42c15cfd776b3",
+    "testsSha256": "bdcee07287862dc605150da035525cc46f24c18b89ebf9ee4019bd6ed6cb3ebc",
+    "browserSmokeSha256": "0ce1d6b7bc5ab5bdcb60e48c44c17159eddc1be0edbc170cde8ff7e7a2c4871f",
+    "protocolSha256": "197db471e520b33fa35edf47eb84e9f1e6b10f5017f304cd1ab8cb1d7be467b9",
+    "calibrationSha256": "925fb23988d53cd52b3cb604e9650cbc234431671741b55cd0417580839f2064",
+    "readmeSha256": "52f96c621b4f68895f895e09d994342d62069b6ef69a3928bc3d46c610e594a0"
+  }
+}
