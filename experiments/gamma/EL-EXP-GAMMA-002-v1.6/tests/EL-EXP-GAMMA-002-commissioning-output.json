@@ -1,0 +1,130 @@
+{
+  "schema": "EL-EXP-GAMMA-002-commissioning-v1",
+  "status": "NON-EVIDENTIARY",
+  "seed": 13579,
+  "buildId": "EL-EXP-GAMMA-002-v1.6.0-candidate",
+  "protocolId": "circular-phase-retrieval-repair",
+  "circularPhaseIndices": [
+    10,
+    11,
+    12,
+    33,
+    34,
+    35
+  ],
+  "sharedConfig": {
+    "nodeCount": 6,
+    "warmupTicks": 30,
+    "horizon": 10,
+    "acquisitionEvents": 360,
+    "testEvents": 180,
+    "archiveCapacity": 48,
+    "sigma": 0.015,
+    "epsilon": 1e-9,
+    "recencyWindow": 8,
+    "primaryImprovementMargin": 0.05,
+    "shuffledImprovementMargin": 0.1,
+    "minimumMeanConsequenceMagnitude": 0.0001,
+    "commissioningSeed": 13579,
+    "strengthLevels": [
+      0.12,
+      0.2,
+      0.28
+    ]
+  },
+  "scheduleHash": "275f1e084e296d7afe9a40c17a3b76563ca4d238c42ab759e5a32ca3396ebec6",
+  "finalWorldDigest": "445170e8",
+  "archiveSizes": [
+    48,
+    48,
+    48,
+    48,
+    48,
+    48
+  ],
+  "testEventCount": 180,
+  "frozenLinearMetrics": {
+    "zero": {
+      "count": 180,
+      "balancedRmse": 0.016031394458470533,
+      "meanCosine": 0,
+      "meanSignAgreement": 0
+    },
+    "recency": {
+      "count": 180,
+      "balancedRmse": 0.01609233981776598,
+      "meanCosine": 0.22143451011400855,
+      "meanSignAgreement": 0.5780918310084975
+    },
+    "typeMean": {
+      "count": 180,
+      "balancedRmse": 0.0065671005048212,
+      "meanCosine": 0.9773660563387617,
+      "meanSignAgreement": 0.8968576639409971
+    },
+    "pairTypeMean": {
+      "count": 180,
+      "balancedRmse": 0.008942708518477442,
+      "meanCosine": 0.890270556387464,
+      "meanSignAgreement": 0.8168438351771687
+    },
+    "stateKernel": {
+      "count": 180,
+      "balancedRmse": 0.015606317649619929,
+      "meanCosine": 0.2484571403715387,
+      "meanSignAgreement": 0.6217654721821387
+    },
+    "shuffledGammaRelational": {
+      "count": 180,
+      "balancedRmse": 0.006829996528635607,
+      "meanCosine": 0.8618009149888879,
+      "meanSignAgreement": 0.8666638608305278
+    },
+    "gammaRelational": {
+      "count": 180,
+      "balancedRmse": 0.006371534216546236,
+      "meanCosine": 0.9809459686872757,
+      "meanSignAgreement": 0.9029707792207792
+    },
+    "shuffledGammaDyadic": {
+      "count": 180,
+      "balancedRmse": 0.009087327177135462,
+      "meanCosine": 0.8375843088950768,
+      "meanSignAgreement": 0.8361052990219655
+    },
+    "gammaDyadic": {
+      "count": 180,
+      "balancedRmse": 0.008961138525133907,
+      "meanCosine": 0.8749483531040914,
+      "meanSignAgreement": 0.8542668751002086
+    }
+  },
+  "circularMetrics": {
+    "shuffledGammaRelationalCircular": {
+      "count": 180,
+      "balancedRmse": 0.006829996528635607,
+      "meanCosine": 0.8618009149888879,
+      "meanSignAgreement": 0.8666638608305278
+    },
+    "gammaRelationalCircular": {
+      "count": 180,
+      "balancedRmse": 0.006371534216546236,
+      "meanCosine": 0.9809459686872757,
+      "meanSignAgreement": 0.9029707792207792
+    }
+  },
+  "naturalCircularPredictionChanged": false,
+  "syntheticWrapBoundaryPrediction": {
+    "linear": -0.1935283080217099,
+    "circular": 0.06752706840122089
+  },
+  "assertions": {
+    "sharedParametersIdentical": true,
+    "scheduleIdentical": true,
+    "worldAndConsequencesIdentical": true,
+    "archiveWritesIdentical": true,
+    "frozenPredictionsIdentical": true,
+    "circularRetrievalPathActive": true
+  },
+  "roundedScientificSha256": "d3220dc7dbb67ba2e6d66d14af957913582045f7199f5a97bb69df6178cbc1a6"
+}

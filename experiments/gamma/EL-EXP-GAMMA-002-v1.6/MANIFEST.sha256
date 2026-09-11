@@ -1,0 +1,12 @@
+662a6d28577e3d9a68168d8ac4f723cfc81487e1d6cd1cbeda5cbde71556cfa4  ./FREEZE.json
+b8ea9d564fc135e782cf65b2ffea252e9bb0a3854fab4ba3f7e4d72c2505e55a  ./PREREGISTRATION.md
+1a63fcb01fdb9897a66965119ac1fcbca0e2d8106a99c8de6f4b944a28acf45a  ./README.md
+33d4c44561382c581625aa801347b5da7d7e1c901b2cb6cdff9694b1211ead85  ./reference/EL-EXP-GAMMA-001-v1.5-core.js
+098b142e67b309448886540f65ee4cbfc4effe3dd577c096eff3c7188edcf824  ./runners/gamma_v1.6_aggregate.py
+8014390979dc729331161eb230ef2406166c3fc127382c0a8eb3fc3c20e00862  ./runners/gamma_v1.6_batch.py
+6065dec20adfc3871d0c7ff1de5d4608e5aeb8a772d72441a83631d070a9d47c  ./runners/gamma_v1.6_compare_BC.py
+35380e6f2da36e53226a3beef2de7c7d8c0dcc71b2bd186f1541ef4de28a6b34  ./src/EL-EXP-GAMMA-002-core.js
+4d0f58f75d65dd4982ed3495d604b09b98a3b3379c8d308bcc78168062584ed3  ./tests/EL-EXP-GAMMA-002-commissioning-output.json
+df917bcb89b0588794600448676d38bbbc51431707f7ad03fce89b2cad37fa16  ./tests/EL-EXP-GAMMA-002-commissioning.js
+7be606e1319237638c6a2fa8b1d1c5c2a9cd2d631df88546a298e015c44cff78  ./tests/EL-EXP-GAMMA-002-tests.js
+d4551c189071bf70f196ba6f041801a06dc3b4ec1cc1f52dc086f96e9555881f  ./tests/test_gamma_v1.6_statistics.py
