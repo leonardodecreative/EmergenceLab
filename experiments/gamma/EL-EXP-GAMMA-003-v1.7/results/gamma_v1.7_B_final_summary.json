@@ -1,0 +1,2687 @@
+{
+  "armResults": {
+    "dualMeaning": {
+      "gates": {
+        "consequenceBaselineDirection": true,
+        "independentReplication": null,
+        "ordinaryDirection": true,
+        "ordinaryMagnitude": false,
+        "shuffledDirection": true,
+        "shuffledMagnitude": false
+      },
+      "ordinaryImprovement": 0.034907785949269424,
+      "rmse": 0.004332439195699892,
+      "seedStatistics": {
+        "consequenceOnly": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 0,
+            "positive": 30,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 1.862645149230957e-09
+          },
+          "mean": 0.48417924274071533,
+          "mean95PercentTInterval": [
+            0.46985483689896,
+            0.49850364858247065
+          ],
+          "median": 0.48662622446239334,
+          "n": 30
+        },
+        "ordinary": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 5,
+            "positive": 25,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 0.00032491423189640045
+          },
+          "mean": 0.03553996462354393,
+          "mean95PercentTInterval": [
+            0.015808322618240053,
+            0.05527160662884781
+          ],
+          "median": 0.0366889151907843,
+          "n": 30
+        },
+        "shuffled": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 2,
+            "positive": 28,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 8.67992639541626e-07
+          },
+          "mean": 0.092348685738961,
+          "mean95PercentTInterval": [
+            0.07359803417784795,
+            0.11109933730007406
+          ],
+          "median": 0.09477580039359362,
+          "n": 30
+        }
+      },
+      "shuffledImprovement": 0.09220862421582993,
+      "shuffledRmse": 0.004772505347891674,
+      "substantivePass": false
+    },
+    "readMeaning": {
+      "gates": {
+        "consequenceBaselineDirection": true,
+        "independentReplication": null,
+        "ordinaryDirection": true,
+        "ordinaryMagnitude": false,
+        "shuffledDirection": true,
+        "shuffledMagnitude": false
+      },
+      "ordinaryImprovement": 0.04497757484914152,
+      "rmse": 0.004287234449990549,
+      "seedStatistics": {
+        "consequenceOnly": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 0,
+            "positive": 30,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 1.862645149230957e-09
+          },
+          "mean": 0.48966366867401623,
+          "mean95PercentTInterval": [
+            0.47511405490382147,
+            0.5042132824442109
+          ],
+          "median": 0.49296473739720104,
+          "n": 30
+        },
+        "ordinary": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 5,
+            "positive": 25,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 0.00032491423189640045
+          },
+          "mean": 0.04578816629208175,
+          "mean95PercentTInterval": [
+            0.0252415234151099,
+            0.0663348091690536
+          ],
+          "median": 0.04523733824393486,
+          "n": 30
+        },
+        "shuffled": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 2,
+            "positive": 28,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 8.67992639541626e-07
+          },
+          "mean": 0.088942582309372,
+          "mean95PercentTInterval": [
+            0.0696240777813627,
+            0.10826108683738131
+          ],
+          "median": 0.08681505604907697,
+          "n": 30
+        }
+      },
+      "shuffledImprovement": 0.08867597033248073,
+      "shuffledRmse": 0.0047044018487635755,
+      "substantivePass": false
+    },
+    "writeMeaning": {
+      "gates": {
+        "consequenceBaselineDirection": true,
+        "independentReplication": null,
+        "ordinaryDirection": true,
+        "ordinaryMagnitude": false,
+        "shuffledDirection": true,
+        "shuffledMagnitude": false
+      },
+      "ordinaryImprovement": 0.03181685862921538,
+      "rmse": 0.004346314817611973,
+      "seedStatistics": {
+        "consequenceOnly": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 0,
+            "positive": 30,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 1.862645149230957e-09
+          },
+          "mean": 0.48250900552623044,
+          "mean95PercentTInterval": [
+            0.468246983571198,
+            0.4967710274812629
+          ],
+          "median": 0.4848477216750361,
+          "n": 30
+        },
+        "ordinary": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 6,
+            "positive": 24,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 0.001430906355381012
+          },
+          "mean": 0.032404975734644376,
+          "mean95PercentTInterval": [
+            0.012818012106041922,
+            0.05199193936324683
+          ],
+          "median": 0.03323670604709342,
+          "n": 30
+        },
+        "shuffled": {
+          "exactTwoSidedSignTest": {
+            "direction": "positive",
+            "effectiveN": 30,
+            "negative": 2,
+            "positive": 28,
+            "tiesDiscarded": 0,
+            "twoSidedPValue": 8.67992639541626e-07
+          },
+          "mean": 0.09395101900491351,
+          "mean95PercentTInterval": [
+            0.07531213146382697,
+            0.11258990654600005
+          ],
+          "median": 0.09716524092733178,
+          "n": 30
+        }
+      },
+      "shuffledImprovement": 0.09382536151658272,
+      "shuffledRmse": 0.004796332443033286,
+      "substantivePass": false
+    }
+  },
+  "batchScientificHashes": [
+    "1115111c9918b65aec625c3db1497064e8db0e73bf5198e300ef5d095e5c3aca",
+    "c21c122a2719078aff7e2f133b805885699038db0e1c5fed7655b682f8994419",
+    "23fc8cd26b132af10765ad7e98b5c593bd746482fee5b3e9696d38a81b5953c0"
+  ],
+  "bestOrdinary": "typeMeanMeaning",
+  "buildId": "EL-EXP-GAMMA-003-v1.7.0-candidate",
+  "coreSha256": "952754a8ebe17a782c322e06326805b3ca06ad8e2a19f153e51afe45d2e512c0",
+  "dualInteractionContrast": {
+    "exactTwoSidedSignTest": {
+      "direction": "negative",
+      "effectiveN": 30,
+      "negative": 30,
+      "positive": 0,
+      "tiesDiscarded": 0,
+      "twoSidedPValue": 1.862645149230957e-09
+    },
+    "mean": -0.004095271014744508,
+    "mean95PercentTInterval": [
+      -0.004256396321162787,
+      -0.003934145708326228
+    ],
+    "median": -0.004045552816500808,
+    "n": 30
+  },
+  "executionRole": "Bobby B",
+  "generatedAtUtc": "2026-09-11T21:17:18.931275+00:00",
+  "pairwiseCandidateStatistics": {
+    "consequenceOnly_vs_dualMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "negative",
+        "effectiveN": 30,
+        "negative": 30,
+        "positive": 0,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": -0.9493450831949772,
+      "mean95PercentTInterval": [
+        -1.0051267835550184,
+        -0.8935633828349361
+      ],
+      "median": -0.9479024539244976,
+      "n": 30
+    },
+    "consequenceOnly_vs_readMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "negative",
+        "effectiveN": 30,
+        "negative": 30,
+        "positive": 0,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": -0.9708570638418562,
+      "mean95PercentTInterval": [
+        -1.0286619922903877,
+        -0.9130521353933247
+      ],
+      "median": -0.97224942039448,
+      "n": 30
+    },
+    "consequenceOnly_vs_writeMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "negative",
+        "effectiveN": 30,
+        "negative": 30,
+        "positive": 0,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": -0.9428916425666996,
+      "mean95PercentTInterval": [
+        -0.9980612940336517,
+        -0.8877219910997474
+      ],
+      "median": -0.9411748457774936,
+      "n": 30
+    },
+    "readMeaning_vs_dualMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "positive",
+        "effectiveN": 30,
+        "negative": 0,
+        "positive": 30,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": 0.010757254260630032,
+      "mean95PercentTInterval": [
+        0.008580184154446713,
+        0.012934324366813351
+      ],
+      "median": 0.010358704151170656,
+      "n": 30
+    },
+    "writeMeaning_vs_dualMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "negative",
+        "effectiveN": 30,
+        "negative": 30,
+        "positive": 0,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": -0.0032799124741327043,
+      "mean95PercentTInterval": [
+        -0.003712612503096363,
+        -0.0028472124451690457
+      ],
+      "median": -0.0031023936262602756,
+      "n": 30
+    },
+    "writeMeaning_vs_readMeaning": {
+      "exactTwoSidedSignTest": {
+        "direction": "negative",
+        "effectiveN": 30,
+        "negative": 30,
+        "positive": 0,
+        "tiesDiscarded": 0,
+        "twoSidedPValue": 1.862645149230957e-09
+      },
+      "mean": -0.01422967429273842,
+      "mean95PercentTInterval": [
+        -0.016852756993252994,
+        -0.011606591592223846
+      ],
+      "median": -0.013302052633729744,
+      "n": 30
+    }
+  },
+  "pooledMetrics": {
+    "consequenceOnly": {
+      "count": 5400,
+      "meanCosine": 0.8801120281878472,
+      "rmse": 0.008392982020971955
+    },
+    "dualMeaning": {
+      "count": 5400,
+      "meanCosine": 0.9866489084204167,
+      "rmse": 0.004332439195699892
+    },
+    "pairTypeMeanMeaning": {
+      "count": 5400,
+      "meanCosine": 0.9047870498199703,
+      "rmse": 0.006356337844968152
+    },
+    "readMeaning": {
+      "count": 5400,
+      "meanCosine": 0.9886495105941114,
+      "rmse": 0.004287234449990549
+    },
+    "shuffled_consequenceOnly": {
+      "count": 5400,
+      "meanCosine": 0.7567973043089835,
+      "rmse": 0.008657550747947575
+    },
+    "shuffled_dualMeaning": {
+      "count": 5400,
+      "meanCosine": 0.844471235981871,
+      "rmse": 0.004772505347891674
+    },
+    "shuffled_readMeaning": {
+      "count": 5400,
+      "meanCosine": 0.8501671592743165,
+      "rmse": 0.0047044018487635755
+    },
+    "shuffled_writeMeaning": {
+      "count": 5400,
+      "meanCosine": 0.8428255983937987,
+      "rmse": 0.004796332443033286
+    },
+    "typeMeanMeaning": {
+      "count": 5400,
+      "meanCosine": 0.9859982261558952,
+      "rmse": 0.004489145319612075
+    },
+    "writeMeaning": {
+      "count": 5400,
+      "meanCosine": 0.9860834209087447,
+      "rmse": 0.004346314817611973
+    },
+    "zeroMeaning": {
+      "count": 5400,
+      "meanCosine": 0.0,
+      "rmse": 0.01093887770739126
+    }
+  },
+  "protocolId": "context-consequence-meaning-factorial",
+  "roundedScientificSha256": "c9d557082cf7593954081afedce4c8a157fe8bb8b07db1274bd590b6fef8eb79",
+  "roundingDecimalPlaces": 12,
+  "schema": "EL-EXP-GAMMA-003-N30-summary-v1",
+  "seedCount": 30,
+  "seedResults": [
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "8e77269e",
+        "dualMeaning": "2575ba18",
+        "readMeaning": "8851b90a",
+        "writeMeaning": "54b4e883"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8774854921840882,
+          "rmse": 0.008866448704985763
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9852852994856065,
+          "rmse": 0.004484068219534323
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9002306038807265,
+          "rmse": 0.006447836475860639
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9874352236970398,
+          "rmse": 0.004472189496656787
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7455363329486149,
+          "rmse": 0.00893706193399202
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8341640888148302,
+          "rmse": 0.0046990217657517834
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.838921778707879,
+          "rmse": 0.004683653530534715
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.83261963699278,
+          "rmse": 0.0047156049937499
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9849082934455323,
+          "rmse": 0.004271833507984923
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.984658905978724,
+          "rmse": 0.004494641246428231
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010567277224511885
+        }
+      },
+      "roundedFinalWorldDigest": "19c71fa2",
+      "seed": 2218981198
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "fddb01aa",
+        "dualMeaning": "5fc5dee5",
+        "readMeaning": "74e10c6d",
+        "writeMeaning": "60bd79c4"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8803585927786568,
+          "rmse": 0.008613850810324739
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9855303438397242,
+          "rmse": 0.004823640840436545
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9038522089934029,
+          "rmse": 0.007202151393978061
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.987595006193659,
+          "rmse": 0.004746098507240287
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7663222214476945,
+          "rmse": 0.00895173503768557
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8511188114682087,
+          "rmse": 0.005496897743885608
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8596387677466162,
+          "rmse": 0.005404537609003904
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8487867778410773,
+          "rmse": 0.005525617682106859
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9832213021910352,
+          "rmse": 0.005019661524718503
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9849248416004641,
+          "rmse": 0.004842541121983309
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.012458424609304764
+        }
+      },
+      "roundedFinalWorldDigest": "9ab9f77f",
+      "seed": 1929771240
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "082b26f4",
+        "dualMeaning": "d45f80f9",
+        "readMeaning": "4e8ee71b",
+        "writeMeaning": "8635293b"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.881236612767217,
+          "rmse": 0.007992921546722757
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9877744275604974,
+          "rmse": 0.004157547334540074
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9185750746273309,
+          "rmse": 0.005605575571480256
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.990346023098988,
+          "rmse": 0.004141487184084271
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7918003563972899,
+          "rmse": 0.008162536160586533
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8832921258384991,
+          "rmse": 0.004322496740871304
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8895109748057369,
+          "rmse": 0.004312357575308272
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8818307484159397,
+          "rmse": 0.0043342900598506715
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9860325148153576,
+          "rmse": 0.004232508586485754
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9870106315332151,
+          "rmse": 0.004166340274923635
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01058921227975731
+        }
+      },
+      "roundedFinalWorldDigest": "0f282bdc",
+      "seed": 521111220
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "e22dd2ab",
+        "dualMeaning": "665f15b2",
+        "readMeaning": "62ba4e0f",
+        "writeMeaning": "ef0dc310"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8768800110837559,
+          "rmse": 0.008434272140070398
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9854316440151493,
+          "rmse": 0.004747770849836491
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8909264333328122,
+          "rmse": 0.007209225050453666
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9870057083027282,
+          "rmse": 0.004722630175263981
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7520626593885223,
+          "rmse": 0.008443608627942857
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8404855644015012,
+          "rmse": 0.004731696901105502
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8467927493638914,
+          "rmse": 0.004679564098946564
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8386263603508652,
+          "rmse": 0.004751798127690858
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9871635777005157,
+          "rmse": 0.004297902928834984
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9849448765188225,
+          "rmse": 0.004755229706182855
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010295679599935886
+        }
+      },
+      "roundedFinalWorldDigest": "dee62309",
+      "seed": 474297633
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "3cc5195b",
+        "dualMeaning": "d65ff86e",
+        "readMeaning": "ca2ea444",
+        "writeMeaning": "470f043f"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8815593712597634,
+          "rmse": 0.007776024719388173
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.986712358574742,
+          "rmse": 0.0039013114618422448
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9382285634448713,
+          "rmse": 0.006052511670502298
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9887744159871401,
+          "rmse": 0.0038476674655063482
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7663726677612576,
+          "rmse": 0.008241266769571988
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.853811353053019,
+          "rmse": 0.004323312290562836
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8596084657172176,
+          "rmse": 0.004257198567673177
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8521686438929614,
+          "rmse": 0.004343756845780126
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9867898816898608,
+          "rmse": 0.004018332507797233
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9861497418735617,
+          "rmse": 0.003913678665794599
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010078989253841502
+        }
+      },
+      "roundedFinalWorldDigest": "4e5ceb5d",
+      "seed": 4029016462
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "06dee705",
+        "dualMeaning": "48c5eb54",
+        "readMeaning": "1f0dcdfc",
+        "writeMeaning": "990275d2"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8806873044657269,
+          "rmse": 0.009019414018666766
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9874974471315388,
+          "rmse": 0.004623721820663728
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9092236996878392,
+          "rmse": 0.006459230019556077
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9893886040935114,
+          "rmse": 0.004554736746364716
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7359152995927848,
+          "rmse": 0.00944282539678566
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.821025364731101,
+          "rmse": 0.0050686566194910534
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8267444477972189,
+          "rmse": 0.0049551525718653875
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8195471252430724,
+          "rmse": 0.00510173149561039
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9864871083981833,
+          "rmse": 0.004738689259648032
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9869799975595713,
+          "rmse": 0.004642641744049123
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010898519185446582
+        }
+      },
+      "roundedFinalWorldDigest": "ba6e69e2",
+      "seed": 1625019350
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "9ca4ee7c",
+        "dualMeaning": "ef63f35f",
+        "readMeaning": "ef9901af",
+        "writeMeaning": "73250b6f"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8801636665730395,
+          "rmse": 0.007598964161549137
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9854786690971034,
+          "rmse": 0.003914014600227595
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9134564300005086,
+          "rmse": 0.006650459557497801
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9877181881661626,
+          "rmse": 0.003852739350382506
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7854373039375916,
+          "rmse": 0.008145447270770517
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.875588656749447,
+          "rmse": 0.00455355275627515
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8816533796631449,
+          "rmse": 0.004459929073468475
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8738838563008006,
+          "rmse": 0.004583232845832143
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9845122439831422,
+          "rmse": 0.004185219273215426
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9847888826454732,
+          "rmse": 0.003934343157513947
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010367446199850725
+        }
+      },
+      "roundedFinalWorldDigest": "9d4b072e",
+      "seed": 1874816109
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "378e8cf0",
+        "dualMeaning": "23766b6f",
+        "readMeaning": "d30b2b69",
+        "writeMeaning": "739bb940"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8803573901820598,
+          "rmse": 0.008080411003690443
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.986445289554488,
+          "rmse": 0.004241481497857919
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8897925593512069,
+          "rmse": 0.006169657432099767
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9881486811248285,
+          "rmse": 0.00418840280982368
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7462227064909358,
+          "rmse": 0.008289641603357246
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8335216723441675,
+          "rmse": 0.004621551833845655
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8376085743628647,
+          "rmse": 0.004526939067132704
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8321336598043798,
+          "rmse": 0.004654024901060605
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9852172952304017,
+          "rmse": 0.004406101871457518
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9859754152631434,
+          "rmse": 0.004258328213443873
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011213159470519443
+        }
+      },
+      "roundedFinalWorldDigest": "f03ba2be",
+      "seed": 3120607361
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "abcc8920",
+        "dualMeaning": "1cb2e769",
+        "readMeaning": "e7003174",
+        "writeMeaning": "590d5e4d"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8790047190138114,
+          "rmse": 0.009268106827293676
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9846180021360941,
+          "rmse": 0.003968093716698283
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9042771615498787,
+          "rmse": 0.0057102877898048176
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9872625351509555,
+          "rmse": 0.0039174928563226906
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7569608541980624,
+          "rmse": 0.009213935686974838
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8433951307611021,
+          "rmse": 0.004380174740827459
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8497135916799156,
+          "rmse": 0.004279322773025644
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8418657373899925,
+          "rmse": 0.004411876225752669
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9838305168149025,
+          "rmse": 0.004182744867870035
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.983872991239028,
+          "rmse": 0.003986218283298059
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01176398990103368
+        }
+      },
+      "roundedFinalWorldDigest": "46a069f2",
+      "seed": 578642397
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "2274429c",
+        "dualMeaning": "e9cb24d6",
+        "readMeaning": "9ed52577",
+        "writeMeaning": "853a98f2"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8787577394646757,
+          "rmse": 0.007892315843065484
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9853544955289607,
+          "rmse": 0.004632521144355094
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9162129955465057,
+          "rmse": 0.0066405304132325215
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9874666029730775,
+          "rmse": 0.004605883485563212
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7581994452716642,
+          "rmse": 0.008285660313587505
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.843597254306228,
+          "rmse": 0.00498072864827941
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8523191765505269,
+          "rmse": 0.004934058979922982
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8415887674782545,
+          "rmse": 0.004997147983787355
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.985475935197413,
+          "rmse": 0.004668877232363414
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9847288154329004,
+          "rmse": 0.004642584247336211
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010750560925290907
+        }
+      },
+      "roundedFinalWorldDigest": "f5fdfd31",
+      "seed": 227299706
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "885cbf20",
+        "dualMeaning": "1ed0958c",
+        "readMeaning": "00ff0d74",
+        "writeMeaning": "97946d88"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.879066567701538,
+          "rmse": 0.00869827443537059
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9871807057554245,
+          "rmse": 0.003921088223447523
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9304937340086432,
+          "rmse": 0.006085295825861382
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9894237402373384,
+          "rmse": 0.0038215356379821593
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7548796987444817,
+          "rmse": 0.00916623460754703
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.845411238503531,
+          "rmse": 0.004546256411680879
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.850214514751533,
+          "rmse": 0.00435853181060366
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8437723553598896,
+          "rmse": 0.004602111801304011
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9866690583842336,
+          "rmse": 0.004290632044154308
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9865283077538005,
+          "rmse": 0.00394674184727939
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011688931753348206
+        }
+      },
+      "roundedFinalWorldDigest": "4e635223",
+      "seed": 1391291206
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "14b67797",
+        "dualMeaning": "deb861aa",
+        "readMeaning": "a99d446c",
+        "writeMeaning": "bb5cca9c"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8832128023347416,
+          "rmse": 0.008174822532729135
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9886275055212058,
+          "rmse": 0.004043274435330422
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9324967585137423,
+          "rmse": 0.00564771787226818
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9907773494615443,
+          "rmse": 0.004002904541188343
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7728432040134291,
+          "rmse": 0.008591520117104819
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8626822515470489,
+          "rmse": 0.004508338858027062
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8672349743955525,
+          "rmse": 0.004452840797111798
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8613712368552403,
+          "rmse": 0.004529405808961619
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9869153558506473,
+          "rmse": 0.0041943373634555255
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9880722500139032,
+          "rmse": 0.004056196860219446
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01095233640040449
+        }
+      },
+      "roundedFinalWorldDigest": "360816d1",
+      "seed": 3053689021
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "c42dc380",
+        "dualMeaning": "6e9ed00a",
+        "readMeaning": "dd075fb4",
+        "writeMeaning": "84bf7e24"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8812211936106986,
+          "rmse": 0.008355968262856938
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9883960607047435,
+          "rmse": 0.0039921974631902096
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9057095727418931,
+          "rmse": 0.004980940629750222
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9902445368259862,
+          "rmse": 0.00396191080236233
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7496984649048871,
+          "rmse": 0.008563735212090723
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8342838272242565,
+          "rmse": 0.004457199661721438
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8427613874863735,
+          "rmse": 0.004406447242463416
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8315298631235336,
+          "rmse": 0.004480562145709301
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9869286908851506,
+          "rmse": 0.004147876263935233
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9878861800558084,
+          "rmse": 0.004004201926934403
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01052783563759296
+        }
+      },
+      "roundedFinalWorldDigest": "5cbc82f4",
+      "seed": 2331380888
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "c77f8d45",
+        "dualMeaning": "bddda848",
+        "readMeaning": "7e21c6af",
+        "writeMeaning": "5d857f24"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8781086074681509,
+          "rmse": 0.008923044470186338
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9856023332945475,
+          "rmse": 0.004961194893588464
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8960709419909024,
+          "rmse": 0.007117988091109443
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9877266211495548,
+          "rmse": 0.004954572171517331
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7158803490181977,
+          "rmse": 0.009125143975277632
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8020935202737987,
+          "rmse": 0.005274823108955857
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8051937348712898,
+          "rmse": 0.005253437676836833
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8009876322249221,
+          "rmse": 0.005289680091659533
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9857201721724637,
+          "rmse": 0.004888139484863343
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9850114264598181,
+          "rmse": 0.0049696616431173235
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011163521393526476
+        }
+      },
+      "roundedFinalWorldDigest": "7d4ed296",
+      "seed": 2126422385
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "a63a7bfc",
+        "dualMeaning": "a284ba3b",
+        "readMeaning": "cd36baa0",
+        "writeMeaning": "da514d8c"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8799783867367045,
+          "rmse": 0.00808883963515495
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.986437854037843,
+          "rmse": 0.004141146438305419
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8926913498398831,
+          "rmse": 0.005726320909200072
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9885932051549787,
+          "rmse": 0.004101543482242188
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7637322928764212,
+          "rmse": 0.008001622472752788
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8547495060364091,
+          "rmse": 0.004616094252788027
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8580490905110683,
+          "rmse": 0.004583941086176838
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.853692478154037,
+          "rmse": 0.0046296497293501085
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.985283626629363,
+          "rmse": 0.004522300021946035
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9858185063410366,
+          "rmse": 0.00415333491287391
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01099594223226915
+        }
+      },
+      "roundedFinalWorldDigest": "70921085",
+      "seed": 334384799
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "a5a187da",
+        "dualMeaning": "3ab86013",
+        "readMeaning": "bc1515b6",
+        "writeMeaning": "ea189aff"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8822770996950323,
+          "rmse": 0.008678095022056015
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9879318726040385,
+          "rmse": 0.005016849552718796
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.900333634670391,
+          "rmse": 0.0070892433153683775
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9900659479063091,
+          "rmse": 0.005011433777768637
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7598629018861685,
+          "rmse": 0.00905138077902125
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8421298342685792,
+          "rmse": 0.00521141885458483
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.852243619494813,
+          "rmse": 0.005168294334193109
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8400672292709639,
+          "rmse": 0.005231218943021924
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9862258723265783,
+          "rmse": 0.005057316837685616
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9873391254814591,
+          "rmse": 0.005027391377124649
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01152340619231375
+        }
+      },
+      "roundedFinalWorldDigest": "f07a004c",
+      "seed": 3810492981
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "e41891ef",
+        "dualMeaning": "e2862ae6",
+        "readMeaning": "073138f7",
+        "writeMeaning": "302cf2c3"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8799963749162443,
+          "rmse": 0.008430623935323317
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9841181821968527,
+          "rmse": 0.004154397449711785
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8929064972257548,
+          "rmse": 0.006254133072428248
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9860627368036309,
+          "rmse": 0.004106170145222188
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7541658983133938,
+          "rmse": 0.008975466795351921
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8405721843443714,
+          "rmse": 0.005125173413806549
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8449354445434393,
+          "rmse": 0.00507441730109741
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.839225669487461,
+          "rmse": 0.005141946543409971
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9851270009005577,
+          "rmse": 0.004777854945897421
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9835871929993749,
+          "rmse": 0.004167306718704292
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011346696993130082
+        }
+      },
+      "roundedFinalWorldDigest": "58c6a819",
+      "seed": 3259331138
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "1ae7cd42",
+        "dualMeaning": "7d9846bf",
+        "readMeaning": "69421172",
+        "writeMeaning": "f2ebe6c8"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8800244411470483,
+          "rmse": 0.008223355759715984
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9867128069433961,
+          "rmse": 0.004652193551335594
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9077267293836803,
+          "rmse": 0.006422540409359953
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9885380882669266,
+          "rmse": 0.004602261778060504
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7656657980293068,
+          "rmse": 0.00833618771557135
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8530202446514906,
+          "rmse": 0.004813686910196444
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8597867360619769,
+          "rmse": 0.004729203779144523
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8513790472942926,
+          "rmse": 0.004834986966116041
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9859752220762287,
+          "rmse": 0.004532190661080379
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9862202683825512,
+          "rmse": 0.004663429025760481
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011051654225236532
+        }
+      },
+      "roundedFinalWorldDigest": "1d3df442",
+      "seed": 3650900357
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "53f77f00",
+        "dualMeaning": "bf116d40",
+        "readMeaning": "138cfc4b",
+        "writeMeaning": "ac8a44c0"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8801079445778139,
+          "rmse": 0.0087379142914144
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9886022445518244,
+          "rmse": 0.0044927557117011374
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8918104040922196,
+          "rmse": 0.006676030908009388
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9905918908477833,
+          "rmse": 0.004452297804422058
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7640114539763635,
+          "rmse": 0.008826547531231506
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8539803603609487,
+          "rmse": 0.0048840354035368785
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8599867215322451,
+          "rmse": 0.004825409594267312
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8524414613118343,
+          "rmse": 0.0049055902447247834
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9878315613649318,
+          "rmse": 0.004630722869911927
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9880377493211122,
+          "rmse": 0.004504969978947343
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011678779669257598
+        }
+      },
+      "roundedFinalWorldDigest": "c8cf6d57",
+      "seed": 819091887
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "975fa78c",
+        "dualMeaning": "7a834b05",
+        "readMeaning": "76da9914",
+        "writeMeaning": "1a372aa1"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8811778940717157,
+          "rmse": 0.008205011974831552
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9885688325952147,
+          "rmse": 0.004199367194719265
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9207042970169783,
+          "rmse": 0.006343114225012613
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9907957358522973,
+          "rmse": 0.004145913363780082
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7601215346106602,
+          "rmse": 0.008507914154671697
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8493465226962794,
+          "rmse": 0.004451893018269354
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8549641251377689,
+          "rmse": 0.004372500924324443
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8471736537254086,
+          "rmse": 0.0044809591093695235
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9862540396276839,
+          "rmse": 0.00425218785079733
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9878835436015355,
+          "rmse": 0.00421537384840973
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01108923103459942
+        }
+      },
+      "roundedFinalWorldDigest": "7cc332df",
+      "seed": 4282557554
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "d4235048",
+        "dualMeaning": "b2e66b51",
+        "readMeaning": "e9457200",
+        "writeMeaning": "5d9bd2e9"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8789600977176565,
+          "rmse": 0.0080202510130851
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9866519705614668,
+          "rmse": 0.004477663990968634
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8769539120990103,
+          "rmse": 0.006835324537610584
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9884824269420499,
+          "rmse": 0.004393469088770791
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7569107687420732,
+          "rmse": 0.008638776193427795
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8456558303093382,
+          "rmse": 0.004950281900795434
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8518408607030933,
+          "rmse": 0.004823096187241973
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8439542485291425,
+          "rmse": 0.004981529158452188
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9851053624273223,
+          "rmse": 0.00448315881825958
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9861698287922711,
+          "rmse": 0.004494084270154265
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010831285264695564
+        }
+      },
+      "roundedFinalWorldDigest": "16ba1582",
+      "seed": 1815008022
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "48d0b219",
+        "dualMeaning": "d78db57d",
+        "readMeaning": "b96b4bde",
+        "writeMeaning": "1ac89634"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8840258147839205,
+          "rmse": 0.008210175215901802
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.988209567919111,
+          "rmse": 0.00409475711161767
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8963256912248769,
+          "rmse": 0.006028685077515976
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9900219842112209,
+          "rmse": 0.004046168379628174
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7426839058044078,
+          "rmse": 0.008382312192846783
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8236768958702092,
+          "rmse": 0.00485973158268694
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8317926756143109,
+          "rmse": 0.004809223044491833
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8216903564565909,
+          "rmse": 0.004879325382504873
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9879232596582033,
+          "rmse": 0.00459216970684516
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9877180946814675,
+          "rmse": 0.004106327903700133
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011334726560224218
+        }
+      },
+      "roundedFinalWorldDigest": "9e8a5fae",
+      "seed": 2006204464
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "0d47fef2",
+        "dualMeaning": "3abebb16",
+        "readMeaning": "f1c5a7c8",
+        "writeMeaning": "21dd5344"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8804854186279221,
+          "rmse": 0.008037315154530655
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9860521448740662,
+          "rmse": 0.00442519225816323
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8990278983815456,
+          "rmse": 0.006458655141564055
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9878980492199176,
+          "rmse": 0.004405716033273857
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.748580616613056,
+          "rmse": 0.007890928064358383
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8331486759869934,
+          "rmse": 0.004373946242039946
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8396661667216196,
+          "rmse": 0.004321412501739568
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8312902480039723,
+          "rmse": 0.004396329133071569
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9868482752583745,
+          "rmse": 0.004211916431687281
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9855164806309676,
+          "rmse": 0.0044340320167014545
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.009552399321307288
+        }
+      },
+      "roundedFinalWorldDigest": "25e94f31",
+      "seed": 461026791
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "8a73946c",
+        "dualMeaning": "41cc22c1",
+        "readMeaning": "6d3b041c",
+        "writeMeaning": "5541f2c8"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8786854274217982,
+          "rmse": 0.007838071787525302
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9858706713812113,
+          "rmse": 0.0041509601181479025
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8950519572583142,
+          "rmse": 0.00672252355401603
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9876074634652371,
+          "rmse": 0.004100054416741354
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7287781675937781,
+          "rmse": 0.008767554862799414
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8148093539661844,
+          "rmse": 0.005105608230320444
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8193419571953702,
+          "rmse": 0.005024172059877794
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8126022532314191,
+          "rmse": 0.005132900462864555
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9861004710146131,
+          "rmse": 0.004719494683399831
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9853529542096678,
+          "rmse": 0.004165433371514099
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010687529754922721
+        }
+      },
+      "roundedFinalWorldDigest": "51ae72d0",
+      "seed": 4259554234
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "382bb1c4",
+        "dualMeaning": "fcf2671f",
+        "readMeaning": "8a530678",
+        "writeMeaning": "1cea1ec3"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8790477313553028,
+          "rmse": 0.008673872857184758
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9842866602043574,
+          "rmse": 0.004019835324304449
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9102775753324474,
+          "rmse": 0.0061908798604882465
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9866572051637796,
+          "rmse": 0.003993530034355255
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.774186301199101,
+          "rmse": 0.008898077953893892
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8688099263188062,
+          "rmse": 0.004788043354236395
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.869342626995761,
+          "rmse": 0.004767868486839461
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8676046060630428,
+          "rmse": 0.004807817381383497
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9856323711450593,
+          "rmse": 0.004328602041475581
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9835805332065554,
+          "rmse": 0.00403496498147465
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01028197596133496
+        }
+      },
+      "roundedFinalWorldDigest": "939e4f3b",
+      "seed": 2244171520
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "f41a9e91",
+        "dualMeaning": "e46f07c7",
+        "readMeaning": "2a4d6fc4",
+        "writeMeaning": "22a22ff3"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8803267345466783,
+          "rmse": 0.008223320892515295
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9887192292710963,
+          "rmse": 0.0037164293956332365
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9034278496889321,
+          "rmse": 0.005332092929360158
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9902807038262671,
+          "rmse": 0.003681577111976321
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7518331673279183,
+          "rmse": 0.008308586842884455
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8394219744805063,
+          "rmse": 0.004346587265412486
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8460516359081722,
+          "rmse": 0.004315368979036902
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.837715102295623,
+          "rmse": 0.004363759743409752
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.987289226363806,
+          "rmse": 0.004176532890125024
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9883351672831736,
+          "rmse": 0.003727005159074186
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010266040017573454
+        }
+      },
+      "roundedFinalWorldDigest": "4dff0085",
+      "seed": 633117649
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "c8fd1cbf",
+        "dualMeaning": "75abb774",
+        "readMeaning": "cd01e7b4",
+        "writeMeaning": "b8770581"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8828761226514203,
+          "rmse": 0.008723354136526373
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9885548566758294,
+          "rmse": 0.004373107875696445
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9018975492430763,
+          "rmse": 0.007103737699177872
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9903295322640873,
+          "rmse": 0.004289111693977829
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7522293749423382,
+          "rmse": 0.008467671531515853
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8372634803476886,
+          "rmse": 0.004680601734638495
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8434894757167333,
+          "rmse": 0.004571644202098427
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8355661591797123,
+          "rmse": 0.00471714043661757
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9867599696638705,
+          "rmse": 0.0046234335792058575
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9880754624055379,
+          "rmse": 0.004397960038950021
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01123037420969767
+        }
+      },
+      "roundedFinalWorldDigest": "18740dde",
+      "seed": 3286174494
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "fd8b4130",
+        "dualMeaning": "536d2db8",
+        "readMeaning": "3630fd9d",
+        "writeMeaning": "1b43fe5d"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8783318801494725,
+          "rmse": 0.008477409619428668
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9854580559410328,
+          "rmse": 0.004358291446736267
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.918803251412651,
+          "rmse": 0.0058890396611610135
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9870555735330013,
+          "rmse": 0.004318426168147519
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.738534027931833,
+          "rmse": 0.008768873941211989
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8271311081152135,
+          "rmse": 0.004859813710259245
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8297595603010327,
+          "rmse": 0.004834668465541401
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8264067526169214,
+          "rmse": 0.0048773853464895035
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9867874315477062,
+          "rmse": 0.004703836986660385
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9849921933329214,
+          "rmse": 0.004371790873933732
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.01086919257529337
+        }
+      },
+      "roundedFinalWorldDigest": "2dd2da3f",
+      "seed": 327216863
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "52622a9b",
+        "dualMeaning": "3b582708",
+        "readMeaning": "86b4ab85",
+        "writeMeaning": "317fef65"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8810622322134923,
+          "rmse": 0.008373533419518745
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9878572038211961,
+          "rmse": 0.00440038494614908
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.8762032406026039,
+          "rmse": 0.005980107035103651
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.9897013600010642,
+          "rmse": 0.004307952875762972
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.7561204270106624,
+          "rmse": 0.008988369377130299
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8433909543987834,
+          "rmse": 0.005028604174276754
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.8488285564079129,
+          "rmse": 0.0049016257726868335
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8417645507171143,
+          "rmse": 0.005057838327913424
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9867818986954897,
+          "rmse": 0.004629871847933734
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9873535384337269,
+          "rmse": 0.004417951814264242
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.011261874871714901
+        }
+      },
+      "roundedFinalWorldDigest": "77db1fbf",
+      "seed": 1656501849
+    },
+    {
+      "archiveSizes": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "armPayloadDigests": {
+        "consequenceOnly": "1f6a35e5",
+        "dualMeaning": "ed5df2c4",
+        "readMeaning": "74454a28",
+        "writeMeaning": "459ff078"
+      },
+      "modelMetrics": {
+        "consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.8778971741352701,
+          "rmse": 0.00886807814119665
+        },
+        "dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.9855005168341406,
+          "rmse": 0.004515464363866627
+        },
+        "pairTypeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.9099229194564818,
+          "rmse": 0.006902331007450024
+        },
+        "readMeaning": {
+          "count": 180,
+          "meanCosine": 0.987490177902278,
+          "rmse": 0.0044799552670398615
+        },
+        "shuffled_consequenceOnly": {
+          "count": 180,
+          "meanCosine": 0.788370928296609,
+          "rmse": 0.00908898323799648
+        },
+        "shuffled_dualMeaning": {
+          "count": 180,
+          "meanCosine": 0.8825593672875893,
+          "rmse": 0.004821827847770157
+        },
+        "shuffled_readMeaning": {
+          "count": 180,
+          "meanCosine": 0.88701900748442,
+          "rmse": 0.00474739057078351
+        },
+        "shuffled_writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.8814817342027159,
+          "rmse": 0.0048397121675119534
+        },
+        "typeMeanMeaning": {
+          "count": 180,
+          "meanCosine": 0.984149249218225,
+          "rmse": 0.004644872479077133
+        },
+        "writeMeaning": {
+          "count": 180,
+          "meanCosine": 0.9849887242307449,
+          "rmse": 0.004526117240279293
+        },
+        "zeroMeaning": {
+          "count": 180,
+          "meanCosine": 0,
+          "rmse": 0.010380251031168772
+        }
+      },
+      "roundedFinalWorldDigest": "42df7c99",
+      "seed": 1624271877
+    }
+  ],
+  "seeds": [
+    2218981198,
+    1929771240,
+    521111220,
+    474297633,
+    4029016462,
+    1625019350,
+    1874816109,
+    3120607361,
+    578642397,
+    227299706,
+    1391291206,
+    3053689021,
+    2331380888,
+    2126422385,
+    334384799,
+    3810492981,
+    3259331138,
+    3650900357,
+    819091887,
+    4282557554,
+    1815008022,
+    2006204464,
+    461026791,
+    4259554234,
+    2244171520,
+    633117649,
+    3286174494,
+    327216863,
+    1656501849,
+    1624271877
+  ],
+  "selectedArm": null,
+  "verdict": "DO_NOT_ADVANCE_MEANING_FACTORIAL_V1_7"
+}

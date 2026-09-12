@@ -1,0 +1,24 @@
+{
+  "schema": "EL-EXP-GAMMA-003-freeze-v1",
+  "buildId": "EL-EXP-GAMMA-003-v1.7.0-candidate",
+  "protocolId": "context-consequence-meaning-factorial",
+  "frozenAtUtc": "2026-09-11T20:28:07Z",
+  "confirmatoryExecutionStarted": false,
+  "officialSeedCount": 30,
+  "commissioningSeed": 246813579,
+  "replicationOrder": "Bobby B first; Codex C second; Version A adjudicates material mismatch",
+  "hashes": {
+    "preregistrationSha256": "af589f62924b854474371767cfd95a47e15a0a4438bf6d66313fd02f8d532aca",
+    "candidateCoreSha256": "952754a8ebe17a782c322e06326805b3ca06ad8e2a19f153e51afe45d2e512c0",
+    "referenceV16CoreSha256": "35380e6f2da36e53226a3beef2de7c7d8c0dcc71b2bd186f1541ef4de28a6b34",
+    "commissioningOutputSha256": "f4c8c35a252698f7e63e70587cfdd4486709c12ba1b1e5284da2f7033192e59c"
+  },
+  "commissioning": {
+    "structuralChecks": "12/12 PASS",
+    "javascriptTests": "7/7 PASS",
+    "statisticsTests": "PASS",
+    "fullExcludedSeed": "PASS",
+    "distinctArmPayloads": "4/4"
+  },
+  "boundary": "The freeze covers the candidate apparatus and protocol. No official confirmatory seed has been executed. The canonical Emergence Lab engine remains untouched."
+}

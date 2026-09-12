@@ -1,0 +1,27 @@
+{
+  "schema": "EL-EXP-GAMMA-003-Version-A-adjudication-v1",
+  "classification": "fingerprint instrumentation defect; scientific replication passes",
+  "bobbyReportedScientificSha256": "c9d557082cf7593954081afedce4c8a157fe8bb8b07db1274bd590b6fef8eb79",
+  "codexReportedScientificSha256": "b780d9255648ecd4eee027a3b17237e5fe1f05c3e04a93e066358f715bceb0a0",
+  "adjudicatedRoleNeutralScientificSha256": "f88d83a18fe17cbf7e8399260d205242a3f52618abae0ca0e5016c122601e9db",
+  "maximumAbsoluteNumericDifference": 7.771561172376096e-16,
+  "numericDifferenceCount": 55,
+  "allNumericDifferencesDisappearAtTwelveDecimals": true,
+  "roundedFinalWorldDigestsMatchAllThirtySeeds": true,
+  "roundedArmResultsMatch": true,
+  "roundedPooledMetricsMatch": true,
+  "roundedPairwiseStatisticsMatch": true,
+  "selectedArmAgreement": true,
+  "verdictAgreement": true,
+  "defectiveFields": [
+    "seedResults[*].armPayloadDigests",
+    "batchScientificHashes"
+  ],
+  "cause": "Arm payload fingerprints used FNV-1a over raw JavaScript floating-point prediction arrays. The batch hashes inherited those runtime-specific raw fingerprints. The world fingerprint itself correctly used twelve-decimal canonical rounding.",
+  "adjudicationMethod": "Remove only raw arm payload fingerprints and their derivative batch hashes, remove execution-role metadata, then round every finite number to twelve decimals and canonicalize object keys.",
+  "independentReplication": true,
+  "selectedArm": null,
+  "finalVerdict": "DO_NOT_ADVANCE_MEANING_FACTORIAL_V1_7",
+  "prospectiveCorrection": "Future arm payload digests must hash twelve-decimal canonical prediction arrays. Frozen v1.7 source and raw outputs remain unchanged.",
+  "architectureBoundary": "The negative advancement verdict rejects these fixed structural-meaning encodings and thresholds under this field. It does not eliminate Gamma, contextual meaning, stored meaning, reconstructed meaning, or dual-process architectures as classes."
+}

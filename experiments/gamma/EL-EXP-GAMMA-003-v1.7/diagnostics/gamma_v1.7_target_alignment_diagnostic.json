@@ -1,0 +1,432 @@
+{
+  "byEventKind": {
+    "ALIGN_THETA": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00013334496982497866,
+        "originalMeaningRmse": 0.00020836642330864744,
+        "typedConsequenceRmseAfterRecovery": 0.0001874177167358229
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00011495692343101908,
+        "originalMeaningRmse": 0.00011610995132294156,
+        "typedConsequenceRmseAfterRecovery": 0.00016154236784578663
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00014928219412427057,
+        "originalMeaningRmse": 0.00015214637336257388,
+        "typedConsequenceRmseAfterRecovery": 0.0002098150021376951
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00011509228889129496,
+        "originalMeaningRmse": 0.00011509228889129496,
+        "typedConsequenceRmseAfterRecovery": 0.00016172621739996438
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0001103014104984765,
+        "originalMeaningRmse": 0.00011237785108484549,
+        "typedConsequenceRmseAfterRecovery": 0.00015504762676345833
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00011496578209384198,
+        "originalMeaningRmse": 0.00011643890598338103,
+        "typedConsequenceRmseAfterRecovery": 0.00016155465660570414
+      }
+    },
+    "DISRUPT_PHASE": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0034725548114132357,
+        "originalMeaningRmse": 0.005407578423809291,
+        "typedConsequenceRmseAfterRecovery": 0.004894162846346532
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0024377543775874404,
+        "originalMeaningRmse": 0.0024707973291051588,
+        "typedConsequenceRmseAfterRecovery": 0.003434156115238986
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.003671365558295503,
+        "originalMeaningRmse": 0.0037443018658760386,
+        "typedConsequenceRmseAfterRecovery": 0.005174010320439785
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0024442901531985706,
+        "originalMeaningRmse": 0.0024442901531985706,
+        "typedConsequenceRmseAfterRecovery": 0.0034406126878484284
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0025703620866239503,
+        "originalMeaningRmse": 0.002632956641617176,
+        "typedConsequenceRmseAfterRecovery": 0.003623009341657992
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.002437876548017699,
+        "originalMeaningRmse": 0.0024799277285323276,
+        "typedConsequenceRmseAfterRecovery": 0.003434632280222185
+      }
+    },
+    "ERODE_MEMORY": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0011230357090307554,
+        "originalMeaningRmse": 0.00196451451123258,
+        "typedConsequenceRmseAfterRecovery": 0.0015777821213996735
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0009111959838203015,
+        "originalMeaningRmse": 0.0009248499379579074,
+        "typedConsequenceRmseAfterRecovery": 0.0012760788206814437
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.001384020744841892,
+        "originalMeaningRmse": 0.0014143152075550849,
+        "typedConsequenceRmseAfterRecovery": 0.001940258026139669
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0009057252695521265,
+        "originalMeaningRmse": 0.0009057252695521265,
+        "typedConsequenceRmseAfterRecovery": 0.0012685644251970141
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0009244471504739388,
+        "originalMeaningRmse": 0.0009509812949040959,
+        "typedConsequenceRmseAfterRecovery": 0.001295705600678063
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0009121738824238924,
+        "originalMeaningRmse": 0.0009296214375388431,
+        "typedConsequenceRmseAfterRecovery": 0.001277400052801179
+      }
+    },
+    "INTEGRATION_PULSE": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0008261129534051303,
+        "originalMeaningRmse": 0.0015088004325282164,
+        "typedConsequenceRmseAfterRecovery": 0.001161821964479452
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0006707832819692032,
+        "originalMeaningRmse": 0.000681917370489522,
+        "typedConsequenceRmseAfterRecovery": 0.0009411465009175649
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0010210493619316498,
+        "originalMeaningRmse": 0.0010454313376715469,
+        "typedConsequenceRmseAfterRecovery": 0.0014345323682321285
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0006685762793864786,
+        "originalMeaningRmse": 0.0006685762793864786,
+        "typedConsequenceRmseAfterRecovery": 0.0009383615581381171
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0006815017556015586,
+        "originalMeaningRmse": 0.0007037229344512058,
+        "typedConsequenceRmseAfterRecovery": 0.0009564800096749925
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0006713334506560792,
+        "originalMeaningRmse": 0.0006855440515055448,
+        "typedConsequenceRmseAfterRecovery": 0.0009418529972849226
+      }
+    },
+    "RECOVERY_SHOCK": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.011274367241720984,
+        "originalMeaningRmse": 0.018216718850876182,
+        "typedConsequenceRmseAfterRecovery": 0.01588007765518372
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.009575327508750765,
+        "originalMeaningRmse": 0.009680781547507834,
+        "typedConsequenceRmseAfterRecovery": 0.013483279884752048
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.013833159017049387,
+        "originalMeaningRmse": 0.014065651410907026,
+        "typedConsequenceRmseAfterRecovery": 0.01947356845182767
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.009583930284758011,
+        "originalMeaningRmse": 0.009583930284758013,
+        "typedConsequenceRmseAfterRecovery": 0.013495034597631399
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.009821482006862737,
+        "originalMeaningRmse": 0.010019288268816871,
+        "typedConsequenceRmseAfterRecovery": 0.013819401515209993
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.00957550784680777,
+        "originalMeaningRmse": 0.009709726815499278,
+        "typedConsequenceRmseAfterRecovery": 0.013483479260133616
+      }
+    },
+    "SUPPORT_MEMORY": {
+      "consequenceOnly": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.004181302188825796,
+        "originalMeaningRmse": 0.007441970206083362,
+        "typedConsequenceRmseAfterRecovery": 0.0058687639805385765
+      },
+      "dualMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.003330617030344537,
+        "originalMeaningRmse": 0.0033858477912963978,
+        "typedConsequenceRmseAfterRecovery": 0.0046839723466904565
+      },
+      "pairTypeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.005131849231403171,
+        "originalMeaningRmse": 0.0052382703264778185,
+        "typedConsequenceRmseAfterRecovery": 0.007213585417184877
+      },
+      "readMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0033429661348514314,
+        "originalMeaningRmse": 0.0033429661348514314,
+        "typedConsequenceRmseAfterRecovery": 0.004701325631729582
+      },
+      "typeMeanMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.0033859290339541374,
+        "originalMeaningRmse": 0.0034905208694603253,
+        "typedConsequenceRmseAfterRecovery": 0.004764787676488699
+      },
+      "writeMeaning": {
+        "count": 900,
+        "currentFrameAlignedMeaningRmse": 0.003330217351791536,
+        "originalMeaningRmse": 0.003400904866337506,
+        "typedConsequenceRmseAfterRecovery": 0.004683282149685526
+      }
+    }
+  },
+  "currentFrameAlignedPairwise": {
+    "dualMeaning_vs_readMeaning": {
+      "exactTwoSidedSignP": 0.584664711728692,
+      "meanSeedImprovement": 0.0010798967128202966,
+      "meanSeedImprovement95Ci": [
+        -0.0011026047262794256,
+        0.003262398151920019
+      ],
+      "negativeSeeds": 13,
+      "positiveSeeds": 17,
+      "ties": 0
+    },
+    "dualMeaning_vs_typeMeanMeaning": {
+      "exactTwoSidedSignP": 0.016124801710247993,
+      "meanSeedImprovement": 0.026069916635666837,
+      "meanSeedImprovement95Ci": [
+        0.0057455788251509245,
+        0.04639425444618275
+      ],
+      "negativeSeeds": 8,
+      "positiveSeeds": 22,
+      "ties": 0
+    },
+    "dualMeaning_vs_writeMeaning": {
+      "exactTwoSidedSignP": 1.0,
+      "meanSeedImprovement": 3.559524674476459e-05,
+      "meanSeedImprovement95Ci": [
+        -0.00029329837830998175,
+        0.0003644888717995109
+      ],
+      "negativeSeeds": 15,
+      "positiveSeeds": 15,
+      "ties": 0
+    },
+    "readMeaning_vs_typeMeanMeaning": {
+      "exactTwoSidedSignP": 0.016124801710247993,
+      "meanSeedImprovement": 0.024924482294219355,
+      "meanSeedImprovement95Ci": [
+        0.0040394180642314495,
+        0.04580954652420726
+      ],
+      "negativeSeeds": 8,
+      "positiveSeeds": 22,
+      "ties": 0
+    },
+    "writeMeaning_vs_readMeaning": {
+      "exactTwoSidedSignP": 0.584664711728692,
+      "meanSeedImprovement": 0.001038817182850774,
+      "meanSeedImprovement95Ci": [
+        -0.001460959188251623,
+        0.003538593553953171
+      ],
+      "negativeSeeds": 13,
+      "positiveSeeds": 17,
+      "ties": 0
+    },
+    "writeMeaning_vs_typeMeanMeaning": {
+      "exactTwoSidedSignP": 0.005222879350185394,
+      "meanSeedImprovement": 0.026045576152017035,
+      "meanSeedImprovement95Ci": [
+        0.005798412380786853,
+        0.046292739923247214
+      ],
+      "negativeSeeds": 7,
+      "positiveSeeds": 23,
+      "ties": 0
+    }
+  },
+  "eventCount": 5400,
+  "eventTypeVarianceExplained": {
+    "currentContextFrame": 0.0008119577065118788,
+    "meaningTarget": 0.8156481380828899,
+    "typedConsequence": 0.8227565718450206
+  },
+  "methodBoundary": "This diagnostic re-executes the frozen field and uses no new outcome information in prediction. Least-squares rebinding supplies every model the already-observable current context frame.",
+  "models": {
+    "consequenceOnly": {
+      "alignedSeedRmse95Ci": [
+        0.0049947332656255375,
+        0.005263953910434992
+      ],
+      "alignmentImprovement": 0.38739597482085236,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.005141574569303638,
+      "meanSeedAlignmentImprovement": 0.38828636788434895,
+      "meanSeedAlignmentImprovement95Ci": [
+        0.37782600789370047,
+        0.39874672787499743
+      ],
+      "originalMeaningRmse": 0.008392982020971957,
+      "originalSeedRmse95Ci": [
+        0.008231743381976027,
+        0.008535194106877968
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.007239319017937078
+    },
+    "dualMeaning": {
+      "alignedSeedRmse95Ci": [
+        0.004143838071290042,
+        0.00439475191514851
+      ],
+      "alignmentImprovement": 0.01162940314223243,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.004282055513703889,
+      "meanSeedAlignmentImprovement": 0.011854680346138619,
+      "meanSeedAlignmentImprovement95Ci": [
+        0.01081354896862117,
+        0.012895811723656067
+      ],
+      "originalMeaningRmse": 0.0043324391956998925,
+      "originalSeedRmse95Ci": [
+        0.0041955474658236245,
+        0.004444500749598007
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.006028710357507978
+    },
+    "pairTypeMeanMeaning": {
+      "alignedSeedRmse95Ci": [
+        0.0059985630923522345,
+        0.006441035758333735
+      ],
+      "alignmentImprovement": 0.017198501256593373,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.006247018360554136,
+      "meanSeedAlignmentImprovement": 0.017971611781716867,
+      "meanSeedAlignmentImprovement95Ci": [
+        0.015474174665696472,
+        0.020469048897737263
+      ],
+      "originalMeaningRmse": 0.006356337844968153,
+      "originalSeedRmse95Ci": [
+        0.0061163945036675675,
+        0.006545883305417859
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.00879291923722041
+    },
+    "readMeaning": {
+      "alignedSeedRmse95Ci": [
+        0.004147296218591065,
+        0.004401092624837483
+      ],
+      "alignmentImprovement": 0.0,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.004287234449990549,
+      "meanSeedAlignmentImprovement": -3.668059137463782e-18,
+      "meanSeedAlignmentImprovement95Ci": [
+        -4.026649228591471e-17,
+        3.293037401098715e-17
+      ],
+      "originalMeaningRmse": 0.004287234449990549,
+      "originalSeedRmse95Ci": [
+        0.004147296218591065,
+        0.004401092624837483
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.006035618866897175
+    },
+    "typeMeanMeaning": {
+      "alignedSeedRmse95Ci": [
+        0.004280945455932074,
+        0.004490498349405766
+      ],
+      "alignmentImprovement": 0.021107575506614115,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.0043943903458182,
+      "meanSeedAlignmentImprovement": 0.021397480396280356,
+      "meanSeedAlignmentImprovement95Ci": [
+        0.019549960234110566,
+        0.023245000558450146
+      ],
+      "originalMeaningRmse": 0.0044891453196120755,
+      "originalSeedRmse95Ci": [
+        0.004378175604640056,
+        0.004583779019944779
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.006183620882479904
+    },
+    "writeMeaning": {
+      "alignedSeedRmse95Ci": [
+        0.004144163497125228,
+        0.004394663409506539
+      ],
+      "alignmentImprovement": 0.014767269076446635,
+      "count": 5400,
+      "currentFrameAlignedMeaningRmse": 0.00428213161720935,
+      "meanSeedAlignmentImprovement": 0.0150464199464367,
+      "meanSeedAlignmentImprovement95Ci": [
+        0.013695942805879876,
+        0.016396897086993524
+      ],
+      "originalMeaningRmse": 0.004346314817611973,
+      "originalSeedRmse95Ci": [
+        0.00420999319110205,
+        0.004458061640256008
+      ],
+      "typedConsequenceRmseAfterRecovery": 0.006028805595124443
+    }
+  },
+  "schema": "EL-EXP-GAMMA-003-DIAG-001-final-v1",
+  "seedCount": 30,
+  "status": "exploratory-post-confirmatory"
+}

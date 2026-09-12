@@ -1,0 +1,152 @@
+{
+  "schema": "EL-EXP-GAMMA-003-commissioning-v1",
+  "buildId": "EL-EXP-GAMMA-003-v1.7.0-candidate",
+  "protocolId": "context-consequence-meaning-factorial",
+  "commissioningSeed": 246813579,
+  "officialSeedUsed": false,
+  "commissioning": {
+    "pass": true,
+    "passed": 12,
+    "total": 12,
+    "checks": [
+      {
+        "name": "v1.6 consequence representation remains signed width 23",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "typed consequence width is fourteen",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "meaning tensor width is ninety-eight",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "meaning tensor is deterministic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "neutral consequence arm is context independent",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "write and read meaning agree when contexts agree",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "dual meaning reduces to write meaning at zero context distance",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "archive preserves actor-target direction",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "archive capacity remains deterministic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "rounded world fingerprint is deterministic",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "official seeds are absent from commissioning",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "name": "short commissioning smoke repeats exactly",
+        "pass": true,
+        "detail": null
+      }
+    ]
+  },
+  "fullExcludedSeed": {
+    "seed": 246813579,
+    "pass": true,
+    "modelMetrics": {
+      "zeroMeaning": {
+        "count": 180,
+        "rmse": 0.010634623714453216,
+        "meanCosine": 0
+      },
+      "typeMeanMeaning": {
+        "count": 180,
+        "rmse": 0.0046734842181724206,
+        "meanCosine": 0.9847232508346756
+      },
+      "pairTypeMeanMeaning": {
+        "count": 180,
+        "rmse": 0.006696251219582589,
+        "meanCosine": 0.8894546575230573
+      },
+      "consequenceOnly": {
+        "count": 180,
+        "rmse": 0.008175037406587189,
+        "meanCosine": 0.877355356828059
+      },
+      "writeMeaning": {
+        "count": 180,
+        "rmse": 0.004740660519534388,
+        "meanCosine": 0.9833686264874589
+      },
+      "readMeaning": {
+        "count": 180,
+        "rmse": 0.004691252643573836,
+        "meanCosine": 0.9852421389170906
+      },
+      "dualMeaning": {
+        "count": 180,
+        "rmse": 0.004731026501710483,
+        "meanCosine": 0.9837555100975959
+      },
+      "shuffled_consequenceOnly": {
+        "count": 180,
+        "rmse": 0.008462538073546523,
+        "meanCosine": 0.7202390550549223
+      },
+      "shuffled_writeMeaning": {
+        "count": 180,
+        "rmse": 0.004907540550609635,
+        "meanCosine": 0.8042400346461831
+      },
+      "shuffled_readMeaning": {
+        "count": 180,
+        "rmse": 0.004840803602912579,
+        "meanCosine": 0.8091125466538011
+      },
+      "shuffled_dualMeaning": {
+        "count": 180,
+        "rmse": 0.004890377231262983,
+        "meanCosine": 0.8053637395037766
+      }
+    },
+    "armPayloadDigests": {
+      "consequenceOnly": "29ae35b0",
+      "writeMeaning": "4f81bec3",
+      "readMeaning": "a868140a",
+      "dualMeaning": "f7e1778e"
+    },
+    "distinctPayloadDigestCount": 4,
+    "archiveSizes": [
+      48,
+      48,
+      48,
+      48,
+      48,
+      48
+    ],
+    "roundedFinalWorldDigest": "0737e0f6"
+  },
+  "scientificFingerprint": "8a8c02a4"
+}
