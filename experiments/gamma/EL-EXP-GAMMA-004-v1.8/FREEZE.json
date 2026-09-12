@@ -2,7 +2,7 @@
   "schema": "EL-EXP-GAMMA-004-freeze-v1",
   "buildId": "EL-EXP-GAMMA-004-v1.8.0-candidate",
   "protocolId": "ledger-lens-tandem-selector",
-  "frozenAtUtc": "2026-09-12T06:20:42Z",
+  "frozenAtUtc": "2026-09-12T06:30:00Z",
   "confirmatoryExecutionStarted": false,
   "officialSeedCount": 30,
   "commissioningSeed": 3141592653,

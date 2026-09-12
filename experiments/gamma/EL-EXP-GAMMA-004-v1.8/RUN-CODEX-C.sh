@@ -2,6 +2,10 @@
 set -euo pipefail
 root="$(cd "$(dirname "$0")" && pwd)"
 cd "$root"
+if [[ ! -f results/gamma_v1.8_B_final_summary.json ]]; then
+  echo "STOP: Bobby B must complete and preserve results/gamma_v1.8_B_final_summary.json first." >&2
+  exit 1
+fi
 if command -v sha256sum >/dev/null 2>&1; then
   sha256sum -c MANIFEST.sha256
 else
@@ -14,4 +18,5 @@ python3 runners/gamma_v1_8_batch.py --role C --batch 1
 python3 runners/gamma_v1_8_batch.py --role C --batch 2
 python3 runners/gamma_v1_8_batch.py --role C --batch 3
 python3 runners/gamma_v1_8_aggregate.py --role C
+python3 runners/gamma_v1_8_compare_BC.py
 echo "CODEX C COMPLETE: results/gamma_v1.8_C_final_summary.json"
