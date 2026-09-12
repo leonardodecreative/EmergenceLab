@@ -1,0 +1,23 @@
+{
+  "schema": "EL-EXP-GAMMA-004-freeze-v1",
+  "buildId": "EL-EXP-GAMMA-004-v1.8.0-candidate",
+  "protocolId": "ledger-lens-tandem-selector",
+  "frozenAtUtc": "2026-09-12T06:20:42Z",
+  "confirmatoryExecutionStarted": false,
+  "officialSeedCount": 30,
+  "commissioningSeed": 3141592653,
+  "replicationOrder": "Bobby B first; Codex C second; Version A adjudicates material mismatch",
+  "hashes": {
+    "preregistrationSha256": "f1da88651af9974a95c889de9f76369847583e37d4d3b7e8e684eb4a1683d7b6",
+    "candidateCoreSha256": "939cf84045a8413a8c3e5f52c5674a3ba8dc05343e277b1ee04d4ecf240e4f32",
+    "referenceV17CoreSha256": "952754a8ebe17a782c322e06326805b3ca06ad8e2a19f153e51afe45d2e512c0",
+    "referenceV16CoreSha256": "35380e6f2da36e53226a3beef2de7c7d8c0dcc71b2bd186f1541ef4de28a6b34",
+    "commissioningOutputSha256": "4aaaa3d0e54253f0d8e9dd895b2e1976e4b3f8927e6b4778684d7a6a69ed450f"
+  },
+  "commissioning": {
+    "javascriptCoreTests": "5/5 PASS",
+    "statisticsTests": "4/4 PASS",
+    "excludedSeedIntegrationChecks": "7/7 PASS"
+  },
+  "boundary": "The freeze covers the candidate apparatus and protocol. No official seed has been executed. The canonical Emergence Lab engine remains untouched. Failure rejects only this hard-selector realization, not the ledger/lens architecture class."
+}

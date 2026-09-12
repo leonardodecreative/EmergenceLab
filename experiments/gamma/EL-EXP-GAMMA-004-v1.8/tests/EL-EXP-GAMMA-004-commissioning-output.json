@@ -1,0 +1,42 @@
+{
+  "schema": "EL-EXP-GAMMA-004-commissioning-v1",
+  "status": "excluded-seed-non-evidentiary",
+  "buildId": "EL-EXP-GAMMA-004-v1.8.0-candidate",
+  "protocolId": "ledger-lens-tandem-selector",
+  "commissioningSeed": 3141592653,
+  "result": {
+    "pass": true,
+    "passed": 7,
+    "total": 7,
+    "checks": [
+      {
+        "name": "candidate seeds are thirty unique values",
+        "pass": true
+      },
+      {
+        "name": "commissioning seed is excluded",
+        "pass": true
+      },
+      {
+        "name": "lambda learns the lower-error lens expert",
+        "pass": true
+      },
+      {
+        "name": "commissioning is deterministic",
+        "pass": true
+      },
+      {
+        "name": "all five arms emit metrics",
+        "pass": true
+      },
+      {
+        "name": "lambda state is separate from gamma archive",
+        "pass": true
+      },
+      {
+        "name": "canonical node state is not mutated by operator telemetry",
+        "pass": true
+      }
+    ]
+  }
+}
