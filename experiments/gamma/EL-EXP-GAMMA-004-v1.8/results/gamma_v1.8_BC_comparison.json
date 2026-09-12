@@ -1,0 +1,9 @@
+{
+  "bobbyScientificSha256": "4b0d51b4f7774181bc805bc93d27b2059547412bbfcfe9c477b83d6c1dcd83bd",
+  "codexScientificSha256": "4b0d51b4f7774181bc805bc93d27b2059547412bbfcfe9c477b83d6c1dcd83bd",
+  "finalVerdict": "DO_NOT_ADVANCE_TANDEM_V1_8",
+  "gateAgreement": true,
+  "independentReplication": true,
+  "schema": "EL-EXP-GAMMA-004-BC-comparison-v1",
+  "verdictAgreement": true
+}

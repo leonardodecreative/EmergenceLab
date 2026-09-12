@@ -1,0 +1,197 @@
+{
+  "boundary": "Linear held-out-seed decomposition only. Failure to gain from these features does not prove that nonlinear or longer-horizon context is irrelevant.",
+  "byEventKind": {
+    "ALIGN_THETA": {
+      "count": 900,
+      "eventTypeRmse": 0.0001460768667864808,
+      "eventTypeSquaredErrorShare": 0.00010668542198757273,
+      "fullInteractionImprovement": -17.22422846334186,
+      "fullInteractionRmse": 0.002662138193525981,
+      "fullInteractionSquaredErrorShare": 0.04590037543339495,
+      "targetRmsMagnitude": 0.0003806747732369771
+    },
+    "DISRUPT_PHASE": {
+      "count": 900,
+      "eventTypeRmse": 0.002674726652637408,
+      "eventTypeSquaredErrorShare": 0.03576852240407705,
+      "fullInteractionImprovement": 0.11836448415935302,
+      "fullInteractionRmse": 0.0023581340121307083,
+      "fullInteractionSquaredErrorShare": 0.036015712416374954,
+      "targetRmsMagnitude": 0.008236635471686484
+    },
+    "ERODE_MEMORY": {
+      "count": 900,
+      "eventTypeRmse": 0.0012073822463458737,
+      "eventTypeSquaredErrorShare": 0.00728839263184078,
+      "fullInteractionImprovement": -0.9067728665747781,
+      "fullInteractionRmse": 0.0023022037069164165,
+      "fullInteractionSquaredErrorShare": 0.03432752902130505,
+      "targetRmsMagnitude": 0.0037245589092059455
+    },
+    "INTEGRATION_PULSE": {
+      "count": 900,
+      "eventTypeRmse": 0.0008989369389642796,
+      "eventTypeSquaredErrorShare": 0.004040179332914966,
+      "fullInteractionImprovement": -1.7200614907871072,
+      "fullInteractionRmse": 0.002445163750322777,
+      "fullInteractionSquaredErrorShare": 0.03872317355820384,
+      "targetRmsMagnitude": 0.002945428299143498
+    },
+    "RECOVERY_SHOCK": {
+      "count": 900,
+      "eventTypeRmse": 0.01302524145100376,
+      "eventTypeSquaredErrorShare": 0.8482302462352608,
+      "fullInteractionImprovement": 0.19249648622217388,
+      "fullInteractionRmse": 0.010517928239490127,
+      "fullInteractionSquaredErrorShare": 0.7164987748292826,
+      "targetRmsMagnitude": 0.033604517513492506
+    },
+    "SUPPORT_MEMORY": {
+      "count": 900,
+      "eventTypeRmse": 0.004573241110836386,
+      "eventTypeSquaredErrorShare": 0.10456597397391877,
+      "fullInteractionImprovement": 0.025889724721879528,
+      "fullInteractionRmse": 0.004454841157390049,
+      "fullInteractionSquaredErrorShare": 0.1285344347414386,
+      "targetRmsMagnitude": 0.014219618423437592
+    }
+  },
+  "crossValidation": "leave-one-seed-out ridge regression",
+  "eventTypeResidualCorrelations": {
+    "effectiveKernelEntries": -0.008397121351607193,
+    "kernelMass": -0.030705752363703435,
+    "nearestDistance": 0.01911228144730581,
+    "sameDirectedPairKindCount": -0.01911055061105222,
+    "sameKindCount": -0.021390302672520768
+  },
+  "heldOutEventCount": 5400,
+  "incrementalVsEventTypeStrength": {
+    "eventActorTarget": {
+      "exactTwoSidedSignP": 0.00032491423189640045,
+      "meanSeedImprovement": -0.003275780123810095,
+      "meanSeedImprovement95Ci": [
+        -0.004609787905386442,
+        -0.0019417723422337477
+      ],
+      "negativeSeeds": 25,
+      "pooledImprovement": -0.0032438091392848153,
+      "positiveSeeds": 5,
+      "ties": 0
+    },
+    "eventContext": {
+      "exactTwoSidedSignP": 0.855535551905632,
+      "meanSeedImprovement": 0.0011962164221591463,
+      "meanSeedImprovement95Ci": [
+        -0.0012103984030598037,
+        0.0036028312473780962
+      ],
+      "negativeSeeds": 16,
+      "pooledImprovement": 0.001491994052491128,
+      "positiveSeeds": 14,
+      "ties": 0
+    },
+    "fullInteraction": {
+      "exactTwoSidedSignP": 0.584664711728692,
+      "meanSeedImprovement": 0.010637919678199615,
+      "meanSeedImprovement95Ci": [
+        -0.0020901073407676943,
+        0.023365946697166927
+      ],
+      "negativeSeeds": 13,
+      "pooledImprovement": 0.01140815764977241,
+      "positiveSeeds": 17,
+      "ties": 0
+    }
+  },
+  "models": {
+    "eventActorTarget": {
+      "exactTwoSidedSignP": 1.862645149230957e-09,
+      "meanSeedImprovement95Ci": [
+        0.10478505315007876,
+        0.11133084223661295
+      ],
+      "meanSeedImprovementVsEventType": 0.10805794769334585,
+      "negativeSeeds": 0,
+      "pooledImprovementVsEventType": 0.10837335555859559,
+      "pooledTypedConsequenceRmse": 0.005147973684455902,
+      "positiveSeeds": 30,
+      "seedRmse95Ci": [
+        0.005053037689561178,
+        0.005232107971209289
+      ],
+      "ties": 0
+    },
+    "eventContext": {
+      "exactTwoSidedSignP": 1.862645149230957e-09,
+      "meanSeedImprovement95Ci": [
+        0.10896808103953683,
+        0.1151326759039752
+      ],
+      "meanSeedImprovementVsEventType": 0.11205037847175602,
+      "negativeSeeds": 0,
+      "pooledImprovementVsEventType": 0.11258227094900379,
+      "pooledTypedConsequenceRmse": 0.005123672721934198,
+      "positiveSeeds": 30,
+      "seedRmse95Ci": [
+        0.005035490643402667,
+        0.005202423803747222
+      ],
+      "ties": 0
+    },
+    "eventType": {
+      "exactTwoSidedSignP": 1.0,
+      "meanSeedImprovement95Ci": [
+        0.0,
+        0.0
+      ],
+      "meanSeedImprovementVsEventType": 0.0,
+      "negativeSeeds": 0,
+      "pooledImprovementVsEventType": 0.0,
+      "pooledTypedConsequenceRmse": 0.005773687581623425,
+      "positiveSeeds": 0,
+      "seedRmse95Ci": [
+        0.005659504211176398,
+        0.005874045413575048
+      ],
+      "ties": 30
+    },
+    "eventTypeStrength": {
+      "exactTwoSidedSignP": 1.862645149230957e-09,
+      "meanSeedImprovement95Ci": [
+        0.10776247472993902,
+        0.11417011178495093
+      ],
+      "meanSeedImprovementVsEventType": 0.11096629325744498,
+      "negativeSeeds": 0,
+      "pooledImprovementVsEventType": 0.11125627059053608,
+      "pooledTypedConsequenceRmse": 0.0051313286337371115,
+      "positiveSeeds": 30,
+      "seedRmse95Ci": [
+        0.005036121845828065,
+        0.0052156438643451205
+      ],
+      "ties": 0
+    },
+    "fullInteraction": {
+      "exactTwoSidedSignP": 1.862645149230957e-09,
+      "meanSeedImprovement95Ci": [
+        0.11007030788929861,
+        0.13100626232274384
+      ],
+      "meanSeedImprovementVsEventType": 0.12053828510602123,
+      "negativeSeeds": 0,
+      "pooledImprovementVsEventType": 0.12139519916588593,
+      "pooledTypedConsequenceRmse": 0.005072789627730647,
+      "positiveSeeds": 30,
+      "seedRmse95Ci": [
+        0.004983637031989467,
+        0.005152226485365463
+      ],
+      "ties": 0
+    }
+  },
+  "ridgeAlpha": 1e-06,
+  "schema": "EL-EXP-GAMMA-003-DIAG-002-final-v1",
+  "seedCount": 30,
+  "status": "exploratory-post-confirmatory"
+}
