@@ -1,0 +1,19 @@
+{
+  "schema": "EL-EXP-GAMMA-004-A-adjudication-v1",
+  "experiment": "EL-EXP-GAMMA-004-v1.8",
+  "bobbyScientificSha256": "4b0d51b4f7774181bc805bc93d27b2059547412bbfcfe9c477b83d6c1dcd83bd",
+  "codexScientificSha256": "4b0d51b4f7774181bc805bc93d27b2059547412bbfcfe9c477b83d6c1dcd83bd",
+  "allBatchHashesMatch": true,
+  "independentReplication": true,
+  "gateAgreement": true,
+  "verdictAgreement": true,
+  "gates": {
+    "eventStratifiedOrdinaryMagnitude": false,
+    "eventStratifiedBestSingleMagnitude": false,
+    "eventStratifiedLegacyBlendMagnitude": false,
+    "worstKindDegradationBound": true,
+    "allFourBonferroniSignTests": false
+  },
+  "finalVerdict": "DO_NOT_ADVANCE_TANDEM_V1_8",
+  "architectureBoundary": "This verdict rejects only the frozen hard-selector realization. It does not eliminate Gamma, Lambda, or the ledger/lens tandem architecture class."
+}

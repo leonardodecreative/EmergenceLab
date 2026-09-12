@@ -4,7 +4,13 @@ Frozen candidate for a Γ Ledger / Λ Lens tandem experiment.
 
 The central correction is architectural: v1.7 Dual was a convex blend, not two independently stateful processes. v1.8 keeps the ledger and lens predictions separate and uses an independently serialized Λ reliability state to route typed-consequence channels without averaging them.
 
-No official seed has been executed. Read `PREREGISTRATION.md` before running Bobby B.
+The frozen field is complete: Bobby B and Codex C independently executed all 30 seeds and produced the same rounded scientific SHA-256:
+
+```text
+4b0d51b4f7774181bc805bc93d27b2059547412bbfcfe9c477b83d6c1dcd83bd
+```
+
+Final verdict: `DO_NOT_ADVANCE_TANDEM_V1_8`. See `results/VERSION-A-RULING.md`.
 
 ## Commissioning only
 
