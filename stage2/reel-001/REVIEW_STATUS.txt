@@ -1,0 +1,8 @@
+EL-EXP-REEL-001 PRELAUNCH STATUS
+
+Scientific design review: PASS
+Documentation consistency review: PASS
+Canonical runtime: EL-EXP-REEL-001_FACTORIAL.html
+Remaining gate: operator in-browser Tick-0 smoke-check before Start.
+
+This status does not claim that a browser execution test has already been performed.
