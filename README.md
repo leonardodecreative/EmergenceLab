@@ -18,6 +18,14 @@ All five coordinates are non-scalar structured states.
 
 Gamma and energy remain separate from the node coordinate tuple and from one another.
 
+## Public repository boundary
+
+This repository is the **public scientific record**, not the entire active Emergence Lab workshop.
+
+Frozen experiments, preregistrations, reproducibility artifacts, approved results, provenance, and explicitly approved public papers belong here. Active Gamma-successor design, RSMA development, unpublished mechanisms, speculative experiments, and working research drafts remain private by default until separately approved for publication.
+
+See [PUBLICATION-BOUNDARY.md](./PUBLICATION-BOUNDARY.md) for the controlling repository policy.
+
 ## Runnable simulator
 
 The repository includes [`emergenceLabVSSim-z1-z2.html`](./emergenceLabVSSim-z1-z2.html), a dependency-free browser simulator migrated from the former single-Z state shape.
