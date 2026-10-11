@@ -197,6 +197,43 @@
     });
   }
 
+  const mobile_panel_toggles = document.querySelectorAll("[data-panel-target]");
+  const mobile_panel_closers = document.querySelectorAll("[data-close-panel]");
+
+  function close_mobile_panels(){
+    document.querySelectorAll(".panel.mobile-open").forEach(function(panel){
+      panel.classList.remove("mobile-open");
+    });
+    mobile_panel_toggles.forEach(function(button){
+      button.classList.remove("active");
+      button.setAttribute("aria-expanded","false");
+    });
+  }
+
+  mobile_panel_toggles.forEach(function(button){
+    button.addEventListener("click", function(){
+      const target_class = button.dataset.panelTarget;
+      const target_panel = document.querySelector("." + target_class);
+      const already_open = target_panel && target_panel.classList.contains("mobile-open");
+      close_mobile_panels();
+      if(target_panel && !already_open){
+        target_panel.classList.add("mobile-open");
+        button.classList.add("active");
+        button.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+
+  mobile_panel_closers.forEach(function(button){
+    button.addEventListener("click", close_mobile_panels);
+  });
+
+  window.addEventListener("resize", function(){
+    if(window.innerWidth > 1050){
+      close_mobile_panels();
+    }
+  });
+
   const reset_button = document.getElementById("resetDemo");
   if(reset_button){
     reset_button.addEventListener("click", reset_demo);
