@@ -29,7 +29,13 @@
   <div class="scanline"></div>
   <div class="mode-note">Public sandbox / scientific records live in the archive</div>
 
+  <div class="mobile-toolbar" aria-label="Mobile observatory panels">
+    <button class="chip mobile-toggle" type="button" data-panel-target="left-panel" aria-expanded="false">Parameters</button>
+    <button class="chip mobile-toggle" type="button" data-panel-target="right-panel" aria-expanded="false">Info</button>
+  </div>
+
   <aside class="panel left-panel">
+    <button class="panel-close" type="button" data-close-panel>View Nodes</button>
     <div class="kicker">Feel the lab</div>
     <h1>Interactive Node Field</h1>
     <p>This is a public sandbox for changing a few intuitive behaviors and watching the same node field respond differently. It is deliberately illustrative, not a reproduction of a frozen research runtime.</p>
@@ -80,6 +86,7 @@
   </aside>
 
   <aside class="panel right-panel">
+    <button class="panel-close" type="button" data-close-panel>View Nodes</button>
     <div class="kicker">What you are seeing</div>
     <h2>Public observatory layer</h2>
     <div class="legend-list">
