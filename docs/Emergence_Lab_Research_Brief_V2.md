@@ -1,38 +1,33 @@
-# Emergence Lab Research Brief V2
+# Emergence Lab V2 — Public Interface Notes
 
-## Purpose
+**Status:** Illustrative public demonstrator, not a new canonical white paper or validated physical model.
 
-V2 restores the original node ontology: a spatial, atom-inspired node with a nucleus, axes, radials, orbitals, transfer paths, theta resonance, gamma forward influence, and reciprocal participation with the environment.
+## Scope
 
-## Canonical Node
+The V2 site and lab give visitors an interactive way to visualize coupled, changing nodes and their environment. The nucleus, axes, radial paths, and orbital features are **visual design metaphors**. They are not additional canonical state coordinates and do not establish an atomic or quantum interpretation.
 
-The node is not a dot. It is a centered spatial object whose visible anatomy matters. Any research, code, website, or paper must preserve the core visual and mechanical language.
+## Canonical distinction
 
-Required features:
+The public canonical node is:
 
-- central nucleus / core
-- X/Y/Z spatial axes
-- Z1 recovery recoil pathway
-- Z2 integration / transfer pathway
-- theta resonance acting to and from the node
-- gamma as forward legacy / consequentiality
-- radial and orbital expression
-- reciprocal node-environment relation
+```text
+N(t) = (X(t), Y(t), Z1(t), Z2(t), Θ(t))
+```
 
-## V2 Lab
+All five coordinates are structured, non-scalar states. X denotes structural identity; Y denotes perception and sequence assembly; Z1 denotes a recovery/compensatory pathway whose final dynamics are unresolved; Z2 denotes an integration-attempt pathway whose qualification does not guarantee success; Θ denotes a continuous resonant dynamic state.
 
-The V2 lab keeps the legacy slider/control approach while restoring the node as an atom-inspired spatial structure. It includes live telemetry, commands, node movement, transfer attempts, resonance-driven visual behavior, and linked website control.
+**Γ (Gamma) and energy are modeled separately from the five-coordinate node state and separately from one another.** A display that places symbols near a node should not be interpreted as extending its canonical tuple.
 
-## Website / Lab Communication
+## What the demonstrator does
 
-The V2 website and lab communicate through:
+The V2 interface displays atom-inspired node imagery and a browser-based control surface. Where supported by the demo, the page exchanges start, pause, reset, multi-node, perturbation, and stabilization commands with an embedded view. Readouts for coherence, transfers, and other values are **demo telemetry or proxies**; they do not validate a proposed law, transfer mechanism, learning behavior, or Γ.
 
-1. BroadcastChannel
-2. localStorage fallback
-3. iframe postMessage
+The legacy browser simulator and frozen public Gamma experiments are separate artifacts with their own versioned assumptions and evidence. Do not silently promote their historical scalar implementations into present canonical mathematics.
 
-This lets the website mirror the lab state while sending start, pause, reset, multi-node, perturb, and stabilize commands.
+## Research status and boundaries
 
-## Boundary
+Emergence Lab studies self-organization and history-dependent interactions. Whether a downstream phenomenon is genuinely emergent must be evaluated against an explicit external criterion and appropriate controls—not inferred from attractive patterns or from the existence of feedback.
 
-Public-facing material should remain high-level. Proprietary implementation details, exact formulas, and fine-grained update rules should not be exposed in the public website.
+The active RSMA program, successor designs, mechanisms, and unfinished working research remain private unless expressly approved for release. See [PUBLICATION-BOUNDARY.md](../PUBLICATION-BOUNDARY.md) and the repository [README](../README.md).
+
+This document replaces the earlier V2 brief's language that treated visual anatomy as a required ontology. It does not change or revise archived scientific evidence.

@@ -56,3 +56,12 @@ The repository-level MIT License applies to material released in this repository
 The public repository is the laboratory record, not the entire live workshop.
 
 That distinction is intended to preserve open scientific provenance without requiring every active architectural idea or unpublished implementation to be developed in public.
+
+
+## Reading public-facing demonstrations
+
+The V2 site and visual lab are exploratory interfaces, not independently validated experimental results. Their drawn node anatomy, scalar readouts, and example behavior are not substitutes for the structured canonical node model or the specific assumptions in frozen historical experiments.
+
+Likewise, an archived working-revision document or historical code artifact should not automatically be treated as an endorsed current model. Existing public PDFs, experiment files, and repository history remain publicly discoverable unless separately handled; merely unlinking material from a website does **not** make it private. Review such artifacts for publication approval before directing new collaborators to them.
+
+The canonical node has five structured coordinates, `X, Y, Z1, Z2, Θ`; Gamma and energy remain outside that tuple. Active RSMA and Gamma-successor work are not represented by this public demonstrator.

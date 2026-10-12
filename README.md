@@ -26,6 +26,10 @@ Frozen experiments, preregistrations, reproducibility artifacts, approved result
 
 See [PUBLICATION-BOUNDARY.md](./PUBLICATION-BOUNDARY.md) for the controlling repository policy.
 
+## Public introduction and demonstrator
+
+The [V2 browser interface](./site/index.html) and [visual lab](./lab/index.html) are illustrative, interactive demonstrations; neither is a validated implementation of active RSMA mechanisms. The [V2 interface notes](./docs/Emergence_Lab_Research_Brief_V2.md) explain the boundary between visual metaphors, historical experiments, and this repository's canonical node architecture.
+
 ## Runnable simulator
 
 The repository includes [`emergenceLabVSSim-z1-z2.html`](./emergenceLabVSSim-z1-z2.html), a dependency-free browser simulator migrated from the former single-Z state shape.
