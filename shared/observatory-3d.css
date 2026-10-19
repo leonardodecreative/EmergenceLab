@@ -388,8 +388,9 @@ canvas#observatory3d{
 }
 @media(max-width:1050px){
   html,body{
+    height:100%;
     min-height:100%;
-    overflow:auto;
+    overflow:hidden;
   }
   .observatory-shell{
     min-height:100svh;
@@ -424,7 +425,7 @@ canvas#observatory3d{
   .viewport{
     display:block;
     height:calc(100svh - 58px);
-    min-height:560px;
+    min-height:0;
     overflow:hidden;
   }
   canvas#observatory3d,
@@ -460,13 +461,15 @@ canvas#observatory3d{
   .panel.mobile-open{
     display:block;
     position:absolute;
-    z-index:11;
+    z-index:14;
     top:52px;
     left:10px;
     right:10px;
-    bottom:72px;
+    bottom:auto;
     width:auto;
-    max-height:none;
+    height:calc(100% - 124px);
+    max-height:calc(100% - 124px);
+    min-height:0;
     margin:0;
     overflow-y:auto;
     overscroll-behavior:contain;
