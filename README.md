@@ -65,6 +65,10 @@ Emergence Lab is authored and architected by **Robert J. S. Cebula** (GitHub: `l
 
 The [public authorship and provenance record](./docs/provenance/2026-09-03/PROVENANCE_RECORD.md) distinguishes the canonical five-coordinate node state from supplementary Gamma, records the architecture's legacy-to-Stage-2 lineage, and binds the exact Stage 1 and Stage 2 white-paper artifacts to the repository through SHA-256 fingerprints.
 
+## Current public research update
+
+See [Public research update — 26 October 2026](./docs/PUBLIC-RESEARCH-UPDATE-2026-10-26.md) for a carefully qualified summary of completed findings, negative results, and active-work exclusions. The latest website deployment is separately packaged for Netlify; this repository document does not claim it has been deployed.
+
 ## Status
 
 Active experimental research. The current code demonstrates the structural Z1/Z2 migration; it does not establish final Candidate A mathematics, consciousness, AGI, universal physics, or identity continuity.
