@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EL-EXP-REEL-001 — Factorial R2</title>
+<style>
+:root{color-scheme:dark;--bg:#071018;--p:#0e1a25;--l:#294154;--t:#eef6fb;--m:#9db1c0;--w:#fbbf24;--g:#86efac;--r:#fca5a5}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--t);font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+main{max-width:1500px;margin:auto;padding:18px}.top,.controls,.grid,.metrics{display:grid;gap:10px}.top{grid-template-columns:1fr auto}
+.controls{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));margin:14px 0}.grid{grid-template-columns:1fr 1fr}
+.metrics{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.card{background:var(--p);border:1px solid var(--l);border-radius:11px;padding:11px}
+.badge{border:1px solid var(--l);border-radius:999px;padding:6px 10px}.muted{color:var(--m)}.notice{border-left:3px solid var(--w);padding-left:9px}
+h1{font-size:19px;margin:0}h2{font-size:13px;margin:0 0 8px}
+button,input{font:inherit;background:#13293b;color:var(--t);border:1px solid #35546c;border-radius:7px;padding:8px}
+button{cursor:pointer}button:disabled,input:disabled{opacity:.45;cursor:not-allowed}
+.metric{border-top:1px solid var(--l);padding-top:5px}.metric b{display:block;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}th,td{border-bottom:1px solid var(--l);padding:4px;text-align:right}th:first-child,td:first-child{text-align:left}
+.log{max-height:230px;overflow:auto;white-space:pre-wrap;background:#08131d;border-radius:8px;padding:8px}.good{color:var(--g)}.bad{color:var(--r)}
+@media(max-width:900px){.top,.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<div class="top">
+<div><h1>EMERGENCE LAB / STAGE 2 / EL-EXP-REEL-001</h1><div class="muted">FINAL PREREGISTERED 2×2 FACTORIAL RUNTIME · R2 DEBUGGED · N=(X,Y,Z1,Z2,Θ)</div></div>
+<div class="badge"><span id="status">BOOTING</span> · Tick <b id="tick">0</b></div>
+</div>
+<section class="controls card">
+<label>Seed<br><input id="seed" type="number" value="42"></label>
+<div><span class="muted">Nodes / arm</span><br><b>4</b></div>
+<div><span class="muted">Pulse</span><br><b>Tick 51 → Node 1</b></div>
+<button id="reset">Reset 4-arm run</button>
+<button id="start">Start</button>
+<button id="pause" disabled>Pause</button>
+<button id="step">Step 1 tick</button>
+<button id="record">Record checkpoint</button>
+<button id="export">Export JSON</button>
+</section>
+<section class="card">
+<h2>DESIGN LOCK</h2>
+<div id="params" class="metrics"></div>
+<p class="notice">A=resonance / pulse · B=resonance / no-pulse · C=frozen-efficiency / pulse · D=frozen-efficiency / no-pulse. Primary interaction: <b>(A−B)−(C−D)</b>. Auto-pauses: 25, 50, 75, 100, 150.</p>
+<div id="integrity"></div>
+</section>
+<div class="grid" style="margin-top:10px">
+<section class="card" id="A"><h2>A — RESONANCE / PULSE</h2><div class="metrics stats"></div><div class="nodes"></div></section>
+<section class="card" id="B"><h2>B — RESONANCE / NO PULSE</h2><div class="metrics stats"></div><div class="nodes"></div></section>
+<section class="card" id="C"><h2>C — FROZEN / PULSE</h2><div class="metrics stats"></div><div class="nodes"></div></section>
+<section class="card" id="D"><h2>D — FROZEN / NO PULSE</h2><div class="metrics stats"></div><div class="nodes"></div></section>
+</div>
+<section class="card" style="margin-top:10px">
+<h2>PREDECLARED FACTORIAL CONTRASTS</h2>
+<div id="effects" class="metrics"></div>
+<p class="muted">Before Tick 51, A must equal B exactly and C must equal D exactly. Differences between resonance and frozen mechanisms may exist before intervention; the interaction contrast removes that baseline mechanism difference from the pulse-effect question.</p>
+</section>
+<section class="card" style="margin-top:10px"><h2>RUN LOG</h2><div id="log" class="log"></div></section>
+</main>
+<script>
+'use strict';
+const P=Object.freeze({nodes:4,dim:3,disorder:.75,perturbation:.32,baselineFlow:.06,envLearning:.055,thetaCoupling:.065,z1Gain:.055,z1Recovery:.018,z2Gain:.060,xWorkGain:.040,workFraction:.12,pulseTick:51,pulseNode:0,pulseEnergy:.85,pulsePattern:[.92,.18,.74],checkpoints:[0,25,50,75,100,150]});
+const DEF=Object.freeze({A:{mechanism:'resonant',pulse:true},B:{mechanism:'resonant',pulse:false},C:{mechanism:'frozen',pulse:true},D:{mechanism:'frozen',pulse:false}});
+const K=Object.keys(DEF);
+const clamp=x=>Math.max(0,Math.min(1,x));
+const mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
+const copy=o=>JSON.parse(JSON.stringify(o));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function hseed(n){let x=(+n||0)>>>0;x^=x>>>16;x=Math.imul(x,0x7feb352d);x^=x>>>15;x=Math.imul(x,0x846ca68b);x^=x>>>16;return x>>>0}
+function rng32(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function vec(r,lo,hi){return Array.from({length:P.dim},()=>lo+(hi-lo)*r())}
+function av(v){return mean(v)}
+function variance(a){const m=mean(a);return mean(a.map(x=>(x-m)**2))}
+function vsim(a,b){return clamp(mean(a.map((x,i)=>1-Math.min(1,Math.abs(x-b[i])))))}
+function psim(a,b){return clamp(mean(a.map((x,i)=>{let d=Math.abs(x-b[i])%1;d=Math.min(d,1-d);return 1-Math.min(1,2*d)})))}
+function tsim(a,b){return clamp(.40*psim(a.phase,b.phase)+.30*vsim(a.frequency,b.frequency)+.20*vsim(a.amplitude,b.amplitude)+.10*(1-Math.abs(a.coherence-b.coherence)))}
+function tproj(t){return mean([av(t.frequency),av(t.phase),av(t.amplitude),t.coherence])}
+function makeNode(r,id){return{id,X:vec(r,.28,.72),Y:vec(r,.18,.58),Z1:vec(r,.18,.55),Z2:vec(r,.25,.62),Theta:{frequency:vec(r,.22,.78),phase:vec(r,.05,.95),amplitude:vec(r,.25,.75),coherence:.35+.30*r()},flow:P.baselineFlow*(.7+.6*r()),incoming:0,envLast:0,transferredLast:0,dissipatedLast:0,workLast:0}}
+function initial(seed){const r=rng32(hseed(seed));return Array.from({length:P.nodes},(_,i)=>makeNode(r,i+1))}
+function tele(){return{env:0,transferred:0,dissipated:0,work:0,carry:0,accountingError:0,pulseCount:0,edgeTransfers:Array(P.nodes*P.nodes).fill(0)}}
+function sims(nodes){const q=[];for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++)q.push(tsim(nodes[i].Theta,nodes[j].Theta));return q}
+function meanSim(nodes){return mean(sims(nodes))}
+function concentration(t){const v=t.edgeTransfers.filter(x=>x>0),s=v.reduce((a,b)=>a+b,0);return s?v.reduce((q,x)=>q+(x/s)**2,0):0}
+function baseEnv(seed,tick){const r=rng32(hseed((seed>>>0)^Math.imul(tick+1,0x9e3779b1))),out=[];for(let i=0;i<P.nodes;i++){const raw=Array.from({length:P.dim},()=>r());const pattern=raw.map(x=>clamp(.5+(x-.5)*P.disorder*2));const energy=P.perturbation*(.25+.75*mean(raw.map(x=>Math.abs(x-.5)*2)));out.push({energy,pattern,pulse:false})}return out}
+function armEnv(base,pulse,tick){const e=copy(base);if(pulse&&tick===P.pulseTick){e[P.pulseNode].energy+=P.pulseEnergy;e[P.pulseNode].pattern=P.pulsePattern.slice();e[P.pulseNode].pulse=true}return e}
+function circularMean(v,w){let s=0,c=0,z=0;for(let i=0;i<v.length;i++){s+=w[i]*Math.sin(v[i]*2*Math.PI);c+=w[i]*Math.cos(v[i]*2*Math.PI);z+=w[i]}if(z<1e-12)return v[0]||0;return(Math.atan2(s,c)/(2*Math.PI)+1)%1}
+function thetaFromY(n,e){const t=clamp(P.envLearning*e*.35);for(let k=0;k<P.dim;k++){n.Theta.frequency[k]=clamp(lerp(n.Theta.frequency[k],n.Y[k],t));n.Theta.amplitude[k]=clamp(lerp(n.Theta.amplitude[k],Math.abs(n.Y[k]-.5)*2,t));n.Theta.phase[k]=(n.Theta.phase[k]+n.Theta.frequency[k]*.0125)%1}n.Theta.coherence=clamp(lerp(n.Theta.coherence,clamp(1-Math.sqrt(variance(n.Theta.frequency))),t))}
+function tickSystem(nodes,tel,env,mechanism,frozenEta){const n=nodes.length;const next=Array(n).fill(0),inY=Array.from({length:n},()=>Array(P.dim).fill(0)),inW=Array(n).fill(0);const acc=Array.from({length:n},()=>({mis:0,eta:0,edges:0,work:0,tr:0,y:Array(P.dim).fill(0),f:Array(P.dim).fill(0),a:Array(P.dim).fill(0),pv:Array.from({length:P.dim},()=>[]),pw:Array.from({length:P.dim},()=>[]),coh:0}));for(let i=0;i<n;i++){const x=nodes[i],e=env[i];x.envLast=e.energy;x.transferredLast=x.dissipatedLast=x.workLast=0;tel.env+=e.energy;if(e.pulse)tel.pulseCount++;for(let k=0;k<P.dim;k++)x.Y[k]=clamp(lerp(x.Y[k],e.pattern[k],P.envLearning*e.energy));thetaFromY(x,e.energy)}const pre=copy(nodes);for(let i=0;i<n;i++){const src=pre[i],available=Math.max(0,src.flow+env[i].energy),share=available/(n-1);let accounted=0;for(let j=0;j<n;j++)if(j!==i){const dst=pre[j];const eta=mechanism==='resonant'?tsim(src.Theta,dst.Theta):frozenEta;const tr=share*eta,diss=share-tr,ready=.35+.65*av(dst.Z2),work=tr*P.workFraction*ready,carry=Math.max(0,tr-work);next[j]+=carry;inW[j]+=carry;for(let k=0;k<P.dim;k++)inY[j][k]+=carry*src.Y[k];tel.edgeTransfers[i*n+j]+=tr;tel.transferred+=tr;tel.dissipated+=diss;tel.work+=work;tel.carry+=carry;nodes[i].transferredLast+=tr;nodes[i].dissipatedLast+=diss;nodes[j].workLast+=work;accounted+=diss+work+carry;const q=acc[j];q.mis+=1-eta;q.eta+=eta;q.edges++;q.work+=work;q.tr+=tr;for(let k=0;k<P.dim;k++){q.y[k]+=tr*src.Y[k];q.f[k]+=tr*src.Theta.frequency[k];q.a[k]+=tr*src.Theta.amplitude[k];q.pv[k].push(src.Theta.phase[k]);q.pw[k].push(tr)}q.coh+=tr*src.Theta.coherence}tel.accountingError+=Math.abs(available-accounted)}for(let j=0;j<n;j++){const d=nodes[j],b=pre[j],q=acc[j],mis=q.edges?q.mis/q.edges:0,eta=q.edges?q.eta/q.edges:0;d.incoming=inW[j];d.flow=next[j];for(let k=0;k<P.dim;k++){d.Z1[k]=clamp(b.Z1[k]+P.z1Gain*mis*(1-b.Z1[k])-P.z1Recovery*eta*b.Z1[k]);if(q.tr>1e-12){const yt=q.y[k]/q.tr;d.Z2[k]=clamp(lerp(b.Z2[k],yt,P.z2Gain*eta));d.X[k]=clamp(lerp(b.X[k],yt,P.xWorkGain*q.work));if(inW[j]>1e-12)d.Y[k]=clamp(lerp(b.Y[k],inY[j][k]/inW[j],P.envLearning*inW[j]));const tc=clamp(P.thetaCoupling*q.tr);d.Theta.frequency[k]=clamp(lerp(b.Theta.frequency[k],q.f[k]/q.tr,tc));d.Theta.amplitude[k]=clamp(lerp(b.Theta.amplitude[k],q.a[k]/q.tr,tc));const pt=circularMean(q.pv[k],q.pw[k]);let delta=((pt-b.Theta.phase[k]+.5)%1)-.5;d.Theta.phase[k]=(b.Theta.phase[k]+delta*tc+1)%1}}if(q.tr>1e-12)d.Theta.coherence=clamp(lerp(b.Theta.coherence,q.coh/q.tr,clamp(P.thetaCoupling*q.tr)))}}
+let S={seed:42,tick:0,running:false,arms:{},frozenEta:.5,checkpoints:[],events:[]};let timer=null;
+function snap(arm){const n=arm.nodes,t=arm.tel;return{meanX:mean(n.map(x=>av(x.X))),meanY:mean(n.map(x=>av(x.Y))),meanZ1:mean(n.map(x=>av(x.Z1))),meanZ2:mean(n.map(x=>av(x.Z2))),meanThetaSimilarity:meanSim(n),thetaSimilarityVariance:variance(sims(n)),flow:n.reduce((s,x)=>s+x.flow,0),pathwayConcentration:concentration(t),telemetry:copy(t),nodes:copy(n)}}
+function snaps(){return Object.fromEntries(K.map(k=>[k,snap(S.arms[k])]))}
+function contrast(vals){return{resonancePulse:vals.A-vals.B,frozenPulse:vals.C-vals.D,interaction:(vals.A-vals.B)-(vals.C-vals.D)}}
+function effects(ss=snaps()){const out={};for(const m of ['meanThetaSimilarity','pathwayConcentration','flow'])out[m]=contrast(Object.fromEntries(K.map(k=>[k,ss[k][m]])));for(const m of ['dissipated','work'])out[m]=contrast(Object.fromEntries(K.map(k=>[k,ss[k].telemetry[m]])));return out}
+function integrity(){const pre=S.tick<P.pulseTick;const AB=same(S.arms.A.nodes,S.arms.B.nodes),CD=same(S.arms.C.nodes,S.arms.D.nodes);const p=Object.fromEntries(K.map(k=>[k,S.arms[k].tel.pulseCount]));const pulseOK=pre?K.every(k=>p[k]===0):(p.A===1&&p.B===0&&p.C===1&&p.D===0);const accountOK=K.every(k=>S.arms[k].tel.accountingError<1e-9);return{prePulse:pre,AequalsB:AB,CequalsD:CD,pulseCounts:p,pulseOK,accountOK,pass:(!pre||(AB&&CD))&&pulseOK&&accountOK}}
+function fmt(x,d=5){return Number(x).toFixed(d)}
+function box(l,v){return`<div class="metric"><span class="muted">${l}</span><b>${v}</b></div>`}
+function renderArm(k){const el=document.getElementById(k),s=snap(S.arms[k]),t=S.arms[k].tel;el.querySelector('.stats').innerHTML=box('Mean X',fmt(s.meanX))+box('Mean Y',fmt(s.meanY))+box('Mean Z1',fmt(s.meanZ1))+box('Mean Z2',fmt(s.meanZ2))+box('Mean Θ sim',fmt(s.meanThetaSimilarity))+box('Flow',fmt(s.flow))+box('Dissipation',fmt(t.dissipated))+box('Work',fmt(t.work))+box('Path concentration',fmt(s.pathwayConcentration))+box('Acct err',t.accountingError.toExponential(2));let h='<table><tr><th>N</th><th>X</th><th>Y</th><th>Z1</th><th>Z2</th><th>Θ</th><th>flow</th></tr>';for(const n of S.arms[k].nodes)h+=`<tr><td>${n.id}</td><td>${fmt(av(n.X),4)}</td><td>${fmt(av(n.Y),4)}</td><td>${fmt(av(n.Z1),4)}</td><td>${fmt(av(n.Z2),4)}</td><td>${fmt(tproj(n.Theta),4)}</td><td>${fmt(n.flow,4)}</td></tr>`;el.querySelector('.nodes').innerHTML=h+'</table>'}
+function renderEffects(){const e=effects(),el=document.getElementById('effects');el.innerHTML='';for(const [label,m] of [['Θ similarity','meanThetaSimilarity'],['Path concentration','pathwayConcentration'],['Retained flow','flow'],['Cumulative dissipation','dissipated'],['Cumulative work','work']]){el.innerHTML+=box(`${label} A−B`,fmt(e[m].resonancePulse))+box(`${label} C−D`,fmt(e[m].frozenPulse))+box(`${label} interaction`,fmt(e[m].interaction))}}
+function renderLog(){document.getElementById('log').textContent=S.events.map(e=>`[t=${e.tick}] ${e.text}`).join('\n')}
+function render(){document.getElementById('tick').textContent=S.tick;document.getElementById('status').textContent=S.running?'RUNNING':'READY / PAUSED';document.getElementById('start').disabled=S.running;document.getElementById('pause').disabled=!S.running;document.getElementById('step').disabled=S.running;document.getElementById('reset').disabled=S.running;document.getElementById('seed').disabled=S.running;document.getElementById('record').disabled=S.running;document.getElementById('export').disabled=S.running;K.forEach(renderArm);renderEffects();const q=integrity();document.getElementById('integrity').innerHTML=`<p class="${q.pass?'good':'bad'}"><b>Integrity ${q.pass?'PASS':'FAIL'}</b> · pre-pulse A=B ${q.AequalsB?'YES':'NO'} · C=D ${q.CequalsD?'YES':'NO'} · pulses A/B/C/D ${q.pulseCounts.A}/${q.pulseCounts.B}/${q.pulseCounts.C}/${q.pulseCounts.D} · accounting ${q.accountOK?'PASS':'FAIL'}</p>`;renderLog()}
+function renderParams(){document.getElementById('params').innerHTML=box('Environmental disorder',P.disorder)+box('Base perturbation',P.perturbation)+box('Pulse excitation',P.pulseEnergy)+box('Work fraction',P.workFraction)+box('Θ coupling',P.thetaCoupling)+box('Checkpoints',P.checkpoints.join(', '))}
+function event(text){S.events.push({tick:S.tick,text});renderLog()}
+function checkpoint(auto){const ss=snaps(),cp={tick:S.tick,auto,arms:ss,effects:effects(ss),integrity:integrity()};const i=S.checkpoints.findIndex(x=>x.tick===S.tick);if(i>=0)S.checkpoints[i]=cp;else S.checkpoints.push(cp);event(`Checkpoint ${S.tick}${auto?' automatic':''}.`)}
+function initialize(){if(timer){clearInterval(timer);timer=null}const seed=+document.getElementById('seed').value||42;const base=initial(seed),arms={};for(const k of K)arms[k]={nodes:copy(base),tel:tele()};S={seed,tick:0,running:false,arms,frozenEta:meanSim(base),checkpoints:[],events:[]};document.getElementById('seed').value=seed;checkpoint(false);event(`Reset: seed=${seed}; all arms identical at Tick 0; frozen η=${S.frozenEta.toFixed(6)}.`);render()}
+function oneTick(){const next=S.tick+1,base=baseEnv(S.seed,next);for(const k of K){const d=DEF[k];tickSystem(S.arms[k].nodes,S.arms[k].tel,armEnv(base,d.pulse,next),d.mechanism,S.frozenEta)}S.tick=next;if(next===P.pulseTick)event('Tick 51: pulse applied to Node 1 in A and C only; B and D received base forcing only.');if(P.checkpoints.includes(next)){checkpoint(true);stopRun()}render()}
+function startRun(){if(S.running)return;S.running=true;timer=setInterval(oneTick,120);render()}
+function stopRun(){S.running=false;if(timer){clearInterval(timer);timer=null}render()}
+function save(){const ss=snaps();const payload={experiment:'EL-EXP-REEL-001',runtime:'FINAL FACTORIAL R2 DEBUGGED',design:'2x2 mechanism x pulse',architecture:'N=(X,Y,Z1,Z2,Theta)',armDefinitions:DEF,primaryContrast:'(A-B)-(C-D)',units:'normalized computational excitation/work; not physical joules',seed:S.seed,tick:S.tick,parameters:P,frozenEta:S.frozenEta,integrity:integrity(),effects:effects(ss),checkpoints:S.checkpoints,events:S.events,arms:ss};const b=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`EL-EXP-REEL-001-factorial-seed-${S.seed}-t${S.tick}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),0)}
+document.getElementById('reset').addEventListener('click',initialize);
+document.getElementById('start').addEventListener('click',startRun);
+document.getElementById('pause').addEventListener('click',stopRun);
+document.getElementById('step').addEventListener('click',()=>{if(!S.running)oneTick()});
+document.getElementById('record').addEventListener('click',()=>{if(!S.running)checkpoint(false)});
+document.getElementById('export').addEventListener('click',()=>{if(!S.running)save()});
+document.getElementById('seed').addEventListener('change',()=>{if(!S.running)event('Seed edited; press Reset 4-arm run before execution. Current initialized state is unchanged.')});
+try{renderParams();initialize()}catch(err){console.error(err);document.getElementById('status').textContent='BOOT ERROR';document.getElementById('integrity').innerHTML=`<p class="bad"><b>BOOT ERROR:</b> ${String(err.message||err)}</p>`}
+</script>
+</body>
+</html>
