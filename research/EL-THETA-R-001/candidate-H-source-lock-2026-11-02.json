@@ -1,0 +1,56 @@
+{
+  "protocol_id": "EL-THETA-R-001",
+  "revision": "4.2-H-source-lock",
+  "candidate_id": "H",
+  "status": "LOCKED_FOR_EXECUTION",
+  "status_scope": "Immutable historical REEL-001 runtime and non-mutating S2 source-law evaluation only; not a frozen new S2 causal experiment",
+  "provenance": {
+    "repository": "leonardodecreative/EmergenceLab",
+    "commit": "3aedce78ad3c379bf5f42ecdb91dac77aea543f5",
+    "path": "stage2/reel-001/EL-EXP-REEL-001_FACTORIAL.html",
+    "github_blob_sha": "93a472974e0834fe0bb470125f8cdcc90afce504",
+    "expected_sha256": "e8060e48c38d82150591cc012525f56161ee412e3961376e364173ad61092870",
+    "calculated_sha256": "e8060e48c38d82150591cc012525f56161ee412e3961376e364173ad61092870",
+    "sha256_match": true,
+    "source_length_characters": 17477,
+    "verified_method": "Pinned GitHub fetch_file, independent in-session JavaScript SHA-256 over UTF-8 source content; SHA-256 self-test with 'abc' passed",
+    "verification_date": "2026-11-02"
+  },
+  "scope_permissions": {
+    "historical_runtime_immutable": true,
+    "approved_now": [
+      "source-law inspection of thetaFromY and tickSystem",
+      "comparison with S2 causal-mediation requirements",
+      "re-running original REEL-001 only under original frozen conditions when separately operationally commissioned"
+    ],
+    "not_authorized_by_this_source_lock": [
+      "modifying historical runtime",
+      "treating REEL-001 factorial as an S2 mediation result",
+      "unpreregistered S2 experiments",
+      "promoting native Theta into canonical RSMA",
+      "changing other candidate statuses"
+    ]
+  },
+  "S2": {
+    "eligibility": "DIRECT_CANDIDATE_FOR_DESIGN_AND_SOURCE_EVALUATION",
+    "confirmatory_execution_status": "PENDING_PREREGISTRATION_LOCKS",
+    "missing_locks": [
+      "native experiment timing and perturbations",
+      "H0/H1 exposure and future-state equalization rule",
+      "sender-only probe and sham",
+      "held-Theta intervention legality",
+      "receiver-local endpoint and decision threshold",
+      "disconnected, memory-only, fixed-signal controls",
+      "seed plan and independence",
+      "final frozen protocol approval"
+    ],
+    "no_new_S2_experiment_executed": true
+  },
+  "parent_study_status": "DESIGN_ONLY_NOT_FROZEN",
+  "approval_authority": "User explicitly requested Candidate H formal status change on 2026-11-02",
+  "research_order": [
+    "B primary",
+    "C independent",
+    "A discrepancy only"
+  ]
+}
