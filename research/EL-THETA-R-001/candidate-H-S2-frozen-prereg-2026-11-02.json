@@ -1,0 +1,91 @@
+{
+  "protocol_id": "EL-THETA-R-001",
+  "candidate_id": "H",
+  "revision": "4.4-H-B-FREEZE",
+  "status": "FROZEN_AWAITING_USER_B_RUN",
+  "execution_permission_scope": "Candidate H Version B user-operated first run only",
+  "confirmatory_execution_performed": false,
+  "original_source": {
+    "repository": "Leonardodecreative/EmergenceLab",
+    "commit": "3aedce78ad3c379bf5f42ecdb91dac77aea543f5",
+    "path": "stage2/reel-001/EL-EXP-REEL-001_FACTORIAL.html",
+    "sha256": "e8060e48c38d82150591cc012525f56161ee412e3961376e364173ad61092870",
+    "blob_sha": "93a472974e0834fe0bb470125f8cdcc90afce504",
+    "historical_source_unmodified": true
+  },
+  "historical_regression": {
+    "seed": 871,
+    "previous_closed_legacy_runtime_checkpoints": [
+      25,
+      150
+    ],
+    "numerical_agreement": "floating-point precision",
+    "not_new_S2_evidence": true
+  },
+  "development_preflight": {
+    "seed": 42,
+    "phase": "software validation only",
+    "ran_hypothesis_tests_on_reserved_seeds": false
+  },
+  "frozen_artifacts": {
+    "spec_sha256": "6151202ad29fb887c1a5cfb773b8051e587848a3f506fc56b1cdf8770a93b180",
+    "b_python_sha256": "2eb824b45d44e411d1f3a16f0c0c04ee42347749303d6d987ec2cf4bf2b0e12d",
+    "protocol_markdown_sha256": "68f56ce8c73197276235981f5584520e5a02bf9fbf67619441b51207f5401d4b",
+    "observatory_adapter_sha256": "81b4c713cc9ef89310e8fb8967fd3b5cb4e428ecc24c37312466c44d937c2fa4"
+  },
+  "history": "H0 baseline; H1 Node 1 +0.85 pulse at native Tick51 within history ticks 40–79",
+  "held_theta": "All 10 historical Theta values of each node held to common H0 pre-Tick80 reference",
+  "sender_probe": "Tick100 Node1 one-tick +0.85 environment pulse pattern [0.92,0.18,0.74] versus sham",
+  "endpoint": "Node2.incoming immediately after Tick100",
+  "seeds": [
+    92001,
+    92002,
+    92003,
+    92004,
+    92005,
+    92006,
+    92007,
+    92008,
+    92009,
+    92010,
+    92011,
+    92012,
+    92013,
+    92014,
+    92015,
+    92016,
+    92017,
+    92018,
+    92019,
+    92020,
+    92021,
+    92022,
+    92023,
+    92024,
+    92025,
+    92026,
+    92027,
+    92028,
+    92029,
+    92030
+  ],
+  "primary_contrasts": [
+    "D history×Theta-policy probe response",
+    "T sender Theta-only transplant probe response"
+  ],
+  "multiplicity": "two Bonferroni-adjusted 97.5% bootstrap CIs, 9999 resamples",
+  "controls": [
+    "matched other-node background",
+    "one-tick edge 1->2 cut/sink",
+    "full-state restore",
+    "matched-dose timing",
+    "probe/sham",
+    "held-common Theta",
+    "sender Theta-only transplant"
+  ],
+  "C_replication": "Required, independently implement frozen protocol after B, no copying B output/code",
+  "A_adjudication": "Only if B/C disagree",
+  "scientific_scope": "Model-local H computational causal test; no native canonical RSMA promotion",
+  "user_action": "Download frozen bundle and run b_run/candidate_h_b.py with --execute",
+  "global_study_status": "Other ten candidates remain unfrozen and unexecuted"
+}
